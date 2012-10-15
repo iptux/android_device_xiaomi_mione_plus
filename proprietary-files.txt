@@ -5,34 +5,28 @@ etc/vpimg
 # Executable files
 bin/akmd
 bin/awb_camera
-bin/charging
-bin/ewtzmud
-bin/htcbatt
-bin/ipd
-bin/ks
-bin/lsc_camera
-bin/mpdecision
+bin/diag_mdlog
+bin/gpsone_daemon
+bin/mm-qcamera-daemon
 bin/netmgrd
-bin/netsharing
 bin/port-bridge
-bin/qcks
 bin/qmiproxy
 bin/qmuxd
 bin/rmt_storage
+bin/time_daemon
 bin/thermald
-bin/uimqc
-bin/zchgd
-xbin/wireless_modem
+bin/usbhub
+bin/usbhub_init
+bin/v4l2-qcamera-app
 
 # Audio
 lib/libacdbloader.so
 lib/libacdbmapper.so
 lib/libaudcal.so
 lib/libaudioalsa.so
-lib/libhtc_acoustic.so
 
 # Camera
-lib/hw/camera.default.so
+lib/hw/camera.msm8660.so
 lib/libcameraface.so
 lib/libcamerapp.so
 lib/libgemini.so
@@ -43,13 +37,12 @@ lib/libOlaEngine.so
 lib/libposteffect.so
 
 # Chromatix
-lib/libchromatix_mt9d015_default_video.so
-lib/libchromatix_mt9d015_default_zsl.so
-lib/libchromatix_mt9d015_preview.so
-lib/libchromatix_s5k3h2yx_default_video.so
+lib/libchromatix_mt9e013_default_video.so
+lib/libchromatix_mt9e013_zsl.so
+lib/libchromatix_mt9e013_preview.so
+lib/libchromatix_s5k3h2_default_video.so
 lib/libchromatix_s5k3h2yx_hfr.so
-lib/libchromatix_s5k3h2yx_preview.so
-lib/libchromatix_s5k3h2yx_zsl.so
+lib/libchromatix_s5k3h2s_zsl.so
 
 # Graphics
 lib/egl/eglsubAndroid.so
@@ -70,11 +63,7 @@ lib/libidl.so
 lib/libmm-color-convertor.so
 lib/liboncrpc.so
 lib/libOpenVG.so
-lib/libpbmlib.so
-
-# NFC
-lib/hw/nfc.ruby.so
-vendor/firmware/libpn544_fw.so
+lib/libpbmlib_fusion.so
 
 # Radio
 lib/libnetmgr.so
@@ -89,9 +78,7 @@ lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 
 # Sensors
-lib/hw/sensors.ruby.so
-lib/hw/lights.msm8660.so
-lib/hw/gps.ruby.so
+lib/hw/sensors.msm8660.so
 lib/libmllite.so
 lib/libmlplatform.so
 lib/libmpl_jni.so

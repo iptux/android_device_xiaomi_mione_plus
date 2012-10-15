@@ -1,6 +1,6 @@
 #/bin/sh
 
-UPDATE_PACKAGE=$1
+UPDATE_PACKAGE=~/Downloads/mione.zip
 
 if [ "x$UPDATE_PACKAGE" = "x" ]; then
     echo You must specify the update.zip as first argument
