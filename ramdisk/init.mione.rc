@@ -1,0 +1,66 @@
+# on emmc mount the partition containing firmware
+on emmc-fs
+   mkdir /firmware 0771 system system
+   wait /dev/block/mmcblk0p1
+   mount vfat /dev/block/mmcblk0p1 /vendor/firmware ro shortname=lower
+   exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
+   exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
+   write /sys/devices/i2c-0/0-0024/cyttsp_update_fw 1
+# for camera yuv to jpeg
+   mkdir /tmp 0700 system system
+   mount tmpfs tmpfs /tmp size=32M
+   chown camera camera /tmp
+   chmod 0777 /tmp
+
+on post-fs
+   mount ext4 /dev/block/mmcblk0p12 /system ro remount barrier=1
+
+service kickstart /system/bin/qcks l
+    oneshot
+    disabled
+
+# Start kickstart if csfb or svlte2a target
+on property:ro.baseband=csfb
+    wait /dev/ttyHSL1
+    mkdir /data/qcks 0770 system system
+    start kickstart
+
+on property:ro.baseband=svlte2a
+    wait /dev/ttyHSL1
+    mkdir /data/qcks 0770 system system
+    start kickstart
+
+
+service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
+    user root
+    disabled
+
+service dcvsd1 /system/bin/dcvsd -c 1 -f /data/misc/dcvsd/dcvsd1.conf
+    user root
+    disabled
+
+service mpdecision /system/bin/mpdecision --avg_comp
+    user root
+    disabled
+
+service thermald /system/bin/thermald
+    class main
+    user root
+    group root
+
+service qseecomd /system/bin/qseecomd
+   class late_start 
+   user system
+   group system
+
+service qrngd /system/bin/qrngd -f
+    user root
+
+on property:ro.baseband=svlte2a
+   setprop ro.config.ehrpd true
+   setprop ro.ril.svlte1x true
+
+on property:sys.radio.shutdown=true
+   exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
+   user root
+   group root
