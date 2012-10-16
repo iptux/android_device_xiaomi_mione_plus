@@ -1,4 +1,4 @@
-VENDOR=xioami
+VENDOR=xiaomi
 DEVICE=mione
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk

@@ -68,52 +68,52 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
-    device/xioami/mione/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
-    device/xioami/mione/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
-    device/xioami/mione/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
-    device/xioami/mione/keylayout/8660_handset.kl:system/usr/keylayout/8660_handset \
-    device/xioami/mione/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/xioami/mione/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    device/xioami/mione/keylayout/mione-keypad.kl:system/usr/keylayout/mione-keypad.kl
+    device/xiaomi/mione/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
+    device/xiaomi/mione/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
+    device/xiaomi/mione/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
+    device/xiaomi/mione/keylayout/8660_handset.kl:system/usr/keylayout/8660_handset.kl \
+    device/xiaomi/mione/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/xiaomi/mione/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    device/xiaomi/mione/keylayout/mione-keypad.kl:system/usr/keylayout/mione-keypad.kl
 
 # Input device config
 PRODUCT_COPY_FILES += \
-    device/xioami/mione/idc/qwerty.idc:system/usr/idc/qwerty.idc \
-    device/xioami/mione/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
+    device/xiaomi/mione/idc/qwerty.idc:system/usr/idc/qwerty.idc \
+    device/xiaomi/mione/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
 
 # QC thermald config
 PRODUCT_COPY_FILES += \
-device/xioami/mione/configs/thermald.conf:system/etc/thermald.conf
+device/xiaomi/mione/configs/thermald.conf:system/etc/thermald.conf
 
 # Sound configs
 PRODUCT_COPY_FILES += \
-    device/xioami/mione/dsp/AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
-    device/xioami/mione/dsp/AIC3254_REG_DualMic_XD.csv:system/etc/AIC3254_REG_DualMic_XD.csv \
-    device/xioami/mione/dsp/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
-    device/xioami/mione/dsp/AudioBTID.csv:system/etc/AudioBTID.csv \
-    device/xioami/mione/dsp/CodecDSPID.txt:system/etc/CodecDSPID.txt \
-    device/xioami/mione/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
-    device/xioami/mione/dsp/TPA2051_CFG_XC.csv:system/etc/TPA2051_CFG_XC.csv \
-    device/xioami/mione/dsp/TPA2051_CFG_XC.csv:system/etc/TPA2051_CFG_XB.csv \
-    device/xioami/mione/dsp/soundimage/Sound_MFG.txt:system/etc/soundimage/Sound_MFG.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
-    device/xioami/mione/dsp/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
-    device/xioami/mione/dsp/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
-    device/xioami/mione/dsp/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
-    device/xioami/mione/dsp/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
-    device/xioami/mione/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
-    device/xioami/mione/dsp/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg
+    device/xiaomi/mione/dsp/AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
+    device/xiaomi/mione/dsp/AIC3254_REG_DualMic_XD.csv:system/etc/AIC3254_REG_DualMic_XD.csv \
+    device/xiaomi/mione/dsp/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
+    device/xiaomi/mione/dsp/AudioBTID.csv:system/etc/AudioBTID.csv \
+    device/xiaomi/mione/dsp/CodecDSPID.txt:system/etc/CodecDSPID.txt \
+    device/xiaomi/mione/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
+    device/xiaomi/mione/dsp/TPA2051_CFG_XC.csv:system/etc/TPA2051_CFG_XC.csv \
+    device/xiaomi/mione/dsp/TPA2051_CFG_XC.csv:system/etc/TPA2051_CFG_XB.csv \
+    device/xiaomi/mione/dsp/soundimage/Sound_MFG.txt:system/etc/soundimage/Sound_MFG.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
+    device/xiaomi/mione/dsp/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
+    device/xiaomi/mione/dsp/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
+    device/xiaomi/mione/dsp/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
+    device/xiaomi/mione/dsp/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
+    device/xiaomi/mione/dsp/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
+    device/xiaomi/mione/dsp/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg
 
 # Custom media config for camera
 PRODUCT_COPY_FILES += \
-    device/xioami/mione/configs/media_profiles.xml:system/etc/media_profiles.xml
+    device/xiaomi/mione/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Firmware
 PRODUCT_COPY_FILES += \
