@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_mione.mk
+    $(LOCAL_DIR)/mione_plus.mk

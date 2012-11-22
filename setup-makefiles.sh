@@ -1,5 +1,5 @@
 VENDOR=xiaomi
-DEVICE=mione
+DEVICE=mione_plus
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 

@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
-add_lunch_combo full_mione-eng
-add_lunch_combo full_mione-userdebug
-add_lunch_combo cm_mione-userdebug
+add_lunch_combo full_mione_plus-eng
+add_lunch_combo full_mione_plus-userdebug
+add_lunch_combo cm_mione_plus-eng
+add_lunch_combo cm_mione_plus-userdebug
+

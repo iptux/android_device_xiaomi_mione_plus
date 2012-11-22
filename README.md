@@ -1,4 +1,4 @@
-android_device_xiaomi_mione
+android_device_xiaomi_mione_plus
 ========================
 
 Android device tree for Xiaomi Mione (Mi-One Plus)

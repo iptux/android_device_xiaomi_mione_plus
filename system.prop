@@ -2,6 +2,10 @@
 # system.prop for mione
 #
 
+# Default network type
+# 7 => Global
+ro.telephony.default_network=7
+
 # Ril
 ro.ril.oem.nosim.ecclist=911,112,120,122,110,119
 persist.radio.apm_sim_not_pwdn=1
@@ -30,7 +34,6 @@ persist.cne.bat.based.rat.mgt=false
 persist.cne.rat.acq.time.out=30000
 persist.cne.rat.acq.retry.tout=0
 persist.cne.nsrm.mode=false
-ro.use_data_netmgrd=true
 #ro.ril.transmitpower=true
 
 # Graphics
@@ -41,8 +44,6 @@ ro.sf.compbypass.enable=1
 ro.sf.lcd_density=240
 dev.pm.dyn_samplingrate=1
 ro.hdmi.enable=false
-ro.opengles.version=131072
-ro.qualcomm.cabl=0
 #lpa.decode=false
 #lpa.use-stagefright=true
 #media.stagefright.enable-record=true
@@ -53,14 +54,38 @@ ro.qualcomm.cabl=0
 #media.stagefright.enable-qcp=true
 #media.stagefright.enable-scan=true
 
-# Audio
+#
+# system props for the data modules
+#
+ro.use_data_netmgrd=true
+
+# System props for audio
 persist.audio.fluence.mode=endfire
 persist.audio.vr.enable=false
 
-# Bluetooth
+#
+# system prop for opengles version
+#
+# 131072 is decimal for 0x20000 to report version 2
+ro.opengles.version=131072
+
+#
+# system prop for Bluetooth FTP profile
+#
 #ro.qualcomm.bluetooth.ftp=true
+
+#
+# system prop for requesting Master role in incoming Bluetooth connection.
+#
 ro.bluetooth.request.master=true
 
+# System property for cabl
+ro.qualcomm.cabl=0
+
+#
+# System prop for sending transmit power request to RIL during WiFi hotspot on/off
+#
+#ro.ril.transmitpower=true
 # system property for thermald
 persist.thermal.monitor=true
 
@@ -69,4 +94,4 @@ persist.sys.usb.config=mass_storage,adb
 
 # Misc.
 persist.timed.enable=true
-#ro.telephony.call_ring.multiple=false
+
