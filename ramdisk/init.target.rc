@@ -1,0 +1,199 @@
+# Copyright (c) 2010, Code Aurora Forum. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of Code Aurora Forum, Inc. nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#
+
+
+on init
+# create mountpoints
+    mkdir /mnt 0775 root system
+    mkdir /mnt/sdcard 0000 system system
+    mkdir /mnt/udisk 0000 system system
+    mkdir /vendor 0775 system system
+    mkdir /vendor/firmware 0775 system system
+
+
+on boot
+    chown system system /sys/class/leds/flashlight/brightness
+    chmod 0666 /sys/class/leds/flashlight/brightness
+    chown system system /sys/class/timed_output/vibrator/pattern
+    chown root radio /proc/cmdline
+    chmod 0444 /proc/cmdline
+
+# allow system to modify cpufreq control files
+    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+
+# Define TCP buffer sizes for various networks
+#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+    setprop net.tcp.buffersize.hsupa   4094,87380,1220608,4096,16384,1220608
+    setprop net.tcp.buffersize.hsdpa   4094,87380,1220608,4096,16384,1220608
+    setprop net.tcp.buffersize.evdo_b  4094,87380,262144,4096,16384,262144
+
+# Assign TCP buffer thresholds to be ceiling value of technology maximums
+# Increased technology maximums should be reflected here.
+    write /proc/sys/net/core/rmem_max  3461120
+    write /proc/sys/net/core/wmem_max  3461120
+
+
+on emmc-fs
+# mount mmc partitions
+    mount ext4 syspart /system wait ro barrier=1
+    wait /dev/block/platform/msm_sdcc.1/by-name/userdata
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/userdata /data
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/persist /persist
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/cache /cache
+    #Setting permissons for misc partition
+    chmod 0666 /dev/block/platform/msm_sdcc.1/by-name/misc
+
+    mkdir /firmware 0771 system system
+    wait /dev/block/mmcblk0p1
+    mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
+    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
+    exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
+    write /sys/devices/i2c-0/0-0024/cyttsp_update_fw 1
+# for camera yuv to jpeg
+    mkdir /tmp 0700 system system
+    mount tmpfs tmpfs /tmp size=32M
+    chown camera camera /tmp
+    chmod 0777 /tmp
+
+on post-fs
+    mount ext4 /dev/block/mmcblk0p12 /system ro remount barrier=1
+
+
+on post-fs-data
+# double check /data/radio
+    mkdir /data/radio 0770 radio radio
+    chmod 2770 /data/radio
+
+
+on charger
+    mount ext4 syspart /system wait ro barrier=1
+    write /sys/module/rpm_resources/enable_low_power/L2_cache 1
+    write /sys/module/rpm_resources/enable_low_power/pxo 1
+    write /sys/module/rpm_resources/enable_low_power/vdd_dig 2
+    write /sys/module/rpm_resources/enable_low_power/vdd_mem 2
+    write /sys/module/rpm_resources/enable_low_power/rpm_cpu 1
+    write /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/power_collapse/idle_enabled 1
+    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/idle_enabled 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "userspace"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 192000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed 192000
+    write /sys/devices/system/cpu/cpu1/online 0
+    setprop sys.usb.config adb
+    class_start charger
+
+
+service chargeonlymode /sbin/chargeonlymode
+    class charger
+
+
+on property:sys.mione.battlevel=low
+    stop thermald
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 594000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 972000
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 200000000
+
+
+on property:sys.mione.battlevel=high
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 266667000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2000000
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2000000
+    start thermald
+
+
+service fmradio /system/bin/fmradioserver
+    class main
+    group bluetooth net_bt_admin
+
+
+# no qcks file
+#service kickstart /system/bin/qcks l
+#    oneshot
+#    disabled
+
+# Start kickstart if csfb or svlte2a target
+#on property:ro.baseband=csfb
+#    wait /dev/ttyHSL1
+#    mkdir /data/qcks 0770 system system
+#    start kickstart
+
+#on property:ro.baseband=svlte2a
+#    wait /dev/ttyHSL1
+#    mkdir /data/qcks 0770 system system
+#    start kickstart
+
+
+# no dcvsd
+#service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
+#    user root
+#    disabled
+#
+#service dcvsd1 /system/bin/dcvsd -c 1 -f /data/misc/dcvsd/dcvsd1.conf
+#    user root
+#    disabled
+
+# no mpdecision
+#service mpdecision /system/bin/mpdecision --avg_comp
+#    user root
+#    disabled
+
+service thermald /system/bin/thermald
+    class main
+    user root
+    group root
+
+# no qseecomd
+#service qseecomd /system/bin/qseecomd
+#   class late_start 
+#   user system
+#   group system
+
+# no qrngd
+#service qrngd /system/bin/qrngd -f
+#    user root
+
+on property:ro.baseband=svlte2a
+    setprop ro.config.ehrpd true
+    setprop ro.ril.svlte1x true
+
+on property:sys.radio.shutdown=true
+    exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
+
