@@ -1,0 +1,110 @@
+# init.mione.rc
+# init script for xiaomi mione
+#
+# Author: Tommy Alex
+# Create: 2012-11-23 13:03
+
+
+import init.qcom.rc
+import init.target.rc
+
+# most of the following are from boot.img of mioneplus_QDR68
+
+on init
+# create mountpoints
+    mkdir /mnt 0775 root system
+    mkdir /mnt/sdcard 0000 system system
+    mkdir /mnt/udisk 0000 system system
+    mkdir /vendor 0775 system system
+    mkdir /vendor/firmware 0775 system system
+
+
+on boot
+    chown system system /sys/class/leds/flashlight/brightness
+    chmod 0666 /sys/class/leds/flashlight/brightness
+    chown system system /sys/class/timed_output/vibrator/pattern
+    chown root radio /proc/cmdline
+    chmod 0444 /proc/cmdline
+
+# allow system to modify cpufreq control files
+    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+
+# Define TCP buffer sizes for various networks
+#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+    setprop net.tcp.buffersize.hsupa   4094,87380,1220608,4096,16384,1220608
+    setprop net.tcp.buffersize.hsdpa   4094,87380,1220608,4096,16384,1220608
+    setprop net.tcp.buffersize.evdo_b  4094,87380,262144,4096,16384,262144
+
+# Assign TCP buffer thresholds to be ceiling value of technology maximums
+# Increased technology maximums should be reflected here.
+    write /proc/sys/net/core/rmem_max  3461120
+    write /proc/sys/net/core/wmem_max  3461120
+
+on emmc-fs
+# mount mmc partitions
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system wait ro barrier=1
+    wait /dev/block/platform/msm_sdcc.1/by-name/userdata
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/userdata /data
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/persist /persist
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/cache /cache
+    #Setting permissons for misc partition
+    chmod 0666 /dev/block/platform/msm_sdcc.1/by-name/misc
+
+on post-fs-data
+# double check /data/radio
+    mkdir /data/radio 0770 radio radio
+    chmod 2770 /data/radio
+
+
+on charger
+    mount ext4 syspart /system wait ro barrier=1
+    write /sys/module/rpm_resources/enable_low_power/L2_cache 1
+    write /sys/module/rpm_resources/enable_low_power/pxo 1
+    write /sys/module/rpm_resources/enable_low_power/vdd_dig 2
+    write /sys/module/rpm_resources/enable_low_power/vdd_mem 2
+    write /sys/module/rpm_resources/enable_low_power/rpm_cpu 1
+    write /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/power_collapse/idle_enabled 1
+    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/idle_enabled 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "userspace"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 192000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed 192000
+    write /sys/devices/system/cpu/cpu1/online 0
+    setprop sys.usb.config adb
+    class_start charger
+
+
+service chargeonlymode /sbin/chargeonlymode
+    class charger
+
+
+on property:sys.mione.battlevel=low
+    stop thermald
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 594000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 972000
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 200000000
+
+
+on property:sys.mione.battlevel=high
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 266667000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2000000
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2000000
+    start thermald
+
+
+service fmradio /system/bin/fmradioserver
+    class main
+    group bluetooth net_bt_admin
+
