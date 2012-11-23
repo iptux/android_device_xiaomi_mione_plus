@@ -10,7 +10,7 @@ TARGET_BOOTANIMATION_NAME := vertical-480x854
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/xiaomi/mione_plus/device_mione_plus.mk)
+$(call inherit-product, device/xiaomi/mione_plus/mione_plus.mk)
 
 # Setup device specific product configuration.
 PRODUCT_DEVICE := mione_plus
