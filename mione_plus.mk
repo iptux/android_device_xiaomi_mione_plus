@@ -48,6 +48,7 @@ PRODUCT_COPY_FILES += \
 # Ramdisk files
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/init.mione.rc:root/init.mione.rc \
+    device/xiaomi/mione_plus/ramdisk/init.qcom.rc:root/init.qcom.rc \
     device/xiaomi/mione_plus/ramdisk/init.qcom.sh:root/init.qcom.sh \
     device/xiaomi/mione_plus/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
     device/xiaomi/mione_plus/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
@@ -55,35 +56,14 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/ueventd.mione.rc:root/ueventd.mione.rc \
     device/xiaomi/mione_plus/ramdisk/sbin/chargeonlymode:root/sbin/chargeonlymode
 
-# QCOM scripts
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/configs/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    device/xiaomi/mione_plus/configs/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    device/xiaomi/mione_plus/configs/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-    device/xiaomi/mione_plus/configs/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-    device/xiaomi/mione_plus/configs/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-    device/xiaomi/mione_plus/configs/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    device/xiaomi/mione_plus/configs/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
-    device/xiaomi/mione_plus/configs/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
-
 # Vold
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/vold.fstab:system/etc/vold.fstab
 
-# Keylayouts and Keychars
-#PRODUCT_COPY_FILES += \
-#    device/xiaomi/mione_plus/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
-#    device/xiaomi/mione_plus/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
-#    device/xiaomi/mione_plus/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
-#    device/xiaomi/mione_plus/keylayout/8660_handset.kl:system/usr/keylayout/8660_handset.kl \
-#    device/xiaomi/mione_plus/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-#    device/xiaomi/mione_plus/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-#    device/xiaomi/mione_plus/keylayout/mione-keypad.kl:system/usr/keylayout/mione-keypad.kl
-
 # Input device config
-#PRODUCT_COPY_FILES += \
-#    device/xiaomi/mione_plus/idc/qwerty.idc:system/usr/idc/qwerty.idc \
-#    device/xiaomi/mione_plus/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
+PRODUCT_COPY_FILES += \
+    device/xiaomi/mione_plus/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
+    device/xiaomi/mione_plus/idc/mxt224_ts_input.idc:system/usr/idc/mXT-touch.idc
 
 # QC thermald config
 PRODUCT_COPY_FILES += \
@@ -92,35 +72,6 @@ PRODUCT_COPY_FILES += \
 # Custom media config for camera
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/configs/media_profiles.xml:system/etc/media_profiles.xml
-
-# Firmware
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/firmware/4330nvram.txt:system/etc/firmware/4330nvram.txt \
-    device/xiaomi/mione_plus/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/xiaomi/mione_plus/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
-    device/xiaomi/mione_plus/firmware/cyttsp_8660_ffa.hex:system/etc/firmware/cyttsp_8660_ffa.hex \
-    device/xiaomi/mione_plus/firmware/cyttsp_8660_fluid_p2.hex:system/etc/firmware/cyttsp_8660_fluid_p2.hex \
-    device/xiaomi/mione_plus/firmware/cyttsp_8660_fluid_p3.hex:system/etc/firmware/cyttsp_8660_fluid_p3.hex \
-    device/xiaomi/mione_plus/firmware/dsps_fluid.b00:system/etc/firmware/dsps_fluid.b00 \
-    device/xiaomi/mione_plus/firmware/dsps_fluid.b01:system/etc/firmware/dsps_fluid.b01 \
-    device/xiaomi/mione_plus/firmware/dsps_fluid.b02:system/etc/firmware/dsps_fluid.b02 \
-    device/xiaomi/mione_plus/firmware/dsps_fluid.b03:system/etc/firmware/dsps_fluid.b03 \
-    device/xiaomi/mione_plus/firmware/dsps_fluid.mdt:system/etc/firmware/dsps_fluid.mdt \
-    device/xiaomi/mione_plus/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
-    device/xiaomi/mione_plus/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin \
-    device/xiaomi/mione_plus/firmware/fw_bcmdhd.bin:system/etc/firmware/fw_bcmdhd.bin \
-    device/xiaomi/mione_plus/firmware/fw_bcmdhd_apsta.bin:system/etc/firmware/fw_bcmdhd_apsta.bin \
-    device/xiaomi/mione_plus/firmware/fw_bcmdhd_ftm.bin:system/etc/firmware/fw_bcmdhd_ftm.bin \
-    device/xiaomi/mione_plus/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/xiaomi/mione_plus/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
-    device/xiaomi/mione_plus/firmware/nvram.txt:system/etc/firmware/nvram.txt \
-    device/xiaomi/mione_plus/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
-    device/xiaomi/mione_plus/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    device/xiaomi/mione_plus/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw 
-
-# Wi-Fi
-#PRODUCT_COPY_FILES += \
-#    device/xiaomi/mione_plus/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf 
 
 # misc
 PRODUCT_PROPERTY_OVERRIDES += \

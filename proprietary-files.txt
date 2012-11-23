@@ -56,14 +56,61 @@ lib/liboemcamera.so
 #lib/libposteffect.so
 
 # Chromatix
+lib/libchromatix_imx074_default_video.so
+lib/libchromatix_imx074_preview.so
+lib/libchromatix_imx074_zsl.so
+lib/libchromatix_imx105_default_video.so
+lib/libchromatix_imx105_preview.so
+lib/libchromatix_imx105_zsl.so
+lib/libchromatix_imx105p_default_video.so
+lib/libchromatix_imx105p_preview.so
+lib/libchromatix_imx105p_zsl.so
+lib/libchromatix_imx105s_default_video.so
+lib/libchromatix_imx105s_preview.so
+lib/libchromatix_imx105s_zsl.so
+lib/libchromatix_imx132_default_video.so
+lib/libchromatix_imx132_preview.so
+lib/libchromatix_imx132_zsl.so
+lib/libchromatix_imx132l_default_video.so
+lib/libchromatix_imx132l_preview.so
+lib/libchromatix_imx132l_zsl.so
+lib/libchromatix_imx132s_default_video.so
+lib/libchromatix_imx132s_preview.so
+lib/libchromatix_imx132s_zsl.so
+lib/libchromatix_mt9e0131_ar.so
+lib/libchromatix_mt9e0131_default_video.so
+lib/libchromatix_mt9e0131_preview.so
+lib/libchromatix_mt9e0131_video_hfr.so
+lib/libchromatix_mt9e0131_zsl.so
+lib/libchromatix_mt9e0132_ar.so
+lib/libchromatix_mt9e0132_default_video.so
+lib/libchromatix_mt9e0132_preview.so
+lib/libchromatix_mt9e0132_video_hfr.so
+lib/libchromatix_mt9e0132_zsl.so
+lib/libchromatix_mt9e0133_ar.so
+lib/libchromatix_mt9e0133_default_video.so
+lib/libchromatix_mt9e0133_preview.so
+lib/libchromatix_mt9e0133_video_hfr.so
+lib/libchromatix_mt9e0133_zsl.so
+lib/libchromatix_mt9e0134_ar.so
+lib/libchromatix_mt9e0134_default_video.so
+lib/libchromatix_mt9e0134_preview.so
+lib/libchromatix_mt9e0134_video_hfr.so
+lib/libchromatix_mt9e0134_zsl.so
+lib/libchromatix_mt9e013_ar.so
 lib/libchromatix_mt9e013_default_video.so
-lib/libchromatix_mt9e013_zsl.so
 lib/libchromatix_mt9e013_preview.so
+lib/libchromatix_mt9e013_video_hfr.so
+lib/libchromatix_mt9e013_zsl.so
 lib/libchromatix_s5k3h2_default_video.so
-#lib/libchromatix_s5k3h2yx_hfr.so
+lib/libchromatix_s5k3h2_preview.so
+lib/libchromatix_s5k3h2_zsl.so
+lib/libchromatix_s5k3h2s_default_video.so
+lib/libchromatix_s5k3h2s_preview.so
 lib/libchromatix_s5k3h2s_zsl.so
 
 # Graphics
+lib/hw/gralloc.msm8660.so
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLESv1_CM_adreno200.so
@@ -103,6 +150,9 @@ lib/hw/sensors.msm8660.so
 #lib/libmpl_jni.so
 #lib/libmpl.so
 
+# lights
+lib/hw/lights.msm8660.so
+
 # V8
 lib/libv8.so
 
@@ -129,4 +179,43 @@ lib/libthermal_mitigation_fusion.so
 lib/libthermal_mitigation.so
 lib/libtime_remote_atom.so
 lib/libxml.so
+
+# QCOM Scripts
+etc/init.qcom.bt.sh
+etc/init.qcom.coex.sh
+#etc/init.qcom.efs.sync.sh
+etc/init.qcom.fm.sh
+etc/init.qcom.mdm_links.sh
+etc/init.qcom.modem_links.sh
+etc/init.qcom.post_boot.sh
+etc/init.qcom.sdio.sh
+etc/init.qcom.wifi.sh
+
+# firmware
+etc/firmware/4330nvram.txt
+etc/firmware/bcm4329.hcd
+etc/firmware/bcm4330.hcd
+etc/firmware/cyttsp_8660_ffa.hex
+etc/firmware/cyttsp_8660_fluid_p2.hex
+etc/firmware/cyttsp_8660_fluid_p3.hex
+etc/firmware/dsps_fluid.b00
+etc/firmware/dsps_fluid.b01
+etc/firmware/dsps_fluid.b02
+etc/firmware/dsps_fluid.b03
+etc/firmware/dsps_fluid.mdt
+etc/firmware/fw_bcm4329.bin
+etc/firmware/fw_bcm4329_apsta.bin
+etc/firmware/fw_bcmdhd.bin
+etc/firmware/fw_bcmdhd_apsta.bin
+etc/firmware/fw_bcmdhd_ftm.bin
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+etc/firmware/nvram.txt
+etc/firmware/vidc_1080p.fw
+etc/firmware/yamato_pfp.fw
+etc/firmware/yamato_pm4.fw
+
+# key layout
+usr/keylayout/8660_handset.kl
+usr/keylayout/mione-keypad.kl
 
