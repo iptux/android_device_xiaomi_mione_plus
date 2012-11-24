@@ -41,7 +41,25 @@ TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
 TARGET_USES_OVERLAY := false
 TARGET_QCOM_HDMI_OUT := false
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
-#BOARD_USES_QCOM_HARDWARE := true
+
+# Wifi
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WIFI_DRIVER_MODULE_PATH := /system/lib/modules/bcmdhd.ko
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcmdhd.bin nvram_path=/system/etc/firmware/4330nvram.txt"
+WIFI_DRIVER_MODULE_NAME := bcmdhd
+WIFI_AP_DRIVER_MODULE_PATH := /system/lib/modules/bcm4329.ko
+WIFI_AP_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/system/etc/firmware/nvram.txt"
+WIFI_AP_DRIVER_MODULE_NAME := bcm4329
+#WIFI_FIRMWARE_LOADER :=
+#WIFI_AP_FIRMWARE_LOADER :=
+#WIFI_DRIVER_LOADER_DELAY :=
+WIFI_DRIVER_FW_PATH_STA := /system/etc/firmware/fw_bcmdhd.bin
+WIFI_DRIVER_FW_PATH_AP := /system/etc/firmware/fw_bcmdhd_apsta.bin
+WIFI_DRIVER_FW_PATH_P2P := /system/etc/firmware/fw_bcmdhd_p2p.bin
+WIFI_DRIVER_FW_PATH_PARAM := /sys/module/bcmdhd/parameters/firmware_path
+#WIFI_EXT_MODULE_PATH :=
+#WIFI_EXT_MODULE_ARG :=
+#WIFI_EXT_MODULE_NAME :=
 
 # QCOM GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mione
