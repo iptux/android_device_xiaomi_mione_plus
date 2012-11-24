@@ -36,7 +36,7 @@ bin/wiperiface
 # mount_ext4.sh
 bin/dumpe2fs
 bin/mount_ext4.sh
-bin/resize2fs
+#bin/resize2fs
 
 # Audio
 lib/libacdbloader.so
