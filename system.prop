@@ -95,3 +95,6 @@ persist.sys.usb.config=mass_storage,adb
 # Misc.
 persist.timed.enable=true
 
+# start adb as root on boot
+service.adb.root=1
+
