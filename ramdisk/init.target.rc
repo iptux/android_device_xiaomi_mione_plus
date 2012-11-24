@@ -47,7 +47,7 @@ on emmc-fs
     chmod 0777 /tmp
 
 on post-fs
-    mount ext4 /dev/block/mmcblk0p12 /system ro remount barrier=1
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount barrier=1
 
 # no qcks file
 #service kickstart /system/bin/qcks l
