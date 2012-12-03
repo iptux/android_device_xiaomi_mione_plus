@@ -121,7 +121,7 @@ on boot
 
 # import cne init file
 on post-fs
-    export_rc /persist/init.cne.rc
+    import /persist/init.cne.rc
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -386,7 +386,7 @@ service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
-    #onrestart /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
+    onrestart exec /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
     disabled
 
 service hdmid /system/bin/hdmid

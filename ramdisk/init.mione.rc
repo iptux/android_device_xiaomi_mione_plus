@@ -6,7 +6,6 @@
 
 
 import init.qcom.rc
-import init.target.rc
 
 # most of the following are from boot.img of mioneplus_QDR68
 
@@ -18,6 +17,8 @@ on init
     mkdir /vendor 0775 system system
     mkdir /vendor/firmware 0775 system system
 
+# Backwards Compat - XXX: Going away in G*
+    symlink /mnt/sdcard /sdcard
 
 on boot
     chown system system /sys/class/leds/flashlight/brightness
@@ -48,10 +49,9 @@ on boot
 on emmc-fs
 # mount mmc partitions
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system wait rw barrier=1 noatime nodiratime
-    wait /dev/block/platform/msm_sdcc.1/by-name/userdata
-    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/userdata /data
-    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/persist /persist
-    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/cache /cache
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/userdata /data relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
     #Setting permissons for misc partition
     chmod 0666 /dev/block/platform/msm_sdcc.1/by-name/misc
 
@@ -59,6 +59,8 @@ on post-fs-data
 # double check /data/radio
     mkdir /data/radio 0770 radio radio
     chmod 2770 /data/radio
+# support for hostapd
+    mkdir /data/misc/wifi/hostapd 0777 wifi wifi
 
 
 on charger

@@ -42,14 +42,17 @@ TARGET_USES_OVERLAY := false
 TARGET_QCOM_HDMI_OUT := false
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
 
+# Camera
+BOARD_HAVE_HTC_FFC := false
+
 # Wifi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 WIFI_DRIVER_MODULE_PATH := /system/lib/modules/bcmdhd.ko
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcmdhd.bin nvram_path=/system/etc/firmware/4330nvram.txt"
 WIFI_DRIVER_MODULE_NAME := bcmdhd
-WIFI_AP_DRIVER_MODULE_PATH := /system/lib/modules/bcm4329.ko
-WIFI_AP_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/system/etc/firmware/nvram.txt"
-WIFI_AP_DRIVER_MODULE_NAME := bcm4329
+#WIFI_AP_DRIVER_MODULE_PATH := /system/lib/modules/bcmdhd.ko
+#WIFI_AP_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcmdhd.bin nvram_path=/system/etc/firmware/4330nvram.txt"
+#WIFI_AP_DRIVER_MODULE_NAME := bcmdhd
 #WIFI_FIRMWARE_LOADER :=
 #WIFI_AP_FIRMWARE_LOADER :=
 #WIFI_DRIVER_LOADER_DELAY :=
@@ -66,6 +69,10 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mione
 
 # NFC
 BOARD_HAVE_NFC := false
+
+# FM Radio
+BOARD_HAVE_FM_RADIO := true
+BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true

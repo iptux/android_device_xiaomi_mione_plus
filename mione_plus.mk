@@ -15,10 +15,14 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # common msm8660 configs
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
+
+$(call inherit-product-if-exists, vendor/xiaomi/mione_plus/mione_plus-vendor.mk)
+
+$(call inherit-product, build/target/product/full.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/xiaomi/mione_plus/overlay
 
@@ -95,7 +99,5 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
-# call proprietary setup
-$(call inherit-product-if-exists, vendor/xiaomi/mione_plus/mione_plus-vendor.mk)# media profiles and capabilities spec
 
 $(call inherit-product, frameworks/base/build/phone-xhdpi-1024-dalvik-heap.mk)

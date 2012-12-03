@@ -1,221 +1,137 @@
-# Configuration files
-#etc/agps_rm
-#etc/vpimg
 
-# Executable files
-#bin/akmd
-#bin/awb_camera
-bin/diag_mdlog
-bin/gpsone_daemon
-bin/mm-qcamera-daemon
-bin/netmgrd
-bin/port-bridge
-bin/qmiproxy
-bin/qmuxd
-bin/rmt_storage
-bin/time_daemon
-bin/thermald
-bin/usbhub
-bin/usbhub_init
-bin/v4l2-qcamera-app
-
-# more binary
-bin/ATFWD-daemon
-bin/bridgemgrd
-bin/cnd
-bin/ds_fmc_appd
-bin/dun-server
-bin/fmradioserver
-bin/hci_qcomm_init
-bin/mm-pp-daemon
-bin/profiler_daemon
-bin/sapd
-bin/sysmatsir
-bin/wiperiface
-
-# mount_ext4.sh
-bin/dumpe2fs
-bin/mount_ext4.sh
-#bin/resize2fs
-
-# Audio
+# Prebuilt libraries that are needed to build open-source libraries
 lib/libacdbloader.so
 lib/libacdbmapper.so
-lib/libaudcal.so
 lib/libaudioalsa.so
+lib/libaudcal.so
+lib/libdiag.so
+lib/libv8.so
 
-# Camera
-lib/hw/camera.msm8660.so
-#lib/libcameraface.so
-#lib/libcamerapp.so
-lib/libgemini.so
-lib/libmmipl.so
-lib/libmmjpeg.so
-lib/liboemcamera.so
-#lib/libOlaEngine.so
-#lib/libposteffect.so
-
-# Chromatix
-lib/libchromatix_imx074_default_video.so
-lib/libchromatix_imx074_preview.so
-lib/libchromatix_imx074_zsl.so
-lib/libchromatix_imx105_default_video.so
-lib/libchromatix_imx105_preview.so
-lib/libchromatix_imx105_zsl.so
-lib/libchromatix_imx105p_default_video.so
-lib/libchromatix_imx105p_preview.so
-lib/libchromatix_imx105p_zsl.so
-lib/libchromatix_imx105s_default_video.so
-lib/libchromatix_imx105s_preview.so
-lib/libchromatix_imx105s_zsl.so
-lib/libchromatix_imx132_default_video.so
-lib/libchromatix_imx132_preview.so
-lib/libchromatix_imx132_zsl.so
-lib/libchromatix_imx132l_default_video.so
-lib/libchromatix_imx132l_preview.so
-lib/libchromatix_imx132l_zsl.so
-lib/libchromatix_imx132s_default_video.so
-lib/libchromatix_imx132s_preview.so
-lib/libchromatix_imx132s_zsl.so
-lib/libchromatix_mt9e0131_ar.so
-lib/libchromatix_mt9e0131_default_video.so
-lib/libchromatix_mt9e0131_preview.so
-lib/libchromatix_mt9e0131_video_hfr.so
-lib/libchromatix_mt9e0131_zsl.so
-lib/libchromatix_mt9e0132_ar.so
-lib/libchromatix_mt9e0132_default_video.so
-lib/libchromatix_mt9e0132_preview.so
-lib/libchromatix_mt9e0132_video_hfr.so
-lib/libchromatix_mt9e0132_zsl.so
-lib/libchromatix_mt9e0133_ar.so
-lib/libchromatix_mt9e0133_default_video.so
-lib/libchromatix_mt9e0133_preview.so
-lib/libchromatix_mt9e0133_video_hfr.so
-lib/libchromatix_mt9e0133_zsl.so
-lib/libchromatix_mt9e0134_ar.so
-lib/libchromatix_mt9e0134_default_video.so
-lib/libchromatix_mt9e0134_preview.so
-lib/libchromatix_mt9e0134_video_hfr.so
-lib/libchromatix_mt9e0134_zsl.so
-lib/libchromatix_mt9e013_ar.so
-lib/libchromatix_mt9e013_default_video.so
-lib/libchromatix_mt9e013_preview.so
-lib/libchromatix_mt9e013_video_hfr.so
-lib/libchromatix_mt9e013_zsl.so
-lib/libchromatix_s5k3h2_default_video.so
-lib/libchromatix_s5k3h2_preview.so
-lib/libchromatix_s5k3h2_zsl.so
-lib/libchromatix_s5k3h2s_default_video.so
-lib/libchromatix_s5k3h2s_preview.so
-lib/libchromatix_s5k3h2s_zsl.so
-
-# Graphics
+# HAL
+# FIXME: camera cannot find symbol '_ZN7android16CameraParameters9KEY_GAMMAE'
+#lib/hw/camera.msm8660.so
 lib/hw/gralloc.msm8660.so
+lib/hw/lights.msm8660.so
+# TODO: test sensors
+lib/hw/sensors.msm8660.so
+
+# Graphics and egl
+# https://developer.qualcomm.com/download/adreno200-aulinuxandroidicschococs04000306001.zip
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLESv1_CM_adreno200.so
 lib/egl/libGLESv2_adreno200.so
-lib/egl/libq3dtools_adreno200.so
+#lib/egl/libq3dtools_adreno200.so
 lib/libC2D2.so
-lib/libsc-a2xx.so
-
-# Misc libraries
-lib/libdiag.so
-lib/libdsi_netctrl.so
-lib/libdsutils.so
-lib/libdsm.so
-lib/libgsl.so
-lib/libidl.so
-lib/libmm-color-convertor.so
-lib/liboncrpc.so
 lib/libOpenVG.so
-lib/libpbmlib_fusion.so
+lib/libgsl.so
+lib/libsc-a2xx.so
+# related firmware
+etc/firmware/yamato_pfp.fw
+etc/firmware/yamato_pm4.fw
 
-# Radio
-lib/libnetmgr.so
-lib/libnv.so
-lib/libqc-opt.so
-lib/libqdp.so
-lib/libqmi.so
-lib/libqmiservices.so
-lib/libqueue.so
-#lib/libril.so
-lib/libril-qc-qmi-1.so
-lib/libril-qcril-hook-oem.so
-
-# Sensors
-lib/hw/sensors.msm8660.so
-#lib/libmllite.so
-#lib/libmlplatform.so
-#lib/libmpl_jni.so
-#lib/libmpl.so
-
-# lights
-lib/hw/lights.msm8660.so
-
-# V8
-lib/libv8.so
-
-# more lib
-lib/liballjoyn.so
-#lib/libcneqmiutils.so
-#lib/libcneutils.so
-lib/libcommondefs.so
-lib/libfmradioplayer.so
-lib/libfmradio.so
-lib/libfmradiostackservice.so
-lib/libgpsone_bit_api.so
-lib/libgps.utils.so
-lib/libloc_adapter.so
-lib/libloc_api-rpc-qc.so
-lib/libloc_eng.so
-lib/libmm-abl-oem.so
-lib/libmm-abl.so
-lib/libmmmpo.so
-lib/libmmstereo.so
-lib/libprofiler_msmadc.so
-lib/libqdi.so
-lib/libthermal_mitigation_fusion.so
-lib/libthermal_mitigation.so
-lib/libtime_remote_atom.so
-lib/libxml.so
-
-# QCOM Scripts
-etc/init.qcom.bt.sh
-etc/init.qcom.coex.sh
-#etc/init.qcom.efs.sync.sh
-etc/init.qcom.fm.sh
-etc/init.qcom.mdm_links.sh
-etc/init.qcom.modem_links.sh
-etc/init.qcom.post_boot.sh
-etc/init.qcom.sdio.sh
-etc/init.qcom.wifi.sh
-
-# firmware
+# wifi firmware
 etc/firmware/4330nvram.txt
 etc/firmware/bcm4329.hcd
 etc/firmware/bcm4330.hcd
-etc/firmware/cyttsp_8660_ffa.hex
-etc/firmware/cyttsp_8660_fluid_p2.hex
-etc/firmware/cyttsp_8660_fluid_p3.hex
-etc/firmware/dsps_fluid.b00
-etc/firmware/dsps_fluid.b01
-etc/firmware/dsps_fluid.b02
-etc/firmware/dsps_fluid.b03
-etc/firmware/dsps_fluid.mdt
 etc/firmware/fw_bcm4329.bin
 etc/firmware/fw_bcm4329_apsta.bin
 etc/firmware/fw_bcmdhd.bin
 etc/firmware/fw_bcmdhd_apsta.bin
 etc/firmware/fw_bcmdhd_ftm.bin
-etc/firmware/leia_pfp_470.fw
-etc/firmware/leia_pm4_470.fw
 etc/firmware/nvram.txt
-etc/firmware/vidc_1080p.fw
-etc/firmware/yamato_pfp.fw
-etc/firmware/yamato_pm4.fw
+
+# bluetooth
+bin/hci_qcomm_init
+etc/init.qcom.bt.sh
+
+# QCOM Script
+# modem, sound, firmware
+etc/init.qcom.modem_links.sh
+
+# onc rpc
+lib/libdsm.so
+lib/liboncrpc.so
+lib/libqueue.so
+
+# qmiproxy
+bin/qmiproxy
+lib/libdsutils.so
+lib/libidl.so
+lib/libqmi.so
+lib/libqmiservices.so
+
+# netmgr
+bin/netmgrd
+lib/libnetmgr.so
+
+# Radio
+lib/libdsi_netctrl.so
+lib/libqdi.so
+lib/libqdp.so
+lib/libril-qc-qmi-1.so
+lib/libril-qcril-hook-oem.so
+
+# Camera
+bin/mm-qcamera-daemon
+bin/v4l2-qcamera-app
+lib/libmmipl.so
+lib/liboemcamera.so
+lib/libgemini.so
+lib/libmmipl.so
+lib/libmmjpeg.so
+lib/libmmmpo.so
+lib/libmmstereo.so
+
+# fm
+bin/fmradioserver
+lib/libfmradioplayer.so
+lib/libfmradio.so
+lib/libfmradiostackservice.so
+
+# gps
+bin/gpsone_daemon
+lib/libgpsone_bit_api.so
+#lib/libgps.utils.so
+#lib/libloc_api-rpc-qc.so
+#lib/libcommondefs.so
+
+# wiperiface
+bin/wiperiface
+lib/libloc_adapter.so
+lib/libloc_eng.so
+
+# thermald
+bin/thermald
+lib/libthermal_mitigation_fusion.so
+lib/libthermal_mitigation.so
+
+# cnd service
+bin/cnd
+lib/libcneqmiutils.so
+lib/libcneutils.so
+lib/libxml.so
+
+# misc service
+bin/ATFWD-daemon
+bin/bridgemgrd
+bin/dun-server
+bin/mm-pp-daemon
+bin/port-bridge
+bin/qmuxd
+bin/rmt_storage
+bin/usbhub
+bin/usbhub_init
+
+# Chromatix
+lib/libchromatix_imx105s_default_video.so
+lib/libchromatix_imx105s_preview.so
+lib/libchromatix_imx105s_zsl.so
 
 # key layout
 usr/keylayout/8660_handset.kl
 usr/keylayout/mione-keypad.kl
+
+# more
+lib/libmmparser.so
 

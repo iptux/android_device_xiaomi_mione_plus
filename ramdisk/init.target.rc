@@ -37,6 +37,9 @@ on emmc-fs
     mkdir /firmware 0771 system system
     wait /dev/block/mmcblk0p1
     mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
+# make modem firmware available at /vendor/firmware/image ( /vendor symlink to /system/vendor )
+    mkdir /system/vendor/firmware/ 0755 system system
+    symlink /firmware/image /system/vendor/firmware/image
     exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
     exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
     write /sys/devices/i2c-0/0-0024/cyttsp_update_fw 1
