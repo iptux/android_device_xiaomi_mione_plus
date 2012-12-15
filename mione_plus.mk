@@ -45,10 +45,6 @@ PRODUCT_PACKAGES += \
     calibrator \
     hostapd
 
-# US GPS config
-PRODUCT_COPY_FILES += \
-    device/common/gps/gps.conf_US:system/etc/gps.conf
-
 # Ramdisk files
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/init.mione.rc:root/init.mione.rc \
@@ -69,14 +65,6 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
     device/xiaomi/mione_plus/idc/mxt224_ts_input.idc:system/usr/idc/mXT-touch.idc
 
-# QC thermald config
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/configs/thermald.conf:system/etc/thermald.conf
-
-# Custom media config for camera
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/configs/media_profiles.xml:system/etc/media_profiles.xml
-
 # misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
@@ -94,10 +82,8 @@ endif
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
-
-$(call inherit-product, frameworks/base/build/phone-xhdpi-1024-dalvik-heap.mk)

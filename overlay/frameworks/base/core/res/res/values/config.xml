@@ -113,12 +113,6 @@
     <!-- Default blink frequency for notification LED is 2 seconds. -->
     <integer name="config_defaultNotificationLedOff">2000</integer>
 
-    <!-- Component name of the service providing network location support. -->
-    <string name="config_networkLocationProvider">com.google.android.location.NetworkLocationProvider</string>
-
-    <!-- Component name of the service providing geocoder API support. -->
-    <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
-
     <!-- This string array should be overridden by the device to present a list of
          network attributes.  This is used by the connectivity manager to decide
          which networks can coexist based on the hardware -->
