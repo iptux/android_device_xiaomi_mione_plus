@@ -124,9 +124,58 @@ bin/usbhub
 bin/usbhub_init
 
 # Chromatix
+lib/libchromatix_imx074_default_video.so
+lib/libchromatix_imx074_preview.so
+lib/libchromatix_imx074_zsl.so
+lib/libchromatix_imx105_default_video.so
+lib/libchromatix_imx105_preview.so
+lib/libchromatix_imx105_zsl.so
+lib/libchromatix_imx105p_default_video.so
+lib/libchromatix_imx105p_preview.so
+lib/libchromatix_imx105p_zsl.so
 lib/libchromatix_imx105s_default_video.so
 lib/libchromatix_imx105s_preview.so
 lib/libchromatix_imx105s_zsl.so
+lib/libchromatix_imx132_default_video.so
+lib/libchromatix_imx132_preview.so
+lib/libchromatix_imx132_zsl.so
+lib/libchromatix_imx132l_default_video.so
+lib/libchromatix_imx132l_preview.so
+lib/libchromatix_imx132l_zsl.so
+lib/libchromatix_imx132s_default_video.so
+lib/libchromatix_imx132s_preview.so
+lib/libchromatix_imx132s_zsl.so
+lib/libchromatix_mt9e0131_ar.so
+lib/libchromatix_mt9e0131_default_video.so
+lib/libchromatix_mt9e0131_preview.so
+lib/libchromatix_mt9e0131_video_hfr.so
+lib/libchromatix_mt9e0131_zsl.so
+lib/libchromatix_mt9e0132_ar.so
+lib/libchromatix_mt9e0132_default_video.so
+lib/libchromatix_mt9e0132_preview.so
+lib/libchromatix_mt9e0132_video_hfr.so
+lib/libchromatix_mt9e0132_zsl.so
+lib/libchromatix_mt9e0133_ar.so
+lib/libchromatix_mt9e0133_default_video.so
+lib/libchromatix_mt9e0133_preview.so
+lib/libchromatix_mt9e0133_video_hfr.so
+lib/libchromatix_mt9e0133_zsl.so
+lib/libchromatix_mt9e0134_ar.so
+lib/libchromatix_mt9e0134_default_video.so
+lib/libchromatix_mt9e0134_preview.so
+lib/libchromatix_mt9e0134_video_hfr.so
+lib/libchromatix_mt9e0134_zsl.so
+lib/libchromatix_mt9e013_ar.so
+lib/libchromatix_mt9e013_default_video.so
+lib/libchromatix_mt9e013_preview.so
+lib/libchromatix_mt9e013_video_hfr.so
+lib/libchromatix_mt9e013_zsl.so
+lib/libchromatix_s5k3h2_default_video.so
+lib/libchromatix_s5k3h2_preview.so
+lib/libchromatix_s5k3h2_zsl.so
+lib/libchromatix_s5k3h2s_default_video.so
+lib/libchromatix_s5k3h2s_preview.so
+lib/libchromatix_s5k3h2s_zsl.so
 
 # key layout
 usr/keylayout/8660_handset.kl
@@ -134,4 +183,7 @@ usr/keylayout/mione-keypad.kl
 
 # more
 lib/libmmparser.so
+lib/libmmosal.so
+lib/libDivxDrm.so
+framework/modemwarmup.jar
 
