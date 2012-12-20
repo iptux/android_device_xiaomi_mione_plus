@@ -56,21 +56,18 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/ueventd.mione.rc:root/ueventd.mione.rc \
     device/xiaomi/mione_plus/ramdisk/sbin/chargeonlymode:root/sbin/chargeonlymode
 
+# wifi
+PRODUCT_COPY_FILES += \
+    device/xiaomi/mione_plus/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
 # Vold
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/vold.fstab:system/etc/vold.fstab
+    device/xiaomi/mione_plus/configs/vold.fstab:system/etc/vold.fstab
 
 # Input device config
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
     device/xiaomi/mione_plus/idc/mxt224_ts_input.idc:system/usr/idc/mXT-touch.idc
-
-# misc
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.setupwizard.enable_bypass=1 \
-    dalvik.vm.lockprof.threshold=500 \
-    ro.com.google.locationfeatures=1 \
-    dalvik.vm.dexopt-data-only=1
 
 # Kernel modules
 ifeq ($(TARGET_PREBUILT_KERNEL),)

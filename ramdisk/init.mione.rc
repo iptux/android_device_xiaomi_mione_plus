@@ -11,10 +11,8 @@ import init.qcom.rc
 
 on init
 # create mountpoints
-    mkdir /mnt 0775 root system
     mkdir /mnt/sdcard 0000 system system
     mkdir /mnt/udisk 0000 system system
-    mkdir /vendor 0775 system system
     mkdir /vendor/firmware 0775 system system
 
 # Backwards Compat - XXX: Going away in G*
@@ -24,22 +22,6 @@ on boot
     chown system system /sys/class/leds/flashlight/brightness
     chmod 0666 /sys/class/leds/flashlight/brightness
     chown system system /sys/class/timed_output/vibrator/pattern
-    chown root radio /proc/cmdline
-    chmod 0444 /proc/cmdline
-
-# allow system to modify cpufreq control files
-    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-    chown root system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-
-# Define TCP buffer sizes for various networks
-#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.hsupa   4094,87380,1220608,4096,16384,1220608
-    setprop net.tcp.buffersize.hsdpa   4094,87380,1220608,4096,16384,1220608
-    setprop net.tcp.buffersize.evdo_b  4094,87380,262144,4096,16384,262144
 
 # Assign TCP buffer thresholds to be ceiling value of technology maximums
 # Increased technology maximums should be reflected here.
