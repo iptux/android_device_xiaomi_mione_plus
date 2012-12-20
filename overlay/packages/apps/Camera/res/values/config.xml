@@ -20,6 +20,6 @@
 <resources>
     <bool name="needsEarlyVideoSize">true</bool>
     <bool name="alwaysUsePreferredPreviewSize">true</bool>
-    <bool name="needsHTCCamMode">true</bool>
+    <bool name="needsHTCCamMode">false</bool>
     <bool name="wantsFocusModes">true</bool>
 </resources>
