@@ -25,7 +25,7 @@
 # against the traditional rules of inheritance).
 
 # inherit from msm8660-common
--include device/htc/msm8660-common/BoardConfigCommon.mk
+-include device/xiaomi/msm8660-common/BoardConfigCommon.mk
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := mione
@@ -41,9 +41,6 @@ TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
 TARGET_USES_OVERLAY := false
 TARGET_QCOM_HDMI_OUT := false
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
-
-# Camera
-BOARD_HAVE_HTC_FFC := false
 
 # Wifi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
