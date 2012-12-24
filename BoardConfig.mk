@@ -25,7 +25,7 @@
 # against the traditional rules of inheritance).
 
 # inherit from msm8660-common
--include device/htc/msm8660-common/BoardConfigCommon.mk
+-include device/xiaomi/msm8660-common/BoardConfigCommon.mk
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := mione
@@ -36,14 +36,6 @@ BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=mione
 BOARD_KERNEL_PAGE_SIZE := 2048
 TARGET_KERNEL_CONFIG := mione_plus_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
-
-# QCOM Display
-TARGET_USES_OVERLAY := false
-TARGET_QCOM_HDMI_OUT := false
-TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
-
-# Camera
-BOARD_HAVE_HTC_FFC := false
 
 # Wifi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
@@ -69,10 +61,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mione
 
 # NFC
 BOARD_HAVE_NFC := false
-
-# FM Radio
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true

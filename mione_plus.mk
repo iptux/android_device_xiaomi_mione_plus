@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # common msm8660 configs
-$(call inherit-product, device/htc/msm8660-common/msm8660.mk)
+$(call inherit-product, device/xiaomi/msm8660-common/msm8660.mk)
 
 $(call inherit-product-if-exists, vendor/xiaomi/mione_plus/mione_plus-vendor.mk)
 
