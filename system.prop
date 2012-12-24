@@ -2,10 +2,24 @@
 # system.prop for mione
 #
 
+# Default network type
+# 7 => Global
+ro.telephony.default_network=7
+
 # Ril
 ro.ril.oem.nosim.ecclist=911,112,120,122,110,119
 rild.libpath=/system/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+ril.subscription.types=RUIM
 DEVICE_PROVISIONED=1
 
 # Graphics

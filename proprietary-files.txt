@@ -73,6 +73,7 @@ lib/libqdi.so
 lib/libqdp.so
 lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
+lib/libril.so
 
 # Camera
 bin/mm-qcamera-daemon
