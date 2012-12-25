@@ -10,6 +10,7 @@ import init.qcom.rc
 # most of the following are from boot.img of mioneplus_QDR68
 
 on init
+    export EXTERNAL_STORAGE /mnt/sdcard
 # create mountpoints
     mkdir /mnt 0775 root system
     mkdir /mnt/sdcard 0000 system system
