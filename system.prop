@@ -61,6 +61,3 @@ persist.thermal.monitor=true
 # Misc.
 persist.timed.enable=true
 
-# start adb as root on boot
-service.adb.root=1
-
