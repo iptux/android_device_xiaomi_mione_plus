@@ -20,5 +20,9 @@ PRODUCT_MODEL := MI-ONE Plus
 PRODUCT_MANUFACTURER := Xiaomi
 
 # Set build fingerprint / ID / Product Name etc.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=mione_plus
-#PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=mione_plus BUILD_FINGERPRINT=Xiaomi/mione_plus/mione_plus:4.0.4/IMM76D/QDR68:userdebug/test-keys PRIVATE_BUILD_DESC="mione_plus-userdebug 4.0.4 IMM76D QDR68 test-keys" BUILD_NUMBER=373265
+PRODUCT_BUILD_PROP_OVERRIDES += \
+	PRODUCT_NAME=mione_plus \
+	BUILD_DISPLAY_ID=IMM76L
+	BUILD_FINGERPRINT=Xiaomi/mione_plus/mione_plus:4.0.4/IMM76L/20121202:user/release-keys \
+	PRIVATE_BUILD_DESC="mione_plus-user 4.0.4 IMM76L 20121202 release-keys" \
+	BUILD_NUMBER=373265
