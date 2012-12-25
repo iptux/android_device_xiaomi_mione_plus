@@ -289,6 +289,14 @@ service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext 
     disabled
     oneshot
 
+service p2p_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf
+    class late_start
+    user root
+    group wifi inet
+    socket wpa_eth0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKLG
     class late_start
     disabled
