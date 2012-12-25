@@ -381,6 +381,8 @@ service qcom-wifi /system/bin/sh /system/etc/init.qcom.wifi.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
+# qcom-sh don't start automatically, then radio won't work
+    start qcom-sh
 
 service atfwd /system/bin/ATFWD-daemon
     class late_start
