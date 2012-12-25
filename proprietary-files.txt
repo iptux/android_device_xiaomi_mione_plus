@@ -11,7 +11,7 @@ lib/libv8.so
 # FIXME: camera cannot find symbol '_ZN7android16CameraParameters9KEY_GAMMAE'
 #lib/hw/camera.msm8660.so
 #lib/hw/gralloc.msm8660.so
-#lib/hw/lights.msm8660.so
+lib/hw/lights.msm8660.so
 # TODO: test sensors
 lib/hw/sensors.msm8660.so
 
