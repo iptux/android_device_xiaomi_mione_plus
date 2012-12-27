@@ -37,7 +37,9 @@ BOARD_KERNEL_PAGE_SIZE := 2048
 TARGET_KERNEL_CONFIG := mione_plus_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
 
-# QCOM Display
+# Display
+TARGET_SCREEN_WIDTH := 480
+TARGET_SCREEN_HEIGHT := 854
 TARGET_USES_OVERLAY := false
 TARGET_QCOM_HDMI_OUT := false
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
