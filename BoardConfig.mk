@@ -51,7 +51,7 @@ WIFI_DRIVER_FW_PATH_STA := /system/etc/firmware/fw_bcmdhd.bin
 WIFI_DRIVER_FW_PATH_AP := /system/etc/firmware/fw_bcmdhd_apsta.bin
 WIFI_DRIVER_FW_PATH_P2P := /system/etc/firmware/fw_bcmdhd_p2p.bin
 WIFI_DRIVER_FW_PATH_PARAM := /sys/module/bcmdhd/parameters/firmware_path
-WPA_SUPPLICANT_VERSION := VER_0_8_X
+#WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # QCOM GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mione
