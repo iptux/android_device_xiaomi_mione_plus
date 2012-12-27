@@ -84,3 +84,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapsize=96m \
+    dalvik.vm.dexopt-flags=m=y
+
