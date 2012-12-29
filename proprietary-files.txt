@@ -102,6 +102,8 @@ lib/libgpsone_bit_api.so
 bin/wiperiface
 lib/libloc_adapter.so
 lib/libloc_eng.so
+lib/libgps.utils.so
+lib/libloc_api-rpc-qc.so
 
 # thermald
 bin/thermald
@@ -114,11 +116,15 @@ lib/libcneqmiutils.so
 lib/libcneutils.so
 lib/libxml.so
 
+# mm-pp-daemon
+bin/mm-pp-daemon
+lib/libmm-abl-oem.so
+lib/libmm-abl.so
+
 # misc service
 bin/ATFWD-daemon
 bin/bridgemgrd
 bin/dun-server
-bin/mm-pp-daemon
 bin/port-bridge
 bin/qmuxd
 bin/rmt_storage
