@@ -85,12 +85,6 @@ lib/libmmjpeg.so
 lib/libmmmpo.so
 lib/libmmstereo.so
 
-# fm
-bin/fmradioserver
-lib/libfmradioplayer.so
-lib/libfmradio.so
-lib/libfmradiostackservice.so
-
 # gps
 bin/gpsone_daemon
 lib/libgpsone_bit_api.so
