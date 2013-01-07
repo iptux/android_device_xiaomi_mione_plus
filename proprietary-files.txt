@@ -33,8 +33,6 @@ etc/firmware/yamato_pm4.fw
 
 # wifi firmware
 etc/firmware/4330nvram.txt
-etc/firmware/bcm4329.hcd
-etc/firmware/bcm4330.hcd
 etc/firmware/fw_bcm4329.bin
 etc/firmware/fw_bcm4329_apsta.bin
 etc/firmware/fw_bcmdhd.bin
@@ -43,8 +41,10 @@ etc/firmware/fw_bcmdhd_ftm.bin
 etc/firmware/nvram.txt
 
 # bluetooth
-bin/hci_qcomm_init
-etc/init.qcom.bt.sh
+#bin/hci_qcomm_init
+#etc/init.qcom.bt.sh
+#etc/firmware/bcm4329.hcd
+#etc/firmware/bcm4330.hcd
 
 # QCOM Script
 # modem, sound, firmware
@@ -88,16 +88,14 @@ lib/libmmstereo.so
 # gps
 bin/gpsone_daemon
 lib/libgpsone_bit_api.so
-#lib/libgps.utils.so
-#lib/libloc_api-rpc-qc.so
-#lib/libcommondefs.so
+lib/libgps.utils.so
+lib/libloc_api-rpc-qc.so
+lib/libcommondefs.so
 
 # wiperiface
 bin/wiperiface
 lib/libloc_adapter.so
 lib/libloc_eng.so
-lib/libgps.utils.so
-lib/libloc_api-rpc-qc.so
 
 # thermald
 bin/thermald
@@ -187,5 +185,4 @@ usr/keylayout/mione-keypad.kl
 lib/libmmparser.so
 lib/libmmosal.so
 lib/libDivxDrm.so
-framework/modemwarmup.jar
 
