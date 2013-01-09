@@ -25,7 +25,13 @@
 # against the traditional rules of inheritance).
 
 # inherit from msm8660-common
--include device/xiaomi/msm8660-common/BoardConfigCommon.mk
+include device/xiaomi/msm8660-common/BoardConfigCommon.mk
+
+# Wifi
+include device/xiaomi/msm8660-common/bcmdhd.mk
+
+# Bluetooth
+-include device/xiaomi/msm8660-common/bcm_hcd.mk
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := mione
@@ -44,20 +50,6 @@ TARGET_USES_ION := true
 TARGET_USES_OVERLAY := false
 TARGET_QCOM_HDMI_OUT := false
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
-
-# Wifi
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE := bcmdhd
-WIFI_BAND := 802_11_ABG
-WIFI_DRIVER_MODULE_NAME := bcmdhd
-WIFI_DRIVER_MODULE_PATH := /system/lib/modules/bcmdhd.ko
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcmdhd.bin nvram_path=/system/etc/firmware/4330nvram.txt"
-WIFI_DRIVER_FW_PATH_STA := /system/etc/firmware/fw_bcmdhd.bin
-WIFI_DRIVER_FW_PATH_AP := /system/etc/firmware/fw_bcmdhd_apsta.bin
-WIFI_DRIVER_FW_PATH_P2P := /system/etc/firmware/fw_bcmdhd_p2p.bin
-WIFI_DRIVER_FW_PATH_PARAM := /sys/module/bcmdhd/parameters/firmware_path
-WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # QCOM GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mione

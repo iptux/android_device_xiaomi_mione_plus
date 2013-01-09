@@ -101,9 +101,6 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Needed for capacitive buttons to work without toggling auto-brightness -->
-    <bool name="config_autoBrightnessButtonKeyboard">false</bool>
-	
     <integer name="config_deskDockKeepsScreenOn">1</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
 
