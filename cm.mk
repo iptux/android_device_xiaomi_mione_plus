@@ -9,6 +9,15 @@ TARGET_BOOTANIMATION_NAME := vertical-480x854
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common.mk)
 
+# old audio files
+include frameworks/base/data/sounds/OldAudio.mk
+
+# Default ringtone
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.ringtone=Ring_Digital_02.ogg \
+    ro.config.notification_sound=F1_New_SMS.ogg \
+    ro.config.alarm_alert=Alarm_Beep_03.ogg
+
 PRODUCT_PACKAGES += \
   Mms
 
