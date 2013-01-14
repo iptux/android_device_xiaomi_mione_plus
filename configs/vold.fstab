@@ -27,5 +27,5 @@
 
 # type		label	mount_point	...
 # dev_mount	label	mount_point	partition (auto or 1-based index)	dev_path	[dev_path1, ...]	mount_flags
-dev_mount sdcard /mnt/sdcard auto /devices/platform/msm_sdcc.3/mmc_host
-dev_mount udisk /mnt/udisk auto /devices/platform/msm_hsusb_host.0/usb1
+dev_mount sdcard /storage/sdcard0 auto /devices/platform/msm_sdcc.3/mmc_host
+dev_mount udisk /storage/usbdisk0 auto /devices/platform/msm_hsusb_host.0/usb1

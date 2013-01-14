@@ -10,14 +10,22 @@ import init.qcom.rc
 # most of the following are from boot.img of mioneplus_QDR68
 
 on init
-    export EXTERNAL_STORAGE /mnt/sdcard
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
 # create mountpoints
-    mkdir /mnt/sdcard 0000 system system
-    mkdir /mnt/udisk 0000 system system
+    mkdir /storage 0775 system system
+    mkdir /storage/sdcard0 0775 system system
+    mkdir /storage/sdcard1 0775 system system
+    mkdir /storage/usbdisk0 0775 system system
     mkdir /vendor/firmware 0775 system system
 
-# Backwards Compat - XXX: Going away in G*
-    symlink /mnt/sdcard /sdcard
+# for backwards compatibility
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
+    symlink /storage/sdcard1 /extSdCard
+    symlink /storage/sdcard1 /mnt/extSdCard
+    symlink /storage/usbdisk0 /usbdisk0
+    symlink /storage/usbdisk0 /mnt/usbdisk0
 
 on boot
     chown system system /sys/class/leds/flashlight/brightness
