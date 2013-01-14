@@ -41,10 +41,10 @@ etc/firmware/fw_bcmdhd_ftm.bin
 etc/firmware/nvram.txt
 
 # bluetooth
-#bin/hci_qcomm_init
-#etc/init.qcom.bt.sh
-#etc/firmware/bcm4329.hcd
-#etc/firmware/bcm4330.hcd
+bin/brcm_patchram_plus
+lib/libnv.so
+etc/firmware/bcm4329.hcd
+etc/firmware/bcm4330.hcd
 
 # QCOM Script
 # modem, sound, firmware
