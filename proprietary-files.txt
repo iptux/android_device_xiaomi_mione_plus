@@ -89,13 +89,6 @@ lib/libmmstereo.so
 bin/gpsone_daemon
 lib/libgpsone_bit_api.so
 lib/libgps.utils.so
-lib/libloc_api-rpc-qc.so
-lib/libcommondefs.so
-
-# wiperiface
-bin/wiperiface
-lib/libloc_adapter.so
-lib/libloc_eng.so
 
 # thermald
 bin/thermald
