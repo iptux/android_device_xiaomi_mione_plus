@@ -77,7 +77,6 @@ lib/libril.so
 # Camera
 bin/mm-qcamera-daemon
 bin/v4l2-qcamera-app
-lib/libmmipl.so
 lib/liboemcamera.so
 lib/libgemini.so
 lib/libmmipl.so
