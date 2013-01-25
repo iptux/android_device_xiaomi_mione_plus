@@ -65,6 +65,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/configs/mxt224_ts_input.idc:system/usr/idc/synaptics_rmi4_i2c.idc \
     device/xiaomi/mione_plus/configs/mxt224_ts_input.idc:system/usr/idc/ft5x0x.idc \
+    device/xiaomi/mione_plus/configs/mxt224_ts_input.idc:system/usr/idc/sensor00fn11.idc \
+    device/xiaomi/mione_plus/configs/mxt224_ts_input.idc:system/usr/idc/sensor00fn54.idc \
     device/xiaomi/mione_plus/configs/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
     device/xiaomi/mione_plus/configs/mxt224_ts_input.idc:system/usr/idc/mXT-touch.idc
 
