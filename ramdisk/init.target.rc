@@ -27,76 +27,90 @@
 #
 #
 
-# on emmc mount the partition containing firmware
-on emmc-fs
-#    mkdir /tombstones 0771 system system
-#    mount ext4 /dev/block/mmcblk0p16 /tombstones nosuid nodev barrier=1
-#    mkdir /tombstones/modem 0771 system system
-#    mkdir /tombstones/mdm 0771 system system
-#    mkdir /tombstones/lpass 0771 system system
+on early-init
     mkdir /firmware 0771 system system
-    wait /dev/block/mmcblk0p1
-    mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
-# make modem firmware available at /vendor/firmware/image ( /vendor symlink to /system/vendor )
-    mkdir /system/vendor/firmware/ 0755 system system
-    symlink /firmware/image /system/vendor/firmware/image
-    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
-    exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
-    write /sys/devices/i2c-0/0-0024/cyttsp_update_fw 1
-# for camera yuv to jpeg
-    mkdir /tmp 0700 system system
-    mount tmpfs tmpfs /tmp size=32M
-    chown camera camera /tmp
-    chmod 0777 /tmp
+    symlink /data/tombstones /tombstones
 
-on post-fs
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount barrier=1
+on fs
+#    mount_all fstab.msm8660
 
-# no qcks file
-#service kickstart /system/bin/qcks l
-#    oneshot
-#    disabled
+    # Keeping following partitions outside fstab file. As user may not have
+    # these partition flashed on the device. Failure to mount any partition in fstab file
+    # results in failure to launch late-start class.
+
+    mount ext4 syspart /system wait ro barrier=1
+    wait /dev/block/platform/msm_sdcc.1/by-name/userdata
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/userdata /data
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev barrier=1
+    exec /system/bin/sh /system/bin/mount_ext4.sh /dev/block/platform/msm_sdcc.1/by-name/cache /cache
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
+
+    #Setting permissons for misc partition
+    chmod 0666 /dev/block/platform/msm_sdcc.1/by-name/misc
+
+on post-fs-data
+    mkdir /data/tombstones 0771 system system
+    mkdir /tombstones/modem 0771 system system
+    mkdir /tombstones/mdm 0771 system system
+    mkdir /tombstones/lpass 0771 system system
+    chmod 0775 /data/misc
+
+on boot
+    start qcamerasvr
+
+service qcamerasvr /system/bin/mm-qcamera-daemon
+    class late_start
+    user camera
+    group camera system inet input
+
+service kickstart /system/bin/qcks l
+    oneshot
+    disabled
 
 # Start kickstart if csfb or svlte2a target
-#on property:ro.baseband=csfb
-#    wait /dev/ttyHSL1
-#    mkdir /data/qcks 0770 system system
-#    start kickstart
+on property:ro.baseband=csfb
+    wait /dev/ttyHSL1
+    mkdir /data/qcks 0770 system system
+    start kickstart
 
-#on property:ro.baseband=svlte2a
-#    wait /dev/ttyHSL1
-#    mkdir /data/qcks 0770 system system
-#    start kickstart
+on property:ro.baseband=svlte2a
+    wait /dev/ttyHSL1
+    mkdir /data/qcks 0770 system system
+    start kickstart
 
+service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
+    class late_start
+    user root
+    disabled
 
-# no dcvsd
-#service dcvsd0 /system/bin/dcvsd -c 0 -f /data/misc/dcvsd/dcvsd0.conf
-#    user root
-#    disabled
-#
-#service dcvsd1 /system/bin/dcvsd -c 1 -f /data/misc/dcvsd/dcvsd1.conf
-#    user root
-#    disabled
+service dcvsd1 /system/bin/dcvsd -c 1 -f /data/misc/dcvsd/dcvsd1.conf
+    class late_start
+    user root
+    disabled
 
-# no mpdecision
-#service mpdecision /system/bin/mpdecision --avg_comp
-#    user root
-#    disabled
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+    class late_start
+    user root
+    disabled
+
+service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
+    user system
+    group system
+    disabled
 
 service thermald /system/bin/thermald
-    class main
+    class late_start
     user root
     group root
 
-# no qseecomd
-#service qseecomd /system/bin/qseecomd
-#   class late_start 
-#   user system
-#   group system
+service qseecomd /system/bin/qseecomd
+    class late_start 
+    user system
+    group system
 
-# no qrngd
-#service qrngd /system/bin/qrngd -f
-#    user root
+service qrngd /system/bin/qrngd -f
+    class late_start
+    user root
 
 on property:ro.baseband=svlte2a
     setprop ro.config.ehrpd true
