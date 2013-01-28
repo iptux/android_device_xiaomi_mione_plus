@@ -1,0 +1,10 @@
+ Kernel Size                : 4317184 bytes
+ Kernel Base Address        : 0x40200000
+ Ramdisk Size               : 221251 bytes
+ Ramdisk Load Address       : 0x41400000
+ Second Stage Size          : 0 bytes
+ Second Stage Load Address  : 0x41100000
+ Page Size                  : 2048 bytes
+ ASCIIZ Product Name        : (None)
+
+ Command Line: "console=null androidboot.hardware=qcom"
