@@ -36,6 +36,7 @@ BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=mione
 BOARD_KERNEL_PAGE_SIZE := 2048
 TARGET_KERNEL_CONFIG := mione_plus_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
+BOARD_FORCE_RAMDISK_ADDRESS := 0x41400000
 
 # Display
 TARGET_SCREEN_WIDTH := 480
