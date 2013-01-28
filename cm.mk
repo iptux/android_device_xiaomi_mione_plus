@@ -19,9 +19,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.alarm_alert=Alarm_Beep_03.ogg
 
 PRODUCT_PACKAGES += \
-  Firewall \
   Mms
 
+#  Firewall \
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/mione_plus/mione_plus.mk)
 
