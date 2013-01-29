@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
 # common msm8660 configs
 $(call inherit-product, device/xiaomi/msm8660-common/msm8660.mk)
 
@@ -27,14 +25,6 @@ DEVICE_PACKAGE_OVERLAYS += device/xiaomi/mione_plus/overlay
 PRODUCT_PACKAGES += \
     gps.mione \
     lights.mione
-
-# NFC
-#PRODUCT_PACKAGES += \
-#    libnfc \
-#    libnfc_jni \
-#    Nfc \
-#    Tag \
-#    com.android.nfc_extras
 
 # Hostapd (Required for Wi-Fi)
 PRODUCT_PACKAGES += \

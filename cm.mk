@@ -7,7 +7,7 @@ PRODUCT_RELEASE_NAME := mione_plus
 TARGET_BOOTANIMATION_NAME := vertical-480x854
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common.mk)
+$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 
 # old audio files
 include frameworks/base/data/sounds/OldAudio.mk
@@ -21,7 +21,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
   Mms
 
-#  Firewall \
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/mione_plus/mione_plus.mk)
 
