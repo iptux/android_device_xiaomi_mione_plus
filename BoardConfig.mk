@@ -47,18 +47,28 @@ TARGET_QCOM_HDMI_OUT := false
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
 
 # Wifi
+WIFI_BAND := 802_11_ABG
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# this is new mione
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE := bcmdhd
-WIFI_BAND := 802_11_ABG
 WIFI_DRIVER_MODULE_NAME := bcmdhd
 WIFI_DRIVER_MODULE_PATH := /system/lib/modules/bcmdhd.ko
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcmdhd.bin nvram_path=/system/etc/firmware/4330nvram.txt"
 WIFI_DRIVER_FW_PATH_STA := /system/etc/firmware/fw_bcmdhd.bin
 WIFI_DRIVER_FW_PATH_AP := /system/etc/firmware/fw_bcmdhd_apsta.bin
-WIFI_DRIVER_FW_PATH_P2P := /system/etc/firmware/fw_bcmdhd_p2p.bin
 WIFI_DRIVER_FW_PATH_PARAM := /sys/module/bcmdhd/parameters/firmware_path
-WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+#this is old mione
+#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
+#BOARD_WLAN_DEVICE := bcm4329
+#WIFI_DRIVER_MODULE_NAME := bcm4329
+#WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcm4329.ko"
+#WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4329.bin"
+#WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4329_apsta.bin"
+#WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4329.bin nvram_path=/system/etc/firmware/nvram.txt"
 
 # QCOM GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mione
