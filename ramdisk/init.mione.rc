@@ -12,6 +12,7 @@ import init.qcom.rc
 on init
     export EXTERNAL_STORAGE /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1
+    export INTERNAL_STORAGE /storage/usbdisk0
 # create mountpoints
     mkdir /storage 0775 system system
     mkdir /storage/sdcard0 0775 system system
