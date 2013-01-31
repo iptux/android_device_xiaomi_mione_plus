@@ -1,0 +1,6 @@
+	char wifimodule[PROPERTY_VALUE_MAX];
+	property_get("ro.kernel.wifi_module", wifimodule, NULL);
+	ALOGE("=====QIWU===wifimodule:%s", wifimodule);
+
+	ro.kernel.wifi_module  = 4330 则为 4330 bcm
+	如果为空则为4329
