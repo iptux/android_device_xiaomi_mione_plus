@@ -181,12 +181,8 @@ lib/libDivxDrm.so
 # omx
 lib/libOmxAacDec.so
 lib/libOmxAacEnc.so
-lib/libOmxAmrEnc.so
-lib/libOmxCore.so
 lib/libOmxEvrcDec.so
 lib/libOmxEvrcEnc.so
 lib/libOmxQcelp13Dec.so
 lib/libOmxQcelp13Enc.so
-lib/libOmxVdec.so
-lib/libOmxVenc.so
 lib/libOmxWmaDec.so
