@@ -24,8 +24,7 @@ DEVICE_PACKAGE_OVERLAYS += device/xiaomi/mione_plus/overlay
 # GPS and Light
 PRODUCT_PACKAGES += \
     gps.mione \
-    lights.mione \
-        LatinIME
+    lights.mione
 
 # Hostapd (Required for Wi-Fi)
 PRODUCT_PACKAGES += \
