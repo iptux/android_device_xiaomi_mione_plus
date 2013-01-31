@@ -6,6 +6,8 @@
 # 7 => Global
 ro.telephony.default_network=7
 
+ro.cdma.factory=china
+
 # Ril
 ro.ril.oem.nosim.ecclist=911,112,120,122,110,119
 rild.libpath=/system/lib/libril-qc-qmi-1.so
