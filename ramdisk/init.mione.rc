@@ -39,7 +39,7 @@ on boot
     write /proc/sys/net/core/wmem_max  3461120
 
 # for bluetooth
-    setprop ro.kernel.wifi_module 4330
+#    setprop ro.kernel.wifi_module 4330
 
 on emmc-fs
 # mount mmc partitions
