@@ -270,6 +270,29 @@ int is_wifi_driver_loaded() {
 
 int wifi_load_driver()
 {
+
+        char s_value[PROPERTY_VALUE_MAX];
+        char m_value[PROPERTY_VALUE_MAX];
+		char c_value[PROPERTY_VALUE_MAX];
+        char *p_value;
+        property_get("ro.shendu.version", s_value, "NULL");
+        property_get("ro.modversion", m_value, "NULL");
+		property_get("ro.cm.version", c_value, "NULL");
+        if(!strcmp(m_value,"NULL") || strcmp(m_value,"ShenDu") != 0)
+            return -1;
+		if(!strcmp(c_value,"NULL") || strcmp(c_value,"ShenDu") != 0)
+            return -1;
+        if(!strcmp(s_value,"NULL")){
+            return -1;
+        }else{
+            p_value = s_value;
+            char *d = "-";
+            char *res;
+            res = strsep(&p_value,d);
+            if(strcmp(res,"ShenDu"))
+                return -1;
+        }
+	
 	char bcm_module[PROPERTY_VALUE_MAX];
 	char bcm_mod[PROPERTY_VALUE_MAX];
 	char *bcmtmp= "4330";
