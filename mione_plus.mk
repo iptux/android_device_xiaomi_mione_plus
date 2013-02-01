@@ -46,7 +46,8 @@ PRODUCT_COPY_FILES += \
 
 # wifi
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/xiaomi/mione_plus/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/xiaomi/mione_plus/prebuilt/lib/libhardware_legacy.so:system/lib/libhardware_legacy.so
 
 # Vold
 PRODUCT_COPY_FILES += \

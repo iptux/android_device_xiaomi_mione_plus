@@ -1,12 +1,8 @@
-	char wifimodule[PROPERTY_VALUE_MAX];
-	property_get("ro.kernel.wifi_module", wifimodule, NULL);
-	ALOGE("=====QIWU===wifimodule:%s", wifimodule);
-
-	ro.kernel.wifi_module  = 4330 则为 4330 bcm
-	如果为空则为4329
+ro.kernel.wifi_module  = 4330 则为 4330 bcm 如果为空则为4329
 
 wifi_module=`cat /sys/wifi_properties/wifi_module`
 case "$wifi_module" in
                "wifi_module=4330")
         setprop ro.kernel.wifi_module 4330
 esac
+
