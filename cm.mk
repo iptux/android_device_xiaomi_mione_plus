@@ -35,7 +35,7 @@ PRODUCT_MANUFACTURER := Xiaomi
 # Set build fingerprint / ID / Product Name etc.
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRODUCT_NAME=mione_plus \
-	BUILD_DISPLAY_ID=JOP40D \
-	BUILD_FINGERPRINT="Xiaomi/mione_plus/mione_plus:4.2.1/JOP40D/299849:user/release-keys" \
-	PRIVATE_BUILD_DESC="mione_plus-user 4.1.2 JOP40D 299849 release-keys"
+	BUILD_DISPLAY_ID=JOP40G \
+	BUILD_FINGERPRINT="Xiaomi/mione_plus/mione_plus:4.2.1/JOP40G/20111018:user/release-keys" \
+	PRIVATE_BUILD_DESC="mione_plus-user 4.1.2 JOP40G 20111018 release-keys"
 
