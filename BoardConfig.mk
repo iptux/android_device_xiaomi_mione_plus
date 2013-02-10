@@ -78,4 +78,5 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 # Recovery
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_CUSTOM_GRAPHICS := ../../../device/xiaomi/mione_plus/recovery/graphics.c
 
