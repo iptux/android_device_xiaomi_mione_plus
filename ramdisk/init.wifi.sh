@@ -3,7 +3,7 @@ case "$wifi_module" in
                "wifi_module=4330")
         setprop ro.kernel.wifi_module 4330
 esac
-case "$wifi_module" in
-               "wifi_module=4329")
-        setprop ro.kernel.wifi_module 4329
-esac
+#case "$wifi_module" in
+#               "wifi_module=4329")
+#        setprop ro.kernel.wifi_module 4329
+#esac
