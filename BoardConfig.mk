@@ -98,3 +98,4 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/xiaomi/mione_plus/recovery/graphics_cn.
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
 BOARD_UMS_LUNFILE :="/sys/class/android_usb/android0/f_mass_storage/lun/file"
 BOARD_HAS_DUAL_SYSTEM := true
+TARGET_RECOVERY_INITRC := device/xiaomi/mione_plus/recovery/init.rc
