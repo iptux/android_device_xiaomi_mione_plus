@@ -90,6 +90,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=y
 
+# xiaomi mione wifi config
+$(call inherit-product, device/xiaomi/mione_plus/mione_bcm43xx.mk)
+
 # dalvik tweak
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
