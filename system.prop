@@ -21,6 +21,7 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=RUIM
 DEVICE_PROVISIONED=1
+ro.vendor.extension_library=/system/lib/libqc-opt.so
 
 # Graphics
 debug.sf.hw=1
