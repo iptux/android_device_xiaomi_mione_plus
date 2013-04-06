@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Values for app process limit preference. -->
+    <string-array name="app_process_limit_values" translatable="false" >
+        <item>-1</item>
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+    </string-array>
+</resources>
