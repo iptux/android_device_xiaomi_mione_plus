@@ -37,9 +37,6 @@ on boot
     write /proc/sys/net/core/rmem_max  3461120
     write /proc/sys/net/core/wmem_max  3461120
 
-# for bluetooth
-    setprop ro.kernel.wifi_module 4330
-
 on emmc-fs
 # mount mmc partitions
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system wait rw barrier=1 noatime nodiratime

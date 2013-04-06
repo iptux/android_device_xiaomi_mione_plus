@@ -81,6 +81,20 @@ start_sensors()
 }
 
 #
+# wifi_module depends on device
+# see https://github.com/ShenduOS/android_device_xiaomi_mione-plus/commit/240bb5d870f32bd10a36372719fc833df48ad154#L2R1
+#
+wifi_module=`cat /sys/wifi_properties/wifi_module`
+case "$wifi_module" in
+    "wifi_module=4330")
+        setprop ro.kernel.wifi_module 4330
+    ;;
+    "")
+        # file not found
+    ;;
+esac
+
+#
 # Allow persistent faking of bms
 # User needs to set fake bms charge in persist.bms.fake_batt_capacity
 #
