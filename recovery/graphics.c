@@ -51,6 +51,9 @@
 
 #define NUM_BUFFERS 2
 
+/* PAGE_SIZE and PAGE_MASK come from "bionic/libc/kernel/arch-arm/asm/page.h" */
+#define PAGE_ALIGN(n)   ((n + PAGE_SIZE - 1) & PAGE_MASK)
+
 typedef struct {
     GGLSurface texture;
     unsigned cwidth;
@@ -157,7 +160,10 @@ static int get_framebuffer(GGLSurface *fb)
     fb->width = vi.xres;
     fb->height = vi.yres;
     fb->stride = fi.line_length/PIXEL_SIZE;
+    /* align to page boundary, will fix display shift problem
     fb->data = (void*) (((unsigned) bits) + vi.yres * fi.line_length);
+     */
+    fb->data = (void*) (((unsigned) bits) + PAGE_ALIGN(vi.yres * fi.line_length));
     fb->format = PIXEL_FORMAT;
     memset(fb->data, 0, vi.yres * fi.line_length);
 
