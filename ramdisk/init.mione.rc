@@ -53,6 +53,8 @@ on post-fs-data
 # support for hostapd
     mkdir /data/misc/wifi/hostapd 0777 wifi wifi
 
+# InputMethodManagerService
+    mkdir /data/system/inputmethod 0755 system system
 
 on charger
     mount ext4 syspart /system wait ro barrier=1
