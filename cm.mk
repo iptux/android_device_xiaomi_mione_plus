@@ -23,7 +23,7 @@ PRODUCT_PACKAGES += \
   Mms
 
 # Inherit device configuration
-$(call inherit-product, device/xiaomi/mione_plus/mione_plus.mk)
+$(call inherit-product, device/xiaomi/mione_plus/device_mione_plus.mk)
 
 # Setup device specific product configuration.
 PRODUCT_DEVICE := mione_plus
