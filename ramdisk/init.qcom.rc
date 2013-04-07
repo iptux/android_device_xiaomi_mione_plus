@@ -213,6 +213,7 @@ on property:ro.emmc=1
     start rmt_storage
 
 service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --baudrate 3000000 --patchram /etc/firmware/bcm4329.hcd /dev/ttyHS0
+    class late_start
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin
     disabled
