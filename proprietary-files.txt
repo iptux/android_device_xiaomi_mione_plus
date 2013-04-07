@@ -74,6 +74,11 @@ lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/libqc-opt.so
 
+# ril
+bin/rild
+lib/libril.so
+lib/libreference-ril.so
+
 # Camera
 bin/mm-qcamera-daemon
 bin/v4l2-qcamera-app
