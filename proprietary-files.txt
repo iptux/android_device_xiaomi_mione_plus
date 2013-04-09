@@ -31,8 +31,6 @@ etc/firmware/yamato_pm4.fw
 
 # wifi firmware
 etc/firmware/4330nvram.txt
-etc/firmware/bcm4329.hcd
-etc/firmware/bcm4330.hcd
 etc/firmware/fw_bcm4329.bin
 etc/firmware/fw_bcm4329_apsta.bin
 etc/firmware/fw_bcmdhd.bin
@@ -41,8 +39,10 @@ etc/firmware/fw_bcmdhd_ftm.bin
 etc/firmware/nvram.txt
 
 # bluetooth
-bin/hci_qcomm_init
-etc/init.qcom.bt.sh
+bin/brcm_patchram_plus
+lib/libnv.so
+etc/firmware/bcm4329.hcd
+etc/firmware/bcm4330.hcd
 
 # QCOM Script
 # modem, sound, firmware
