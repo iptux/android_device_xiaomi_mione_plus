@@ -108,4 +108,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 
+# xiaomi mione wifi config
+$(call inherit-product, device/xiaomi/mione_plus/mione_bcm43xx.mk)
+
 $(call inherit-product, frameworks/base/build/phone-xhdpi-1024-dalvik-heap.mk)
