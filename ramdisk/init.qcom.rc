@@ -116,8 +116,8 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet_sdio7/accept_ra 2
 #    write /sys/module/subsystem_restart/parameters/restart_level 2
 
-   # Allow write permission for rtc wakealarm
-   chmod 0666 /sys/class/rtc/rtc0/wakealarm
+    # Allow write permission for rtc wakealarm
+    chmod 0666 /sys/class/rtc/rtc0/wakealarm
 
 # import cne init file
 on post-fs
@@ -188,10 +188,10 @@ on post-fs-data
 
 # Export GPIO56 for fusion targets to enable/disable hub
 service usbhub_init /system/bin/usbhub_init
-   class late_start
-   user root
-   disabled
-   oneshot
+    class late_start
+    user root
+    disabled
+    oneshot
 
 on property:ro.board.platform=msm7630_fusion
     start usbhub_init
@@ -345,18 +345,18 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     oneshot
 
 on property:crypto.driver.load=1
-     insmod /system/lib/modules/qce.ko
-     insmod /system/lib/modules/qcedev.ko
+    insmod /system/lib/modules/qce.ko
+    insmod /system/lib/modules/qcedev.ko
 
 on property:crypto.driver.load=0
-     exec /system/bin/rmmod qcedev.ko
-     exec /system/bin/rmmod qce.ko
+    exec /system/bin/rmmod qcedev.ko
+    exec /system/bin/rmmod qce.ko
 
 service drmdiag /system/bin/drmdiagapp
     class late_start
-     user root
-     disabled
-     oneshot
+    user root
+    disabled
+    oneshot
 
 on property:drmdiag.load=1
     start drmdiag
