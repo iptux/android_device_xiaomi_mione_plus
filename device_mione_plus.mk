@@ -95,7 +95,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Kernel modules
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 PRODUCT_COPY_FILES += $(shell \
-    find device/xiaomi/mione_plus/modules -name '*.ko' \
+    find device/xiaomi/mione_plus/prebuilt -name '*.ko' \
     | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
     | tr '\n' ' ')
 endif
