@@ -80,7 +80,6 @@ lib/libreference-ril.so
 # Camera
 bin/mm-qcamera-daemon
 bin/v4l2-qcamera-app
-lib/libmmipl.so
 lib/liboemcamera.so
 lib/libgemini.so
 lib/libmmipl.so
@@ -88,23 +87,10 @@ lib/libmmjpeg.so
 lib/libmmmpo.so
 lib/libmmstereo.so
 
-# fm
-bin/fmradioserver
-lib/libfmradioplayer.so
-lib/libfmradio.so
-lib/libfmradiostackservice.so
-
 # gps
 bin/gpsone_daemon
 lib/libgpsone_bit_api.so
-#lib/libgps.utils.so
-#lib/libloc_api-rpc-qc.so
-#lib/libcommondefs.so
-
-# wiperiface
-bin/wiperiface
-lib/libloc_adapter.so
-lib/libloc_eng.so
+lib/libgps.utils.so
 
 # thermald
 bin/thermald
@@ -194,5 +180,4 @@ usr/keylayout/mione-keypad.kl
 lib/libmmparser.so
 lib/libmmosal.so
 lib/libDivxDrm.so
-framework/modemwarmup.jar
 
