@@ -25,14 +25,20 @@
 # against the traditional rules of inheritance).
 
 # inherit from msm8660-common
--include device/xiaomi/msm8660-common/BoardConfigCommon.mk
+include device/xiaomi/msm8660-common/BoardConfigCommon.mk
+
+# Wifi
+include device/xiaomi/msm8660-common/bcmdhd.mk
+
+# Bluetooth
+-include device/xiaomi/msm8660-common/bcm_hcd.mk
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := mione
 
 # Kernel
 BOARD_KERNEL_BASE := 0x40200000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=mione
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=mione kgsl.mmutype=gpummu vmalloc=400M
 BOARD_KERNEL_PAGE_SIZE := 2048
 TARGET_KERNEL_CONFIG := mione_plus_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel

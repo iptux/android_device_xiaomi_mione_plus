@@ -45,6 +45,8 @@ PRODUCT_PACKAGES += \
 # Ramdisk files
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/init.mione.rc:root/init.mione.rc \
+    device/xiaomi/mione_plus/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    device/xiaomi/mione_plus/ramdisk/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
     device/xiaomi/mione_plus/ramdisk/init.qcom.rc:root/init.qcom.rc \
     device/xiaomi/mione_plus/ramdisk/init.qcom.sh:root/init.qcom.sh \
     device/xiaomi/mione_plus/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
@@ -52,10 +54,6 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/init.target.rc:root/init.target.rc \
     device/xiaomi/mione_plus/ramdisk/ueventd.mione.rc:root/ueventd.mione.rc \
     device/xiaomi/mione_plus/ramdisk/sbin/chargeonlymode:root/sbin/chargeonlymode
-
-# wifi
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # Vold
 PRODUCT_COPY_FILES += \
