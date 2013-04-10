@@ -19,8 +19,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.alarm_alert=Alarm_Beep_03.ogg
 
 PRODUCT_PACKAGES += \
-  Firewall \
-  Mms
+    HoloSpiralWallpaper \
+    MagicSmokeWallpapers \
+    NoiseField \
+    Galaxy4 \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    PhaseBeam \
+    Firewall \
+    Mms
 
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/mione_plus/device_mione_plus.mk)
@@ -35,7 +43,5 @@ PRODUCT_MANUFACTURER := Xiaomi
 # Set build fingerprint / ID / Product Name etc.
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRODUCT_NAME=mione_plus \
-	BUILD_DISPLAY_ID=JZO54K \
-	BUILD_FINGERPRINT="Xiaomi/mione_plus/mione_plus:4.1.2/JZO54K/299849:user/release-keys" \
-	PRIVATE_BUILD_DESC="mione_plus-user 4.1.2 JZO54K 299849 release-keys" \
-	BUILD_NUMBER=299849
+	BUILD_DISPLAY_ID=JDQ39
+
