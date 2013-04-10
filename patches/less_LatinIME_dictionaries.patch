@@ -23,10 +23,18 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_pt_br.dict and /
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index 56cd33d..8d0e96d 100644
+index 56cd33d..70da8f8 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -176,7 +176,7 @@ PRODUCT_PACKAGES += \
+@@ -144,7 +144,6 @@ PRODUCT_PACKAGES += \
+     DSPManager \
+     libcyanogen-dsp \
+     audio_effects.conf \
+-    CMWallpapers \
+     Apollo \
+     CMUpdater \
+     CMFileManager
+@@ -176,7 +175,7 @@ PRODUCT_PACKAGES += \
  PRODUCT_PACKAGES += \
      rsync
  

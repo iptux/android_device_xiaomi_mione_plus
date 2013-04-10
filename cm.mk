@@ -18,6 +18,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.notification_sound=F1_New_SMS.ogg \
     ro.config.alarm_alert=Alarm_Beep_03.ogg
 
+# Live Wallpapers packages
+PRODUCT_PACKAGES += \
+    HoloSpiralWallpaper \
+    MagicSmokeWallpapers \
+    NoiseField \
+    Galaxy4 \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    PhaseBeam
+
 PRODUCT_PACKAGES += \
   Firewall \
   Mms
