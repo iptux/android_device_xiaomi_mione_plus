@@ -58,7 +58,7 @@ on post-fs-data
     mkdir /data/system/inputmethod 0755 system system
 
 on charger
-    mount ext4 syspart /system wait ro barrier=1
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system wait ro barrier=1
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
     write /sys/module/rpm_resources/enable_low_power/pxo 1
     write /sys/module/rpm_resources/enable_low_power/vdd_dig 2
@@ -77,7 +77,6 @@ on charger
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed 192000
     write /sys/devices/system/cpu/cpu1/online 0
     setprop sys.usb.config adb
-    class_start charger
 
 
 service chargeonlymode /sbin/chargeonlymode
@@ -98,9 +97,4 @@ on property:sys.mione.battlevel=high
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2000000
     start thermald
-
-
-service fmradio /system/bin/fmradioserver
-    class main
-    group bluetooth net_bt_admin
 
