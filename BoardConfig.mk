@@ -34,6 +34,7 @@ TARGET_BOOTLOADER_BOARD_NAME := mione
 BOARD_KERNEL_BASE := 0x40200000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=mione
 BOARD_KERNEL_PAGE_SIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01200000
 TARGET_KERNEL_CONFIG := mione_plus_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
 
