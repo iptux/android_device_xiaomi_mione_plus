@@ -2,6 +2,12 @@
 # system.prop for mione
 #
 
+#
+# 10 is for global in jellybean
+# com.android.internal.telephony.RILConstants.NETWORK_MODE_LTE_CMDA_EVDO_GSM_WCDMA
+# link may help: https://code.google.com/p/cm9-msm8960/issues/detail?id=39
+ro.telephony.default_network=10
+
 # Ril
 ro.ril.oem.nosim.ecclist=911,112,120,122,110,119
 persist.radio.apm_sim_not_pwdn=1
