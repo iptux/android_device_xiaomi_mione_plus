@@ -1,0 +1,14 @@
+
+project packages/apps/Phone/
+diff --git a/packages/apps/Phone/src/com/android/phone/CallNotifier.java b/packages/apps/Phone/src/com/android/phone/CallNotifier.java
+index ef99a72..bfe1e81 100755
+--- a/packages/apps/Phone/src/com/android/phone/CallNotifier.java
++++ b/packages/apps/Phone/src/com/android/phone/CallNotifier.java
+@@ -932,6 +932,7 @@ public class CallNotifier extends Handler
+         // Release the ToneGenerator used for playing SignalInfo and CallWaiting
+         if (mSignalInfoToneGenerator != null) {
+             mSignalInfoToneGenerator.release();
++            mSignalInfoToneGenerator = null;
+         }
+ 
+         // Clear ringback tone player
