@@ -34,6 +34,14 @@ on boot
     chown system system /sys/class/leds/torch-flash/brightness
     chown system system /sys/class/timed_output/vibrator/pattern
 
+    # support cpufreq policy for cpu1
+    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+
 # Assign TCP buffer thresholds to be ceiling value of technology maximums
 # Increased technology maximums should be reflected here.
     write /proc/sys/net/core/rmem_max  3461120

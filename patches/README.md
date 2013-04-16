@@ -1,6 +1,7 @@
 # patches needed to build a flashable ROM for xiaomi mione
 
 * `com.android.phone_FC_on_hang_up.patch`: see [commit][]
+* `cpu1_governor.patch`: support CPU governor setting on cpu1
 * `less_LatinIME_dictionaries.patch`: make ROM smaller
 * `less_pico_language.patch`: make ROM smaller
 * `xiaomi_mione_camera.patch`: needed by mione's camera HAL
