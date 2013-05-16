@@ -28,14 +28,6 @@ PRODUCT_PACKAGES += \
     gps.mione \
     lights.mione
 
-# NFC
-#PRODUCT_PACKAGES += \
-#    libnfc \
-#    libnfc_jni \
-#    Nfc \
-#    Tag \
-#    com.android.nfc_extras
-
 # Hostapd (Required for Wi-Fi)
 PRODUCT_PACKAGES += \
     hostapd_cli \
