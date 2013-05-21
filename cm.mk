@@ -47,6 +47,7 @@ PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRODUCT_NAME=mione_plus \
 	BUILD_DISPLAY_ID=JZO54K \
-	BUILD_FINGERPRINT="Xiaomi/mione_plus/mione_plus:4.1.2/JZO54K/299849:user/release-keys" \
-	PRIVATE_BUILD_DESC="mione_plus-user 4.1.2 JZO54K 299849 release-keys" \
-	BUILD_NUMBER=299849
+	BUILD_FINGERPRINT="Xiaomi/mione_plus/mione_plus:4.1.2/JZO54K/QDS84:userdebug/test-keys" \
+	PRIVATE_BUILD_DESC="mione_plus-userdebug 4.1.2 JZO54K QDS84 test-keys" \
+	BUILD_NUMBER=QDS84
+
