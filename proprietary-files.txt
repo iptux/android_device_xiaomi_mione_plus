@@ -28,6 +28,9 @@ lib/libOpenVG.so
 lib/libgsl.so
 lib/libsc-a2xx.so
 # related firmware
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/a225p5_pm4.fw
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
 
@@ -73,6 +76,9 @@ lib/libqdp.so
 lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/libqc-opt.so
+bin/rild
+lib/libril.so
+lib/libreference-ril.so
 
 # Camera
 bin/mm-qcamera-daemon
