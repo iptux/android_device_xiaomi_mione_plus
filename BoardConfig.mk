@@ -38,6 +38,11 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01200000
 TARGET_KERNEL_CONFIG := mione_plus_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/xiaomi/mione_plus/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
 # Display
 TARGET_SCREEN_WIDTH := 480
 TARGET_SCREEN_HEIGHT := 854
