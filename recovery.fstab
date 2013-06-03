@@ -25,14 +25,25 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# mount point	fstype		device			[device2]
+# mount point	fstype		device			                                    [device2]
 
-/boot		emmc		/dev/block/platform/msm_sdcc.1/by-name/boot
-/boot1		emmc		/dev/block/platform/msm_sdcc.1/by-name/boot1
-/cache		ext4		/dev/block/platform/msm_sdcc.1/by-name/cache
-/data		ext4		/dev/block/platform/msm_sdcc.1/by-name/userdata
-/misc		emmc		/dev/block/platform/msm_sdcc.1/by-name/misc
-/recovery	emmc		/dev/block/platform/msm_sdcc.1/by-name/recovery
-/sdcard		vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1
-/system		ext4		/dev/block/platform/msm_sdcc.1/by-name/system
-/system1	ext4		/dev/block/platform/msm_sdcc.1/by-name/system1
+/boot		    emmc		/dev/block/platform/msm_sdcc.1/by-name/boot
+/boot1		    emmc		/dev/block/platform/msm_sdcc.1/by-name/boot1
+/cache		    ext4		/dev/block/platform/msm_sdcc.1/by-name/cache
+/data		    ext4		/dev/block/platform/msm_sdcc.1/by-name/userdata     length=-16384
+/misc		    emmc		/dev/block/platform/msm_sdcc.1/by-name/misc
+/recovery	    emmc		/dev/block/platform/msm_sdcc.1/by-name/recovery
+/sdcard		    vfat		/dev/block/mmcblk1p1	                            /dev/block/mmcblk1
+/system		    ext4		/dev/block/platform/msm_sdcc.1/by-name/system
+/system1	    ext4		/dev/block/platform/msm_sdcc.1/by-name/system1
+/radio          emmc	    /dev/block/platform/msm_sdcc.1/by-name/modem
+/radio1         emmc	    /dev/block/platform/msm_sdcc.1/by-name/modem
+/sbl1	        emmc	    /dev/block/platform/msm_sdcc.1/by-name/sbl1
+/sbl2	        emmc	    /dev/block/platform/msm_sdcc.1/by-name/sbl2
+/sbl3	        emmc	    /dev/block/platform/msm_sdcc.1/by-name/sbl3
+/tz	            emmc	    /dev/block/platform/msm_sdcc.1/by-name/tz
+/rpm	        emmc	    /dev/block/platform/msm_sdcc.1/by-name/rpm
+/aboot	        emmc	    /dev/block/platform/msm_sdcc.1/by-name/aboot
+
+# /radio1         emmc	    /dev/block/platform/msm_sdcc.1/by-name/modem1
+# /data           ext4        /dev/block/platform/msm_sdcc.1/by-name/userdata     length=-16384
