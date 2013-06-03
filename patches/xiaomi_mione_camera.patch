@@ -1,0 +1,34 @@
+
+project frameworks/av/
+diff --git a/frameworks/av/camera/CameraParameters.cpp b/frameworks/av/camera/CameraParameters.cpp
+index 5bdd961..062abd5 100644
+--- a/frameworks/av/camera/CameraParameters.cpp
++++ b/frameworks/av/camera/CameraParameters.cpp
+@@ -152,6 +152,11 @@ const char CameraParameters::KEY_REDEYE_REDUCTION[] = "redeye-reduction";
+ const char CameraParameters::KEY_SUPPORTED_REDEYE_REDUCTION[] = "redeye-reduction-values";
+ const char CameraParameters::KEY_HIGH_DYNAMIC_RANGE_IMAGING[] = "hdr";
+ const char CameraParameters::KEY_SUPPORTED_HDR_IMAGING_MODES[] = "hdr-values";
++
++// the fxxking xiaomi stuff
++const char CameraParameters::KEY_GAMMA[] = "gamma";
++const char CameraParameters::KEY_CONVERSION[] = "conversion";
++const char CameraParameters::KEY_MATRIX[] = "matrix";
+ #endif
+ const char CameraParameters::KEY_VIDEO_SIZE[] = "video-size";
+ const char CameraParameters::KEY_SUPPORTED_VIDEO_SIZES[] = "video-size-values";
+diff --git a/frameworks/av/include/camera/CameraParameters.h b/frameworks/av/include/camera/CameraParameters.h
+index 32b99da..69d5a50 100644
+--- a/frameworks/av/include/camera/CameraParameters.h
++++ b/frameworks/av/include/camera/CameraParameters.h
+@@ -719,6 +719,11 @@ public:
+     //Redeye Reduction
+     static const char KEY_REDEYE_REDUCTION[];
+     static const char KEY_SUPPORTED_REDEYE_REDUCTION[];
++
++    // the fxxking xiaomi stuff
++    static const char KEY_GAMMA[];
++    static const char KEY_CONVERSION[];
++    static const char KEY_MATRIX[];
+ #endif
+ 
+     // Values for white balance settings.
