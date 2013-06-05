@@ -1,7 +1,7 @@
 
 project frameworks/av/
 diff --git a/frameworks/av/camera/CameraParameters.cpp b/frameworks/av/camera/CameraParameters.cpp
-index b0ba26c..110e5c3 100644
+index 0551cf9..26b5bed 100644
 --- a/frameworks/av/camera/CameraParameters.cpp
 +++ b/frameworks/av/camera/CameraParameters.cpp
 @@ -146,6 +146,11 @@ const char CameraParameters::KEY_REDEYE_REDUCTION[] = "redeye-reduction";
@@ -17,7 +17,7 @@ index b0ba26c..110e5c3 100644
  #ifdef SAMSUNG_CAMERA_HARDWARE
  const char CameraParameters::KEY_ANTI_SHAKE_MODE[] = "anti-shake";
 diff --git a/frameworks/av/include/camera/CameraParameters.h b/frameworks/av/include/camera/CameraParameters.h
-index 7ec8a73..1f2010a 100644
+index 4d1a39a..2690d9b 100644
 --- a/frameworks/av/include/camera/CameraParameters.h
 +++ b/frameworks/av/include/camera/CameraParameters.h
 @@ -665,6 +665,11 @@ public:

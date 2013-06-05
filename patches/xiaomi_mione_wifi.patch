@@ -40,7 +40,7 @@ index 3b89a17..fa30d1b 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 405d2ec..10a3144 100644
+index 656659f..2fca144 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -83,6 +83,16 @@ static char primary_iface[PROPERTY_VALUE_MAX];
@@ -141,9 +141,9 @@ index 405d2ec..10a3144 100644
  #endif
  
      if (!property_get(DRIVER_PROP_NAME, driver_status, NULL)
-@@ -269,6 +335,10 @@ int wifi_load_driver()
-     char* type = get_samsung_wifi_type();
- #endif
+@@ -271,6 +337,10 @@ int wifi_load_driver()
+ 
+     property_set(DRIVER_PROP_NAME, "loading");
  
 +#ifdef XIAOMI_MIONE_WIFI
 +    check_wifi_module();
@@ -152,7 +152,7 @@ index 405d2ec..10a3144 100644
  #ifdef WIFI_EXT_MODULE_PATH
      if (insmod(EXT_MODULE_PATH, EXT_MODULE_ARG) < 0)
          return -1;
-@@ -321,6 +391,12 @@ int wifi_load_driver()
+@@ -323,6 +393,12 @@ int wifi_load_driver()
  
  int wifi_unload_driver()
  {
@@ -165,7 +165,7 @@ index 405d2ec..10a3144 100644
      usleep(200000); /* allow to finish interface down */
  #ifdef WIFI_DRIVER_MODULE_PATH
      if (rmmod(DRIVER_MODULE_NAME) == 0) {
-@@ -567,6 +643,12 @@ int wifi_start_supplicant(int p2p_supported)
+@@ -569,6 +645,12 @@ int wifi_start_supplicant(int p2p_supported)
      unsigned serial = 0, i;
  #endif
  
@@ -178,7 +178,7 @@ index 405d2ec..10a3144 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -920,11 +1002,23 @@ const char *wifi_get_fw_path(int fw_type)
+@@ -922,11 +1004,23 @@ const char *wifi_get_fw_path(int fw_type)
  {
      switch (fw_type) {
      case WIFI_GET_FW_PATH_STA:
