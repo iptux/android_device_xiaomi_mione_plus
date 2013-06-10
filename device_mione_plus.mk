@@ -28,6 +28,10 @@ PRODUCT_PACKAGES += \
     gps.mione \
     lights.mione
 
+# gps.conf
+PRODUCT_COPY_FILES += \
+    device/xiaomi/mione_plus/configs/gps.conf:system/etc/gps.conf
+
 # Hostapd (Required for Wi-Fi)
 PRODUCT_PACKAGES += \
     hostapd_cli \
