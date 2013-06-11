@@ -26,6 +26,7 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 telephony.lteOnCdmaDevice=0
+ro.telephony.ril.v3=signalstrength
 DEVICE_PROVISIONED=1
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 persist.cne.UseCne=false
