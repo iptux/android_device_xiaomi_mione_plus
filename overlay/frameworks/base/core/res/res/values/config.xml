@@ -123,7 +123,7 @@
 
     <!-- tetherable USB interfaces. -->
     <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>"usb0"</item>
+        <item>"rndis\\d"</item>
     </string-array>
 
     <!-- tetherable Wifi interfaces. -->
