@@ -81,14 +81,8 @@
         <item>0</item>
     </integer-array>
 
-    <integer name="config_deskDockKeepsScreenOn">1</integer>
-    <integer name="config_carDockKeepsScreenOn">1</integer>
-
     <!-- Default color for notification LED is green -->
     <color name="config_defaultNotificationColor">#ff00ff00</color>
-
-    <!-- Default blink frequency for notification LED is 2 seconds. -->
-    <integer name="config_defaultNotificationLedOff">2000</integer>
 
     <!-- This string array should be overridden by the device to present a list of
          network attributes.  This is used by the connectivity manager to decide
@@ -147,10 +141,6 @@
         <item>14</item>
     </integer-array>
 
-    <!-- Component name of the default wallpaper.
-         This will be ImageWallpaper if not specified -->
-    <string name="default_wallpaper_component">@null</string>
-
     <!-- Enable use of power animations -->
     <bool name="config_animateScreenLights">false</bool>
 
@@ -178,10 +168,6 @@
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
-
-    <!-- Boolean indicating if restoring network selection should be skipped -->
-    <!-- The restoring is handled by modem if it is true -->
-<!--    <bool translatable="false" name="skip_restoring_network_selection">true</bool>-->
 
     <!-- Hardware 'face' keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
