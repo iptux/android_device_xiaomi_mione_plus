@@ -44,8 +44,6 @@ etc/firmware/fw_bcmdhd_ftm.bin
 etc/firmware/nvram.txt
 
 # bluetooth
-bin/brcm_patchram_plus
-lib/libnv.so
 etc/firmware/bcm4329.hcd
 etc/firmware/bcm4330.hcd
 
@@ -112,7 +110,6 @@ lib/libmm-abl-oem.so
 lib/libmm-abl.so
 
 # misc service
-bin/ATFWD-daemon
 bin/bridgemgrd
 bin/dun-server
 bin/port-bridge
