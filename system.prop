@@ -78,3 +78,7 @@ persist.timed.enable=true
 # start adb as root on boot
 service.adb.root=1
 
+# Improves UI responsiveness when copying large amount of data
+# http://review.cyanogenmod.org/8875
+ro.vold.umsdirtyratio=50
+
