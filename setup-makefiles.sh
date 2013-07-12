@@ -63,9 +63,6 @@ done
 DEVICE_PACKAGE_OVERLAYS := vendor/$VENDOR/$DEVICE/overlay
 
 \$(call inherit-product, vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk)
-
-\$(shell cp $OUTDIR/proprietary/lib/libnv.so \$(OUT)/obj/lib/)
-\$(shell cp $OUTDIR/proprietary/lib/liboncrpc.so \$(OUT)/obj/lib/)
 EOF
 
 (cat << EOF) > ../../../$OUTDIR/BoardConfigVendor.mk
