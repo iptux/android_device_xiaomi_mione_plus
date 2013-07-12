@@ -40,6 +40,12 @@ PRODUCT_COPY_FILES += \
 #    Tag \
 #    com.android.nfc_extras
 
+# mac support for mione_plus
+# credit: huangqiwu
+# https://github.com/mirom/android_device_xiaomi_mione_plus/commit/cf62e83ee96d90f0735c56b85fb8e252574c644d
+PRODUCT_PACKAGES += \
+    libreadmac
+
 # Hostapd (Required for Wi-Fi)
 PRODUCT_PACKAGES += \
     hostapd_cli \
