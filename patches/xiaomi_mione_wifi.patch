@@ -1,7 +1,7 @@
 
 project hardware/libhardware_legacy/
 diff --git a/hardware/libhardware_legacy/wifi/Android.mk b/hardware/libhardware_legacy/wifi/Android.mk
-index 3b89a17..fa30d1b 100644
+index 3b89a17..8db0ab8 100644
 --- a/hardware/libhardware_legacy/wifi/Android.mk
 +++ b/hardware/libhardware_legacy/wifi/Android.mk
 @@ -3,6 +3,25 @@
@@ -40,7 +40,7 @@ index 3b89a17..fa30d1b 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 656659f..2fca144 100644
+index 656659f..c9dc959 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -83,6 +83,16 @@ static char primary_iface[PROPERTY_VALUE_MAX];
@@ -178,8 +178,14 @@ index 656659f..2fca144 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -922,11 +1004,23 @@ const char *wifi_get_fw_path(int fw_type)
+@@ -920,13 +1002,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
+ 
+ const char *wifi_get_fw_path(int fw_type)
  {
++#ifdef XIAOMI_MIONE_WIFI
++    check_wifi_module();
++#endif
++
      switch (fw_type) {
      case WIFI_GET_FW_PATH_STA:
 +#ifndef XIAOMI_MIONE_WIFI
