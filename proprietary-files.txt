@@ -44,6 +44,7 @@ etc/firmware/fw_bcmdhd_ftm.bin
 etc/firmware/nvram.txt
 
 # bluetooth
+lib/libnv.so
 etc/firmware/bcm4329.hcd
 etc/firmware/bcm4330.hcd
 
