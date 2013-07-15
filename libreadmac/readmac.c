@@ -9,11 +9,12 @@
 #define LOG_TAG "libreadmac"
 #include "cutils/log.h"
 
+#define MAC_SIZE 6
+
 /* temp until they appear in a header file somewhere */
 extern void oncrpc_task_start(void);
 extern void oncrpc_init(void);
 extern int nv_null(void);
-static int nv_available;
 
 
 typedef union {
@@ -41,11 +42,13 @@ nv_stat_enum_type nv_cmd_remote (
 );
 
 
-const unsigned char *read_mac()
+void read_mac(unsigned char mac[MAC_SIZE])
 {
-	static nv_item_type my_nv_item;
-	static nv_stat_enum_type cmd_result;
+	nv_item_type my_nv_item = {{0}};
+	nv_stat_enum_type cmd_result;
+	int nv_available;
 	unsigned char *x = NULL;
+	int i, j;
 
 	oncrpc_init();
 	oncrpc_task_start();
@@ -55,7 +58,9 @@ const unsigned char *read_mac()
 	x = my_nv_item.oem_item_8;
 	ALOGI("WLAN Address: %02x:%02x:%02x:%02x:%02x:%02x\n", x[20],x[16],x[12],x[8],x[4],x[0]);
 
-	return my_nv_item.oem_item_8;
+	for (i = 0, j = 20; i < MAC_SIZE; i++, j -= 4) {
+		mac[i] = x[j];
+	}
 }
 
 
@@ -63,15 +68,15 @@ const unsigned char *read_mac()
  *
  * hardware/libhardware_legacy/wifi/wifi.c
  *
- * extern char *read_mac();
+ * extern void read_mac(unsigned char mac[6]);
  * static char mac_buf[150];
  *
- * char *x;
+ * unsigned char x[6];
  * if (!strcmp(mac_buf,"")) {
- *     x=read_mac();
+ *     read_mac(x);
  * 
  *     // We must use the following or WI-FI cannot be turned on
- *     sprintf(mac_buf,"%s mac=0x%02x,0x%02x,0x%02x,0x%02x,0x%02x,0x%02x", DRIVER_MODULE_ARG, x[20],x[16],x[12],x[8],x[4],x[0]);
+ *     sprintf(mac_buf,"%s mac=0x%02x,0x%02x,0x%02x,0x%02x,0x%02x,0x%02x", DRIVER_MODULE_ARG, x[0],x[1],x[2],x[3],x[4],x[5]);
  * }
  * ALOGI("Got WLAN MAC Address: %s\n",mac_buf);
  *
