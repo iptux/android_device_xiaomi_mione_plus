@@ -40,7 +40,7 @@ index 51afe3a..6c21e82 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 90b7632..1b256a7 100644
+index 90b7632..372ad2f 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -106,6 +106,16 @@ struct genl_family *nl80211;
@@ -179,8 +179,14 @@ index 90b7632..1b256a7 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -1187,11 +1268,23 @@ const char *wifi_get_fw_path(int fw_type)
+@@ -1185,13 +1266,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
+ 
+ const char *wifi_get_fw_path(int fw_type)
  {
++#ifdef XIAOMI_MIONE_WIFI
++    check_wifi_module();
++#endif
++
      switch (fw_type) {
      case WIFI_GET_FW_PATH_STA:
 +#ifndef XIAOMI_MIONE_WIFI
