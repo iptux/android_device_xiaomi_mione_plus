@@ -42,7 +42,7 @@ index 51afe3a..8d3e563 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 90b7632..e6db8cf 100644
+index 90b7632..750a685 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -106,6 +106,16 @@ struct genl_family *nl80211;
@@ -62,7 +62,7 @@ index 90b7632..e6db8cf 100644
  #ifdef WIFI_EXT_MODULE_NAME
  static const char EXT_MODULE_NAME[] = WIFI_EXT_MODULE_NAME;
  #ifdef WIFI_EXT_MODULE_ARG
-@@ -124,11 +134,22 @@ static const char EXT_MODULE_PATH[] = WIFI_EXT_MODULE_PATH;
+@@ -124,11 +134,23 @@ static const char EXT_MODULE_PATH[] = WIFI_EXT_MODULE_PATH;
  
  static const char IFACE_DIR[]           = "/data/system/wpa_supplicant";
  #ifdef WIFI_DRIVER_MODULE_PATH
@@ -71,7 +71,7 @@ index 90b7632..e6db8cf 100644
  static const char DRIVER_MODULE_TAG[]   = WIFI_DRIVER_MODULE_NAME " ";
  static const char DRIVER_MODULE_PATH[]  = WIFI_DRIVER_MODULE_PATH;
  static const char DRIVER_MODULE_ARG[]   = WIFI_DRIVER_MODULE_ARG;
--static const char DRIVER_MODULE_AP_ARG[] = WIFI_DRIVER_MODULE_AP_ARG;
+ static const char DRIVER_MODULE_AP_ARG[] = WIFI_DRIVER_MODULE_AP_ARG;
 +#else
 +/* WIFI_DRIVER_MODULE_ARG_DHD is longer than WIFI_DRIVER_MODULE_ARG */
 +static char DRIVER_MODULE_NAME[]  = WIFI_DRIVER_MODULE_NAME;
@@ -86,15 +86,15 @@ index 90b7632..e6db8cf 100644
  #endif
  static const char FIRMWARE_LOADER[]     = WIFI_FIRMWARE_LOADER;
  static const char DRIVER_PROP_NAME[]    = "wlan.driver.status";
-@@ -153,6 +174,52 @@ static char supplicant_name[PROPERTY_VALUE_MAX];
+@@ -153,6 +175,52 @@ static char supplicant_name[PROPERTY_VALUE_MAX];
  /* Is either SUPP_PROP_NAME or P2P_PROP_NAME */
  static char supplicant_prop_name[PROPERTY_KEY_MAX];
  
 +#ifdef WIFI_DRIVER_MODULE_PATH
 +#ifdef XIAOMI_MIONE_WIFI
-+extern void read_mac(char mac[6]);
++extern const unsigned char *read_mac();
 +static char module_arg_buf[192];
-+static char xiaomi_wifi_mac[6];
++static const unsigned char * xiaomi_wifi_mac = NULL;
 +static int is_wifi_module_4330 = 0xff;
 +
 +static void check_wifi_module (void)
@@ -105,7 +105,7 @@ index 90b7632..e6db8cf 100644
 +
 +    if (0xff == is_wifi_module_4330) {
 +        // read the mac just once
-+        read_mac(xiaomi_wifi_mac);
++        xiaomi_wifi_mac = read_mac();
 +
 +        fd = open(path, O_RDONLY);
 +        if (fd < 0) {
@@ -139,7 +139,7 @@ index 90b7632..e6db8cf 100644
  static int is_primary_interface(const char *ifname)
  {
      //Treat NULL as primary interface to allow control
-@@ -251,6 +318,10 @@ int is_wifi_driver_loaded() {
+@@ -251,6 +319,10 @@ int is_wifi_driver_loaded() {
  #ifdef WIFI_DRIVER_MODULE_PATH
      FILE *proc;
      char line[sizeof(DRIVER_MODULE_TAG)+10];
@@ -150,7 +150,7 @@ index 90b7632..e6db8cf 100644
  #endif
  
      if (!property_get(DRIVER_PROP_NAME, driver_status, NULL)
-@@ -303,14 +374,30 @@ int wifi_load_driver()
+@@ -303,14 +375,30 @@ int wifi_load_driver()
  
      property_set(DRIVER_PROP_NAME, "loading");
  
@@ -166,9 +166,9 @@ index 90b7632..e6db8cf 100644
  
 +#ifdef XIAOMI_MIONE_WIFI
 +    module_arg_buf[0] = '\0';
-+    if (xiaomi_wifi_mac[0] != 0 || xiaomi_wifi_mac[1] != 0) {
-+        char *x = xiaomi_wifi_mac;
-+        sprintf(module_arg_buf, "%s mac=0x%02x,0x%02x,0x%02x,0x%02x,0x%02x,0x%02x", DRIVER_MODULE_ARG, x[0], x[1], x[2], x[3], x[4], x[5]);
++    if (xiaomi_wifi_mac[20] != 0 || xiaomi_wifi_mac[16] != 0) {
++        const unsigned char *x = xiaomi_wifi_mac;
++        sprintf(module_arg_buf, "%s mac=0x%02x,0x%02x,0x%02x,0x%02x,0x%02x,0x%02x", DRIVER_MODULE_ARG, x[20], x[16], x[12], x[8], x[4], x[0]);
 +    } else {
 +        sprintf(module_arg_buf, "%s", DRIVER_MODULE_ARG);
 +    }
@@ -181,7 +181,7 @@ index 90b7632..e6db8cf 100644
  
  #ifdef WIFI_EXT_MODULE_NAME
          rmmod(EXT_MODULE_NAME);
-@@ -350,6 +437,12 @@ int wifi_load_driver()
+@@ -350,6 +438,12 @@ int wifi_load_driver()
  
  int wifi_unload_driver()
  {
@@ -194,7 +194,7 @@ index 90b7632..e6db8cf 100644
      usleep(200000); /* allow to finish interface down */
  #ifdef WIFI_DRIVER_MODULE_PATH
      if (rmmod(DRIVER_MODULE_NAME) == 0) {
-@@ -822,6 +915,12 @@ int wifi_start_supplicant(int p2p_supported)
+@@ -822,6 +916,12 @@ int wifi_start_supplicant(int p2p_supported)
      unsigned serial = 0, i;
  #endif
  
@@ -207,7 +207,7 @@ index 90b7632..e6db8cf 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -1185,13 +1284,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
+@@ -1185,13 +1285,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
  
  const char *wifi_get_fw_path(int fw_type)
  {
