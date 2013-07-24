@@ -5,6 +5,7 @@
 * `less_pico_language.patch`: make ROM smaller
 * `xiaomi_mione_camera.patch`: needed by mione's camera HAL
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
+* `cm-10.1_softap.patch`: use softap in cm-10.1
 
 
 apply patches
