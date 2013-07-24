@@ -27,10 +27,6 @@ WIFI_DRIVER_MODULE_ARG_DHD  := "firmware_path=/system/etc/firmware/fw_bcmdhd.bin
 WIFI_DRIVER_FW_PATH_STA_DHD := "/system/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP_DHD  := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
 
-# WEXT driver don't support HOSTAP, but then the `Wi-Fi hotspot' option can be turn on and off
-BOARD_HOSTAPD_DRIVER := WEXT
-BOARD_HOSTAPD_DRIVER_NAME := wext
-
 # flag for xiaomi
 BOARD_USE_XIAOMI_MIONE_WIFI := true
 
