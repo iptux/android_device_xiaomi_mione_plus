@@ -1,7 +1,7 @@
 
 project frameworks/av/
 diff --git a/frameworks/av/camera/CameraParameters.cpp b/frameworks/av/camera/CameraParameters.cpp
-index 5bdd961..062abd5 100644
+index 6320357..076ba06 100644
 --- a/frameworks/av/camera/CameraParameters.cpp
 +++ b/frameworks/av/camera/CameraParameters.cpp
 @@ -152,6 +152,11 @@ const char CameraParameters::KEY_REDEYE_REDUCTION[] = "redeye-reduction";
@@ -17,18 +17,18 @@ index 5bdd961..062abd5 100644
  const char CameraParameters::KEY_VIDEO_SIZE[] = "video-size";
  const char CameraParameters::KEY_SUPPORTED_VIDEO_SIZES[] = "video-size-values";
 diff --git a/frameworks/av/include/camera/CameraParameters.h b/frameworks/av/include/camera/CameraParameters.h
-index 32b99da..69d5a50 100644
+index 696d5d2..e8a2db0 100644
 --- a/frameworks/av/include/camera/CameraParameters.h
 +++ b/frameworks/av/include/camera/CameraParameters.h
-@@ -719,6 +719,11 @@ public:
-     //Redeye Reduction
-     static const char KEY_REDEYE_REDUCTION[];
-     static const char KEY_SUPPORTED_REDEYE_REDUCTION[];
+@@ -635,6 +635,11 @@ public:
+     static const char KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES[];
+     static const char KEY_HIGH_DYNAMIC_RANGE_IMAGING[];
+     static const char KEY_SUPPORTED_HDR_IMAGING_MODES[];
 +
 +    // the fxxking xiaomi stuff
 +    static const char KEY_GAMMA[];
 +    static const char KEY_CONVERSION[];
 +    static const char KEY_MATRIX[];
  #endif
- 
-     // Values for white balance settings.
+     // Returns true if video stabilization is supported. That is, applications
+     // can set KEY_VIDEO_STABILIZATION to true and have a stabilized preview
