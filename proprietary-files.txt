@@ -22,7 +22,7 @@ lib/egl/libGLESv2_adreno200.so
 lib/egl/libGLESv2S3D_adreno200.so
 #lib/egl/libq3dtools_adreno200.so
 lib/libC2D2.so
-#lib/libc2d2_z180.so
+lib/libc2d2_z180.so
 lib/libOpenVG.so
 lib/libgsl.so
 lib/libsc-a2xx.so
@@ -186,13 +186,10 @@ lib/libchromatix_imx132_preview.so
 lib/libchromatix_imx132_zsl.so
 lib/libchromatix_mt9e0132_default_video.so
 lib/libchromatix_mt9e0132_preview.so
-lib/libchromatix_mt9e0132_video_hfr.so
 lib/libchromatix_mt9e0133_default_video.so
 lib/libchromatix_mt9e0133_preview.so
-lib/libchromatix_mt9e0133_video_hfr.so
 lib/libchromatix_mt9e0134_default_video.so
 lib/libchromatix_mt9e0134_preview.so
-lib/libchromatix_mt9e0134_video_hfr.so
 lib/libchromatix_mt9e013_default_video.so
 lib/libchromatix_mt9e013_preview.so
 lib/libchromatix_mt9e013_video_hfr.so
@@ -228,6 +225,7 @@ usr/keylayout/8660_handset.kl
 usr/keylayout/cyttsp-i2c.kl
 usr/keylayout/ffa-keypad.kl
 usr/keylayout/fluid-keypad.kl
+usr/keylayout/mione-keypad.kl
 
 # more
 lib/libmmparser.so
