@@ -92,6 +92,7 @@ bin/mm-qcamera-daemon
 bin/v4l2-qcamera-app
 lib/liboemcamera.so
 lib/libgemini.so
+lib/libmmipl.so
 lib/libmmjpeg.so
 lib/libmmmpo.so
 lib/libmmstereo.so
@@ -99,7 +100,13 @@ lib/libmmmpod.so
 lib/libimage-omx-common.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-jpeg-dec-omx-comp.so
+lib/libmmcamera_faceproc.so
+lib/libmmcamera_frameproc.so
+lib/libmmcamera_hdr_lib.so
+lib/libmmcamera_image_stab.so
 lib/libmmcamera_interface2.so
+lib/libmmcamera_statsproc31.so
+lib/libmmcamera_wavelet_lib.so
 lib/libmmstillomx.so
 
 # gps
