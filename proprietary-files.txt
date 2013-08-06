@@ -27,6 +27,9 @@ lib/libOpenVG.so
 lib/libgsl.so
 lib/libsc-a2xx.so
 # related firmware
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/a225p5_pm4.fw
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
 
@@ -45,12 +48,6 @@ vendor/firmware/fw_bcmdhd_apsta.bin
 vendor/firmware/fw_bcmdhd_p2p.bin
 
 # bluetooth
-bin/bluetoothd
-lib/libbluetoothd.so
-lib/libglib.so
-lib/libbluetooth.so
-lib/libbtio.so
-bin/brcm_patchram_plus
 lib/libnv.so
 etc/firmware/bcm4329.hcd
 etc/firmware/bcm4330.hcd
@@ -84,6 +81,9 @@ lib/libqdp.so
 lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/libqc-opt.so
+bin/rild
+lib/libril.so
+lib/libreference-ril.so
 
 # Camera
 bin/mm-qcamera-daemon
@@ -145,7 +145,6 @@ bin/dun-server
 lib/liballjoyn.so
 
 # misc service
-bin/ATFWD-daemon
 bin/bridgemgrd
 bin/ds_fmc_appd
 bin/qcks

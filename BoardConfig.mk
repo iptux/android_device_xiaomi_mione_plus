@@ -40,16 +40,19 @@ TARGET_BOOTLOADER_BOARD_NAME := mione
 BOARD_KERNEL_BASE := 0x40200000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=mione kgsl.mmutype=gpummu vmalloc=400M
 BOARD_KERNEL_PAGE_SIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01200000
 TARGET_KERNEL_CONFIG := mione_plus_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/xiaomi/mione_plus/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUEDROID_VENDOR_CONF := device/xiaomi/mione_plus/bluetooth/vnd_mione_plus.txt
 
 # Display
 TARGET_SCREEN_WIDTH := 480
 TARGET_SCREEN_HEIGHT := 854
-TARGET_USES_ION := true
-TARGET_USES_OVERLAY := false
-TARGET_QCOM_HDMI_OUT := false
-TARGET_QCOM_HDMI_RESOLUTION_AUTO := false
 
 # RIL
 BOARD_USES_HC_RADIO := true

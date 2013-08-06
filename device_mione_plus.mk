@@ -28,13 +28,15 @@ PRODUCT_PACKAGES += \
     gps.mione \
     lights.mione
 
-# NFC
-#PRODUCT_PACKAGES += \
-#    libnfc \
-#    libnfc_jni \
-#    Nfc \
-#    Tag \
-#    com.android.nfc_extras
+# gps.conf
+PRODUCT_COPY_FILES += \
+    device/xiaomi/mione_plus/configs/gps.conf:system/etc/gps.conf
+
+# mac support for mione_plus
+# credit: huangqiwu
+# https://github.com/mirom/android_device_xiaomi_mione_plus/commit/cf62e83ee96d90f0735c56b85fb8e252574c644d
+PRODUCT_PACKAGES += \
+    libreadmac
 
 # Hostapd (Required for Wi-Fi)
 PRODUCT_PACKAGES += \

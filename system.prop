@@ -22,6 +22,7 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 telephony.lteOnCdmaDevice=0
+ro.telephony.ril.v3=signalstrength
 DEVICE_PROVISIONED=1
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 
@@ -71,4 +72,8 @@ persist.timed.enable=true
 
 # start adb as root on boot
 service.adb.root=1
+
+# Improves UI responsiveness when copying large amount of data
+# http://review.cyanogenmod.org/8875
+ro.vold.umsdirtyratio=50
 
