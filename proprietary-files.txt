@@ -46,6 +46,8 @@ vendor/firmware/fw_bcm4329_apsta.bin
 vendor/firmware/fw_bcmdhd.bin
 vendor/firmware/fw_bcmdhd_apsta.bin
 vendor/firmware/fw_bcmdhd_p2p.bin
+etc/wifi/bcmdhd.cal
+etc/wifi/nvram.txt
 
 # bluetooth
 lib/libnv.so
