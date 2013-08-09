@@ -81,7 +81,7 @@ service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
     group system
     disabled
 
-service thermald /system/bin/thermald
+service thermald /system/bin/thermald --norestorebrightness
     class late_start
     user root
     group root
