@@ -83,7 +83,7 @@ on post-fs
 #    user root
 #    disabled
 
-service thermald /system/bin/thermald
+service thermald /system/bin/thermald --norestorebrightness
     class main
     user root
     group root
