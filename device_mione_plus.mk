@@ -92,6 +92,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=y
 
+# we don't have selinux now
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.selinux=0
+
 # xiaomi mione wifi config
 $(call inherit-product, device/xiaomi/mione_plus/mione_bcm43xx.mk)
 
