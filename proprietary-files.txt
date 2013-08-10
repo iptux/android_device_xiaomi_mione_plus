@@ -71,6 +71,7 @@ lib/libidl.so
 lib/libqcci_legacy.so
 lib/libqmi.so
 lib/libqmiservices.so
+lib/libqmi_client_qmux.so
 
 # netmgr
 bin/netmgrd
@@ -97,6 +98,9 @@ lib/libmmjpeg.so
 lib/libmmmpo.so
 lib/libmmstereo.so
 lib/libmmmpod.so
+lib/libmmrtpdecoder.so
+lib/libmmjps.so
+lib/libmm-color-convertor.so
 lib/libimage-omx-common.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-jpeg-dec-omx-comp.so
@@ -159,6 +163,7 @@ bin/ds_fmc_appd
 bin/qcks
 bin/qmuxd
 bin/qosmgr
+etc/qosmgr_rules.xml
 #bin/qrngd
 bin/rmt_storage
 bin/usbhub
