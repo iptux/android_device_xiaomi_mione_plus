@@ -5,6 +5,7 @@
 * `less_pico_language.patch`: make ROM smaller
 * `xiaomi_mione_camera.patch`: needed by mione's camera HAL
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
+* `wext_combo_scan.patch`: use combo scan for wext wifi driver
 * `cm-10.1_softap.patch`: use softap in cm-10.1
   ,
   this patch revert commit https://github.com/CyanogenMod/android_system_netd/commit/7e9eb7b48345af69283afa7ca58d3be0a329931b
