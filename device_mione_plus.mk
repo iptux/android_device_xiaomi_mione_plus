@@ -60,10 +60,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-# Vold
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/configs/vold.fstab:system/etc/vold.fstab
-
 # Input device config
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/configs/mxt224_ts_input.idc:system/usr/idc/synaptics_rmi4_i2c.idc \
