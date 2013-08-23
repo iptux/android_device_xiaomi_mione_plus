@@ -55,15 +55,12 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
     device/xiaomi/mione_plus/ramdisk/init.target.rc:root/init.target.rc \
     device/xiaomi/mione_plus/ramdisk/ueventd.mione.rc:root/ueventd.mione.rc \
+    device/xiaomi/mione_plus/ramdisk/fstab.mione:root/fstab.mione \
     device/xiaomi/mione_plus/ramdisk/sbin/chargeonlymode:root/sbin/chargeonlymode
 
 # wifi
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
-
-# Vold
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mione_plus/configs/vold.fstab:system/etc/vold.fstab
 
 # Input device config
 PRODUCT_COPY_FILES += \
