@@ -53,6 +53,7 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
     device/xiaomi/mione_plus/ramdisk/init.target.rc:root/init.target.rc \
     device/xiaomi/mione_plus/ramdisk/ueventd.mione.rc:root/ueventd.mione.rc \
+    device/xiaomi/mione_plus/ramdisk/fstab.mione:root/fstab.mione \
     device/xiaomi/mione_plus/ramdisk/sbin/chargeonlymode:root/sbin/chargeonlymode
 
 # wifi
