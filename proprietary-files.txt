@@ -123,13 +123,12 @@ bin/thermald
 lib/libthermal_mitigation_fusion.so
 lib/libthermal_mitigation.so
 
-# cnd depends on libcneqmiutils.so, but it don't exist
-## cnd service
-#bin/cnd
-#lib/libcnefeatureconfig.so
-#lib/libcneqmiutils.so
-#lib/libcneutils.so
-#lib/libxml.so
+# cnd service
+bin/cnd
+lib/libcnefeatureconfig.so
+lib/libcneqmiutils.so
+lib/libcneutils.so
+lib/libxml.so
 
 # mm-pp-daemon
 bin/mm-pp-daemon
