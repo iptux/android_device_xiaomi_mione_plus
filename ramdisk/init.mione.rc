@@ -68,6 +68,9 @@ on fs
     symlink /firmware/image /system/vendor/firmware/image
     exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
 
+on post-fs
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount barrier=1
+
 on post-fs-data
 # double check /data/radio
     mkdir /data/radio 0770 radio radio
