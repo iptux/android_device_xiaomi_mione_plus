@@ -154,10 +154,6 @@
     <!-- Boolean indicating whether the wifi chipset has p2p support -->
     <bool translatable="false" name="config_wifi_p2p_support">true</bool>
 
-    <!-- Boolean indicating whether the start command should be called on the wireless interface
-         when starting the SoftAp -->
-    <bool name="config_wifiApStartInterface">true</bool>
-
 <!--    <bool name="config_ui_enableFadingMarquee">false</bool>-->
 
     <!-- Is the notification LED intrusive?
