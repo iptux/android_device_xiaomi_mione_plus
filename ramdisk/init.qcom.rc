@@ -26,7 +26,6 @@
 #
 
 import init.qcom.usb.rc
-import init.target.rc
 
 on init
     # Set permissions for persist partition
@@ -473,7 +472,7 @@ service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
-    onrestart /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
+    onrestart exec /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
     disabled
 
 service hdmid /system/bin/hdmid
@@ -559,10 +558,4 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 
 service charger /sbin/chargeonlymode
     class charger
-
-# Restart adbd so it can run as root
-on property:service.adb.root=1
-    write /sys/class/android_usb/android0/enable 0
-    restart adbd
-    write /sys/class/android_usb/android0/enable 1
 

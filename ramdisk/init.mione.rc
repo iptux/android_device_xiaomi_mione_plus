@@ -47,6 +47,8 @@ on boot
     write /proc/sys/net/core/rmem_max  3461120
     write /proc/sys/net/core/wmem_max  3461120
 
+    chmod 0444 /proc/cmdline
+
     class_start late_start
 
 on fs
@@ -58,6 +60,16 @@ on fs
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
     #Setting permissons for misc partition
     chmod 0666 /dev/block/platform/msm_sdcc.1/by-name/misc
+
+# modem firmware
+    mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
+# make modem firmware available at /vendor/firmware/image ( /vendor symlink to /system/vendor )
+    mkdir /system/vendor/firmware/ 0755 system system
+    symlink /firmware/image /system/vendor/firmware/image
+    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
+
+on post-fs
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount barrier=1
 
 on post-fs-data
 # double check /data/radio

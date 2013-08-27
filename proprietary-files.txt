@@ -68,10 +68,8 @@ lib/libqueue.so
 bin/qmiproxy
 lib/libdsutils.so
 lib/libidl.so
-lib/libqcci_legacy.so
 lib/libqmi.so
 lib/libqmiservices.so
-lib/libqmi_client_qmux.so
 
 # netmgr
 bin/netmgrd
@@ -116,55 +114,30 @@ lib/libmmstillomx.so
 # gps
 bin/gpsone_daemon
 lib/libgpsone_bit_api.so
-#lib/libgps.utils.so
+lib/libgps.utils.so
 
 # thermald
 bin/thermald
 lib/libthermal_mitigation_fusion.so
 lib/libthermal_mitigation.so
 
-# cnd depends on libcneqmiutils.so, but it don't exist
-## cnd service
-#bin/cnd
-#lib/libcnefeatureconfig.so
-#lib/libcneqmiutils.so
-#lib/libcneutils.so
-#lib/libxml.so
+# cnd service
+bin/cnd
+lib/libcneqmiutils.so
+lib/libcneutils.so
+lib/libxml.so
 
 # mm-pp-daemon
 bin/mm-pp-daemon
 lib/libmm-abl-oem.so
 lib/libmm-abl.so
 
-# qseecomd
-#bin/qseecomd
-#lib/libQSEEComAPI.so
-#lib/libdrmfs.so
-
-# drmdiagapp
-#bin/drmdiagapp
-#lib/libdrmdiag.so
-
 # port-bridge
 bin/port-bridge
-lib/libCommandSvc.so
-
-# time_daemon
-bin/time_daemon
-lib/libtime_remote_atom.so
-
-# dun-server
-bin/dun-server
-lib/liballjoyn.so
 
 # misc service
 bin/bridgemgrd
-bin/ds_fmc_appd
-bin/qcks
 bin/qmuxd
-bin/qosmgr
-etc/qosmgr_rules.xml
-#bin/qrngd
 bin/rmt_storage
 bin/usbhub
 bin/usbhub_init
