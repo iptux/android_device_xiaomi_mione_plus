@@ -14,7 +14,7 @@ index 5906527..6df7160 100644
  
  #define MAX_DRV_CMD_SIZE		248
 diff --git a/external/wpa_supplicant_8/src/drivers/driver_wext.c b/external/wpa_supplicant_8/src/drivers/driver_wext.c
-index 701b7a3..1f94afa 100644
+index d66b9de..9aa5fc5 100644
 --- a/external/wpa_supplicant_8/src/drivers/driver_wext.c
 +++ b/external/wpa_supplicant_8/src/drivers/driver_wext.c
 @@ -43,6 +43,8 @@ static int wpa_driver_wext_set_auth_alg(void *priv, int auth_alg);
