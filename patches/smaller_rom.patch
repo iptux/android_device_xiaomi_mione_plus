@@ -1,7 +1,7 @@
 
 project build/
 diff --git a/build/target/product/full_base.mk b/build/target/product/full_base.mk
-index 2353fc4..1fc4f05 100644
+index 2353fc4..289cbae 100644
 --- a/build/target/product/full_base.mk
 +++ b/build/target/product/full_base.mk
 @@ -21,18 +21,10 @@
@@ -23,16 +23,22 @@ index 2353fc4..1fc4f05 100644
      Galaxy4 \
      HoloSpiralWallpaper \
      LiveWallpapers \
-@@ -55,9 +47,6 @@ PRODUCT_LOCALES := en_US
- # Get some sounds
- $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
+
+project external/svox/
+diff --git a/external/svox/pico/lang/all_pico_languages.mk b/external/svox/pico/lang/all_pico_languages.mk
+index 2b0cd7e..0ecf48a 100644
+--- a/external/svox/pico/lang/all_pico_languages.mk
++++ b/external/svox/pico/lang/all_pico_languages.mk
+@@ -14,9 +14,4 @@
  
--# Get the TTS language packs
--$(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
--
- # Get a list of languages.
- $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
+ # This file simply inherits from all the know language packs.
  
+-$(call inherit-product, external/svox/pico/lang/PicoLangDeDeInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangEnGBInSystem.mk)
+ $(call inherit-product, external/svox/pico/lang/PicoLangEnUsInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangEsEsInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangFrFrInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangItItInSystem.mk)
 
 project packages/inputmethods/LatinIME/
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_de.dict b/packages/inputmethods/LatinIME/java/res/raw/main_de.dict
@@ -59,37 +65,29 @@ diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict b/packages
 deleted file mode 100644
 index 7074416..0000000
 Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev/null differ
-diff --git a/packages/inputmethods/LatinIME/native/jni/Android.mk b/packages/inputmethods/LatinIME/native/jni/Android.mk
-index cbe9515..cd93a9e 100644
---- a/packages/inputmethods/LatinIME/native/jni/Android.mk
-+++ b/packages/inputmethods/LatinIME/native/jni/Android.mk
-@@ -32,7 +32,7 @@ LOCAL_CFLAGS += -Werror -Wall -Wextra -Weffc++ -Wformat=2 -Wcast-qual -Wcast-ali
- 
- ifeq ($(TARGET_ARCH), arm)
- ifeq ($(TARGET_GCC_VERSION), 4.6)
--LOCAL_CFLAGS += -Winline
-+#LOCAL_CFLAGS += -Winline
- endif # TARGET_GCC_VERSION
- endif # TARGET_ARCH
- 
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index a204f9b..048f40b 100644
+index 96f0ceb..6091ca3 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -143,9 +143,8 @@ include vendor/cm/config/themes_common.mk
+@@ -71,7 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.com.android.dataroaming=false
+ 
+ PRODUCT_PROPERTY_OVERRIDES += \
+-    ro.build.selinux=1 \
+     persist.sys.root_access=1
+ 
+ ifneq ($(TARGET_BUILD_VARIANT),eng)
+@@ -147,7 +146,6 @@ include vendor/cm/config/themes_common.mk
  
  # Required CM packages
  PRODUCT_PACKAGES += \
 -    Focal \
-+    Camera \
      Development \
--    LatinIME \
+     LatinIME \
      Superuser \
-     su
- 
-@@ -162,9 +161,7 @@ PRODUCT_PACKAGES += \
+@@ -166,9 +164,7 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
@@ -99,7 +97,7 @@ index a204f9b..048f40b 100644
      CMFileManager \
      LockClock \
      CMAccount
-@@ -212,7 +209,7 @@ PRODUCT_PACKAGES += \
+@@ -216,7 +212,7 @@ PRODUCT_PACKAGES += \
  # easy way to extend to add more packages
  -include vendor/extra/product.mk
  
