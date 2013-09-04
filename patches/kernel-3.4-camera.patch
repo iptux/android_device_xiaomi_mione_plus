@@ -14,15 +14,16 @@ index 2005540..83730e2 100644
  
      metadata.op = metadata_op_base_blend;
 diff --git a/hardware/qcom/display-legacy/libgralloc/ionalloc.cpp b/hardware/qcom/display-legacy/libgralloc/ionalloc.cpp
-index 1ebbdfd..728bd9d 100644
+index 1ebbdfd..7a07591 100644
 --- a/hardware/qcom/display-legacy/libgralloc/ionalloc.cpp
 +++ b/hardware/qcom/display-legacy/libgralloc/ionalloc.cpp
-@@ -82,6 +82,11 @@ int IonAlloc::alloc_buffer(alloc_data& data)
+@@ -82,6 +82,12 @@ int IonAlloc::alloc_buffer(alloc_data& data)
      if (err)
          return err;
  
 +	/* alloc from camera */
 +	if (ION_HEAP(ION_IOMMU_HEAP_ID) == data.flags) {
++		data.flags |= ION_HEAP(ION_CAMERA_HEAP_ID);
 +		ionAllocData.flags |= ION_HEAP(ION_CAMERA_HEAP_ID);
 +	}
 +
