@@ -68,7 +68,7 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index 96f0ceb..6091ca3 100644
+index a204f9b..a146673 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
 @@ -71,7 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -79,7 +79,7 @@ index 96f0ceb..6091ca3 100644
      persist.sys.root_access=1
  
  ifneq ($(TARGET_BUILD_VARIANT),eng)
-@@ -147,7 +146,6 @@ include vendor/cm/config/themes_common.mk
+@@ -143,7 +142,6 @@ include vendor/cm/config/themes_common.mk
  
  # Required CM packages
  PRODUCT_PACKAGES += \
@@ -87,7 +87,7 @@ index 96f0ceb..6091ca3 100644
      Development \
      LatinIME \
      Superuser \
-@@ -166,9 +164,7 @@ PRODUCT_PACKAGES += \
+@@ -162,9 +160,7 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
@@ -97,7 +97,7 @@ index 96f0ceb..6091ca3 100644
      CMFileManager \
      LockClock \
      CMAccount
-@@ -216,7 +212,7 @@ PRODUCT_PACKAGES += \
+@@ -212,7 +208,7 @@ PRODUCT_PACKAGES += \
  # easy way to extend to add more packages
  -include vendor/extra/product.mk
  
