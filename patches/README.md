@@ -1,8 +1,7 @@
 # patches needed to build a flashable ROM for xiaomi mione
 
 * `cpu1_governor.patch`: support CPU governor setting on cpu1
-* `less_LatinIME_dictionaries.patch`: make ROM smaller
-* `less_pico_language.patch`: make ROM smaller
+* `smaller_rom.patch`: make ROM smaller
 * `kernel-3.4-camera.patch`: patch for kernel 3.4 camera
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
   ,

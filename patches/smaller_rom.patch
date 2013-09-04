@@ -1,46 +1,97 @@
 
+project build/
+diff --git a/build/target/product/full_base.mk b/build/target/product/full_base.mk
+index 2353fc4..289cbae 100644
+--- a/build/target/product/full_base.mk
++++ b/build/target/product/full_base.mk
+@@ -21,18 +21,10 @@
+ 
+ PRODUCT_PACKAGES := \
+     libfwdlockengine \
+-    VideoEditor \
+     WAPPushManager
+ 
+ 
+ PRODUCT_PACKAGES += \
+-    libvideoeditor_jni \
+-    libvideoeditor_core \
+-    libvideoeditor_osal \
+-    libvideoeditor_videofilters \
+-    libvideoeditorplayer
+-
+-PRODUCT_PACKAGES += \
+     Galaxy4 \
+     HoloSpiralWallpaper \
+     LiveWallpapers \
+
+project external/svox/
+diff --git a/external/svox/pico/lang/all_pico_languages.mk b/external/svox/pico/lang/all_pico_languages.mk
+index 2b0cd7e..0ecf48a 100644
+--- a/external/svox/pico/lang/all_pico_languages.mk
++++ b/external/svox/pico/lang/all_pico_languages.mk
+@@ -14,9 +14,4 @@
+ 
+ # This file simply inherits from all the know language packs.
+ 
+-$(call inherit-product, external/svox/pico/lang/PicoLangDeDeInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangEnGBInSystem.mk)
+ $(call inherit-product, external/svox/pico/lang/PicoLangEnUsInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangEsEsInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangFrFrInSystem.mk)
+-$(call inherit-product, external/svox/pico/lang/PicoLangItItInSystem.mk)
+
 project packages/inputmethods/LatinIME/
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_de.dict b/packages/inputmethods/LatinIME/java/res/raw/main_de.dict
 deleted file mode 100644
-index 59df8b8..0000000
+index a59f782..0000000
 Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_de.dict and /dev/null differ
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_es.dict b/packages/inputmethods/LatinIME/java/res/raw/main_es.dict
 deleted file mode 100644
-index cb17926..0000000
+index ac15d39..0000000
 Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_es.dict and /dev/null differ
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_fr.dict b/packages/inputmethods/LatinIME/java/res/raw/main_fr.dict
 deleted file mode 100644
-index 53fd8d1..0000000
+index 9044c7e..0000000
 Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_fr.dict and /dev/null differ
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_it.dict b/packages/inputmethods/LatinIME/java/res/raw/main_it.dict
 deleted file mode 100644
-index 59b78d6..0000000
+index e289cef..0000000
 Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_it.dict and /dev/null differ
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_pt_br.dict b/packages/inputmethods/LatinIME/java/res/raw/main_pt_br.dict
 deleted file mode 100644
-index 2a8af6f..0000000
+index 8c14499..0000000
 Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_pt_br.dict and /dev/null differ
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict b/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict
 deleted file mode 100644
-index 1cddb05..0000000
+index 7074416..0000000
 Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev/null differ
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index 4445ecc..bd13d3d 100644
+index a204f9b..a453a78 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -159,7 +159,6 @@ PRODUCT_PACKAGES += \
+@@ -71,7 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.com.android.dataroaming=false
+ 
+ PRODUCT_PROPERTY_OVERRIDES += \
+-    ro.build.selinux=1 \
+     persist.sys.root_access=1
+ 
+ ifneq ($(TARGET_BUILD_VARIANT),eng)
+@@ -162,9 +161,7 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
 -    CMWallpapers \
      Apollo \
-     CMUpdater \
+-    CMUpdater \
      CMFileManager \
-@@ -200,7 +199,7 @@ PRODUCT_PACKAGES += \
- PRODUCT_PACKAGES += \
-     rsync
+     LockClock \
+     CMAccount
+@@ -212,7 +209,7 @@ PRODUCT_PACKAGES += \
+ # easy way to extend to add more packages
+ -include vendor/extra/product.mk
  
 -PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
 +#PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
