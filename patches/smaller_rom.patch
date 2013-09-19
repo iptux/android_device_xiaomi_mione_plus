@@ -68,10 +68,10 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index a204f9b..a146673 100644
+index 996a963..7b872a2 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -71,7 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -70,7 +70,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.com.android.dataroaming=false
  
  PRODUCT_PROPERTY_OVERRIDES += \
@@ -79,7 +79,7 @@ index a204f9b..a146673 100644
      persist.sys.root_access=1
  
  ifneq ($(TARGET_BUILD_VARIANT),eng)
-@@ -143,7 +142,6 @@ include vendor/cm/config/themes_common.mk
+@@ -142,7 +141,6 @@ include vendor/cm/config/themes_common.mk
  
  # Required CM packages
  PRODUCT_PACKAGES += \
@@ -87,7 +87,7 @@ index a204f9b..a146673 100644
      Development \
      LatinIME \
      Superuser \
-@@ -162,9 +160,7 @@ PRODUCT_PACKAGES += \
+@@ -161,12 +159,9 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
@@ -96,8 +96,11 @@ index a204f9b..a146673 100644
 -    CMUpdater \
      CMFileManager \
      LockClock \
-     CMAccount
-@@ -212,7 +208,7 @@ PRODUCT_PACKAGES += \
+-    CMAccount
+ 
+ # CM Hardware Abstraction Framework
+ PRODUCT_PACKAGES += \
+@@ -211,7 +206,7 @@ PRODUCT_PACKAGES += \
  # easy way to extend to add more packages
  -include vendor/extra/product.mk
  

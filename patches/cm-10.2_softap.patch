@@ -76,7 +76,7 @@ index 9fe2faf..a4c53dd 100644
              }
          } catch (NativeDaemonConnectorException e) {
 diff --git a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
-index 519346d..15db750 100644
+index f567fc0..d9fcf8c 100644
 --- a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 +++ b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 @@ -23,8 +23,13 @@ import static android.net.wifi.WifiManager.WIFI_STATE_ENABLING;
@@ -94,7 +94,7 @@ index 519346d..15db750 100644
   */
  import static android.net.wifi.WifiManager.WIFI_AP_STATE_DISABLED;
  import static android.net.wifi.WifiManager.WIFI_AP_STATE_DISABLING;
-@@ -91,10 +96,13 @@ import java.util.regex.Pattern;
+@@ -92,10 +97,13 @@ import java.util.regex.Pattern;
   * Track the state of Wifi connectivity. All event handling is done here,
   * and all changes in connectivity state are initiated here.
   *
@@ -112,7 +112,7 @@ index 519346d..15db750 100644
   *
   * @hide
   */
-@@ -103,6 +111,9 @@ public class WifiStateMachine extends StateMachine {
+@@ -104,6 +112,9 @@ public class WifiStateMachine extends StateMachine {
      private static final String NETWORKTYPE = "WIFI";
      private static final boolean DBG = false;
  
@@ -122,7 +122,7 @@ index 519346d..15db750 100644
      private WifiMonitor mWifiMonitor;
      private WifiNative mWifiNative;
      private WifiConfigStore mWifiConfigStore;
-@@ -1923,12 +1934,12 @@ public class WifiStateMachine extends StateMachine {
+@@ -1924,12 +1935,12 @@ public class WifiStateMachine extends StateMachine {
          new Thread(new Runnable() {
              public void run() {
                  try {
