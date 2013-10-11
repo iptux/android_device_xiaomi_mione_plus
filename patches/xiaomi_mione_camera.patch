@@ -1,10 +1,10 @@
 
 project frameworks/av/
 diff --git a/frameworks/av/camera/CameraParameters.cpp b/frameworks/av/camera/CameraParameters.cpp
-index afafb46..797fc9f 100644
+index d661a85..fa81a2e 100644
 --- a/frameworks/av/camera/CameraParameters.cpp
 +++ b/frameworks/av/camera/CameraParameters.cpp
-@@ -151,6 +151,11 @@ const char CameraParameters::KEY_REDEYE_REDUCTION[] = "redeye-reduction";
+@@ -152,6 +152,11 @@ const char CameraParameters::KEY_REDEYE_REDUCTION[] = "redeye-reduction";
  const char CameraParameters::KEY_SUPPORTED_REDEYE_REDUCTION[] = "redeye-reduction-values";
  const char CameraParameters::KEY_HIGH_DYNAMIC_RANGE_IMAGING[] = "hdr";
  const char CameraParameters::KEY_SUPPORTED_HDR_IMAGING_MODES[] = "hdr-values";
@@ -17,10 +17,10 @@ index afafb46..797fc9f 100644
  const char CameraParameters::KEY_VIDEO_SIZE[] = "video-size";
  const char CameraParameters::KEY_SUPPORTED_VIDEO_SIZES[] = "video-size-values";
 diff --git a/frameworks/av/include/camera/CameraParameters.h b/frameworks/av/include/camera/CameraParameters.h
-index 4c08ece..43fadce 100644
+index 2758989..f124335 100644
 --- a/frameworks/av/include/camera/CameraParameters.h
 +++ b/frameworks/av/include/camera/CameraParameters.h
-@@ -747,6 +747,11 @@ public:
+@@ -750,6 +750,11 @@ public:
      //Redeye Reduction
      static const char KEY_REDEYE_REDUCTION[];
      static const char KEY_SUPPORTED_REDEYE_REDUCTION[];

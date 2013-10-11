@@ -1,10 +1,10 @@
 
 project frameworks/base/
 diff --git a/frameworks/base/core/java/android/os/INetworkManagementService.aidl b/frameworks/base/core/java/android/os/INetworkManagementService.aidl
-index 45524c8..d16f51e 100644
+index 293c897..09f6277 100644
 --- a/frameworks/base/core/java/android/os/INetworkManagementService.aidl
 +++ b/frameworks/base/core/java/android/os/INetworkManagementService.aidl
-@@ -218,17 +218,17 @@ interface INetworkManagementService
+@@ -232,17 +232,17 @@ interface INetworkManagementService
      /**
       * Start Wifi Access Point
       */
@@ -26,10 +26,10 @@ index 45524c8..d16f51e 100644
      /**
       ** DATA USAGE RELATED
 diff --git a/frameworks/base/services/java/com/android/server/NetworkManagementService.java b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-index 9fe2faf..a4c53dd 100644
+index a5a7cc3..86c50f9 100644
 --- a/frameworks/base/services/java/com/android/server/NetworkManagementService.java
 +++ b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-@@ -983,7 +983,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1026,7 +1026,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
  
      @Override
      public void startAccessPoint(
@@ -38,7 +38,7 @@ index 9fe2faf..a4c53dd 100644
          mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
          try {
              if (mContext.getResources().getBoolean(
-@@ -995,9 +995,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1038,9 +1038,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                  mConnector.execute("softap", "start", wlanIface);
              }
              if (wifiConfig == null) {
@@ -50,7 +50,7 @@ index 9fe2faf..a4c53dd 100644
                          getSecurityType(wifiConfig), new SensitiveArg(wifiConfig.preSharedKey));
              }
              mConnector.execute("softap", "startap");
-@@ -1033,6 +1033,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1076,6 +1076,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
          mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
          try {
              mConnector.execute("softap", "stopap");
@@ -58,7 +58,7 @@ index 9fe2faf..a4c53dd 100644
              wifiFirmwareReload(wlanIface, "STA");
          } catch (NativeDaemonConnectorException e) {
              throw e.rethrowAsParcelableException();
-@@ -1040,13 +1041,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1164,13 +1165,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
      }
  
      @Override
@@ -76,7 +76,7 @@ index 9fe2faf..a4c53dd 100644
              }
          } catch (NativeDaemonConnectorException e) {
 diff --git a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
-index f567fc0..d9fcf8c 100644
+index d2fde34..bc5eaed 100644
 --- a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 +++ b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 @@ -23,8 +23,13 @@ import static android.net.wifi.WifiManager.WIFI_STATE_ENABLING;
@@ -94,7 +94,7 @@ index f567fc0..d9fcf8c 100644
   */
  import static android.net.wifi.WifiManager.WIFI_AP_STATE_DISABLED;
  import static android.net.wifi.WifiManager.WIFI_AP_STATE_DISABLING;
-@@ -92,10 +97,13 @@ import java.util.regex.Pattern;
+@@ -95,10 +100,13 @@ import java.util.regex.Pattern;
   * Track the state of Wifi connectivity. All event handling is done here,
   * and all changes in connectivity state are initiated here.
   *
@@ -112,7 +112,7 @@ index f567fc0..d9fcf8c 100644
   *
   * @hide
   */
-@@ -104,6 +112,9 @@ public class WifiStateMachine extends StateMachine {
+@@ -108,6 +116,9 @@ public class WifiStateMachine extends StateMachine {
      private static final String NETWORKTYPE = "WIFI";
      private static final boolean DBG = false;
  
@@ -122,7 +122,7 @@ index f567fc0..d9fcf8c 100644
      private WifiMonitor mWifiMonitor;
      private WifiNative mWifiNative;
      private WifiConfigStore mWifiConfigStore;
-@@ -1924,12 +1935,12 @@ public class WifiStateMachine extends StateMachine {
+@@ -2001,7 +2012,7 @@ public class WifiStateMachine extends StateMachine {
          new Thread(new Runnable() {
              public void run() {
                  try {
@@ -131,7 +131,10 @@ index f567fc0..d9fcf8c 100644
                  } catch (Exception e) {
                      loge("Exception in softap start " + e);
                      try {
-                         mNwService.stopAccessPoint(mInterfaceName);
+@@ -2010,7 +2021,7 @@ public class WifiStateMachine extends StateMachine {
+                            Log.e(TAG, "Calling setChannelRange ---startSoftApWithConfig()");
+                            setChannelRange(startSafeChannel, endSafeChannel, 0);
+                         }
 -                        mNwService.startAccessPoint(config, mInterfaceName);
 +                        mNwService.startAccessPoint(config, mInterfaceName, SOFTAP_IFACE);
                      } catch (Exception e1) {
@@ -140,7 +143,7 @@ index f567fc0..d9fcf8c 100644
 
 project system/netd/
 diff --git a/system/netd/Android.mk b/system/netd/Android.mk
-index 1f7ceea..b560003 100644
+index 5168b01..4cd5001 100644
 --- a/system/netd/Android.mk
 +++ b/system/netd/Android.mk
 @@ -53,6 +53,10 @@ ifneq ($(BOARD_HOSTAPD_DRIVER),)
@@ -155,10 +158,10 @@ index 1f7ceea..b560003 100644
    LOCAL_SHARED_LIBRARIES := $(LOCAL_SHARED_LIBRARIES) libbluedroid
    LOCAL_CFLAGS := $(LOCAL_CFLAGS) -DHAVE_BLUETOOTH
 diff --git a/system/netd/CommandListener.cpp b/system/netd/CommandListener.cpp
-index 6d38b81..84aa9b4 100644
+index 4d91bc4..a096898 100644
 --- a/system/netd/CommandListener.cpp
 +++ b/system/netd/CommandListener.cpp
-@@ -744,7 +744,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
+@@ -849,7 +849,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
          return 0;
      }
  
