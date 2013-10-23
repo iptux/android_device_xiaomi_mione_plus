@@ -27,10 +27,10 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index 06b0912..f6bbceb 100644
+index 6084896..be4b6aa 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -159,9 +159,7 @@ PRODUCT_PACKAGES += \
+@@ -158,12 +158,9 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
@@ -38,9 +38,12 @@ index 06b0912..f6bbceb 100644
      Apollo \
 -    CMUpdater \
      CMFileManager \
-     LockClock
+     LockClock \
+-    CMAccount
  
-@@ -200,7 +198,7 @@ PRODUCT_PACKAGES += \
+ PRODUCT_PACKAGES += \
+     CellBroadcastReceiver
+@@ -200,7 +197,7 @@ PRODUCT_PACKAGES += \
  PRODUCT_PACKAGES += \
      rsync
  
