@@ -54,31 +54,40 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index babe449..9ab8c2e 100644
+index 1b8a5e2..5286ec4 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -70,7 +70,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -68,9 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.com.android.dateformat=MM-dd-yyyy \
      ro.com.android.dataroaming=false
  
- PRODUCT_PROPERTY_OVERRIDES += \
--    ro.build.selinux=1 \
-     persist.sys.root_access=1
- 
+-PRODUCT_PROPERTY_OVERRIDES += \
+-    ro.build.selinux=1
+-
  ifneq ($(TARGET_BUILD_VARIANT),eng)
-@@ -163,12 +162,9 @@ PRODUCT_PACKAGES += \
+ # Enable ADB authentication
+ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+@@ -150,11 +147,9 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
 -    CMWallpapers \
      Apollo \
--    CMUpdater \
      CMFileManager \
      LockClock \
 -    CMAccount
  
  # CM Hardware Abstraction Framework
  PRODUCT_PACKAGES += \
-@@ -213,7 +209,7 @@ PRODUCT_PACKAGES += \
+@@ -207,7 +202,6 @@ PRODUCT_PACKAGES += \
+ ifneq ($(TARGET_BUILD_VARIANT),user)
+ 
+ PRODUCT_PACKAGES += \
+-    CMUpdater \
+     Superuser \
+     su
+ 
+@@ -231,7 +225,7 @@ endif
  # easy way to extend to add more packages
  -include vendor/extra/product.mk
  

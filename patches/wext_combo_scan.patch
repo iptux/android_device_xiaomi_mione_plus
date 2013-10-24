@@ -14,7 +14,7 @@ index 5906527..6df7160 100644
  
  #define MAX_DRV_CMD_SIZE		248
 diff --git a/external/wpa_supplicant_8/src/drivers/driver_wext.c b/external/wpa_supplicant_8/src/drivers/driver_wext.c
-index d66b9de..9aa5fc5 100644
+index 27f6c49..83ba323 100644
 --- a/external/wpa_supplicant_8/src/drivers/driver_wext.c
 +++ b/external/wpa_supplicant_8/src/drivers/driver_wext.c
 @@ -43,6 +43,8 @@ static int wpa_driver_wext_set_auth_alg(void *priv, int auth_alg);
@@ -62,3 +62,16 @@ index d66b9de..9aa5fc5 100644
  
  		wpa_printf(MSG_DEBUG, "  capabilities: key_mgmt 0x%x enc 0x%x "
  			   "flags 0x%x",
+diff --git a/external/wpa_supplicant_8/wpa_supplicant/android.config b/external/wpa_supplicant_8/wpa_supplicant/android.config
+index c22bb5c..409d020 100644
+--- a/external/wpa_supplicant_8/wpa_supplicant/android.config
++++ b/external/wpa_supplicant_8/wpa_supplicant/android.config
+@@ -329,7 +329,7 @@ CONFIG_PEERKEY=y
+ # This version is an experimental implementation based on IEEE 802.11w/D1.0
+ # draft and is subject to change since the standard has not yet been finalized.
+ # Driver support is also needed for IEEE 802.11w.
+-CONFIG_IEEE80211W=y
++#CONFIG_IEEE80211W=y
+ 
+ # Select TLS implementation
+ # openssl = OpenSSL (default)

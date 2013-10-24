@@ -143,7 +143,7 @@ index d2fde34..bc5eaed 100644
 
 project system/netd/
 diff --git a/system/netd/Android.mk b/system/netd/Android.mk
-index 5168b01..4cd5001 100644
+index 0315069..73d2dea 100644
 --- a/system/netd/Android.mk
 +++ b/system/netd/Android.mk
 @@ -53,6 +53,10 @@ ifneq ($(BOARD_HOSTAPD_DRIVER),)
