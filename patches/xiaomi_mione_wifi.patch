@@ -42,7 +42,7 @@ index 51afe3a..8d3e563 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 764964c..1488bbd 100644
+index c05a16c..fc13576 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -107,6 +107,16 @@ struct genl_family *nl80211;
@@ -86,7 +86,7 @@ index 764964c..1488bbd 100644
  #endif
  static const char FIRMWARE_LOADER[]     = WIFI_FIRMWARE_LOADER;
  static const char DRIVER_PROP_NAME[]    = "wlan.driver.status";
-@@ -154,6 +176,52 @@ static char supplicant_name[PROPERTY_VALUE_MAX];
+@@ -155,6 +177,52 @@ static char supplicant_name[PROPERTY_VALUE_MAX];
  /* Is either SUPP_PROP_NAME or P2P_PROP_NAME */
  static char supplicant_prop_name[PROPERTY_KEY_MAX];
  
@@ -139,7 +139,7 @@ index 764964c..1488bbd 100644
  static int is_primary_interface(const char *ifname)
  {
      //Treat NULL as primary interface to allow control
-@@ -255,6 +323,10 @@ int is_wifi_driver_loaded() {
+@@ -256,6 +324,10 @@ int is_wifi_driver_loaded() {
  #ifdef WIFI_DRIVER_MODULE_PATH
      FILE *proc;
      char line[sizeof(DRIVER_MODULE_TAG)+10];
@@ -150,7 +150,7 @@ index 764964c..1488bbd 100644
  #endif
  
      if (!property_get(DRIVER_PROP_NAME, driver_status, NULL)
-@@ -307,14 +379,30 @@ int wifi_load_driver()
+@@ -308,14 +380,30 @@ int wifi_load_driver()
  
      property_set(DRIVER_PROP_NAME, "loading");
  
@@ -181,7 +181,7 @@ index 764964c..1488bbd 100644
  
  #ifdef WIFI_EXT_MODULE_NAME
          rmmod(EXT_MODULE_NAME);
-@@ -354,6 +442,12 @@ int wifi_load_driver()
+@@ -355,6 +443,12 @@ int wifi_load_driver()
  
  int wifi_unload_driver()
  {
@@ -194,7 +194,7 @@ index 764964c..1488bbd 100644
      usleep(200000); /* allow to finish interface down */
  #ifdef WIFI_DRIVER_MODULE_PATH
      if (rmmod(DRIVER_MODULE_NAME) == 0) {
-@@ -835,6 +929,12 @@ int wifi_start_supplicant(int p2p_supported)
+@@ -841,6 +935,12 @@ int wifi_start_supplicant(int p2p_supported)
      unsigned serial = 0, i;
  #endif
  
@@ -207,7 +207,7 @@ index 764964c..1488bbd 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -1194,13 +1294,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
+@@ -1200,13 +1300,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
  
  const char *wifi_get_fw_path(int fw_type)
  {

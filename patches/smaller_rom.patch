@@ -1,44 +1,30 @@
 
 project build/
+diff --git a/build/target/product/embedded.mk b/build/target/product/embedded.mk
+index fe4ba4f..0830101 100644
+--- a/build/target/product/embedded.mk
++++ b/build/target/product/embedded.mk
+@@ -65,7 +65,6 @@ PRODUCT_PACKAGES += \
+ 
+ # SELinux packages
+ PRODUCT_PACKAGES += \
+-    auditd \
+     sepolicy \
+     file_contexts \
+     seapp_contexts \
 diff --git a/build/target/product/full_base.mk b/build/target/product/full_base.mk
-index 2353fc4..289cbae 100644
+index 3edb864..5dd1111 100644
 --- a/build/target/product/full_base.mk
 +++ b/build/target/product/full_base.mk
-@@ -21,18 +21,10 @@
+@@ -36,7 +36,7 @@ PRODUCT_LOCALES := en_US
+ $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
  
- PRODUCT_PACKAGES := \
-     libfwdlockengine \
--    VideoEditor \
-     WAPPushManager
+ # Get the TTS language packs
+-$(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
++$(call inherit-product-if-exists, external/svox/pico/lang/PicoLangEnUsInSystem.mk)
  
- 
- PRODUCT_PACKAGES += \
--    libvideoeditor_jni \
--    libvideoeditor_core \
--    libvideoeditor_osal \
--    libvideoeditor_videofilters \
--    libvideoeditorplayer
--
--PRODUCT_PACKAGES += \
-     Galaxy4 \
-     HoloSpiralWallpaper \
-     LiveWallpapers \
-
-project external/svox/
-diff --git a/external/svox/pico/lang/all_pico_languages.mk b/external/svox/pico/lang/all_pico_languages.mk
-index 2b0cd7e..0ecf48a 100644
---- a/external/svox/pico/lang/all_pico_languages.mk
-+++ b/external/svox/pico/lang/all_pico_languages.mk
-@@ -14,9 +14,4 @@
- 
- # This file simply inherits from all the know language packs.
- 
--$(call inherit-product, external/svox/pico/lang/PicoLangDeDeInSystem.mk)
--$(call inherit-product, external/svox/pico/lang/PicoLangEnGBInSystem.mk)
- $(call inherit-product, external/svox/pico/lang/PicoLangEnUsInSystem.mk)
--$(call inherit-product, external/svox/pico/lang/PicoLangEsEsInSystem.mk)
--$(call inherit-product, external/svox/pico/lang/PicoLangFrFrInSystem.mk)
--$(call inherit-product, external/svox/pico/lang/PicoLangItItInSystem.mk)
+ # Get a list of languages.
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 
 project packages/inputmethods/LatinIME/
 diff --git a/packages/inputmethods/LatinIME/java/res/raw/main_de.dict b/packages/inputmethods/LatinIME/java/res/raw/main_de.dict
@@ -68,28 +54,40 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index a204f9b..a453a78 100644
+index 1b8a5e2..5286ec4 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -71,7 +71,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -68,9 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.com.android.dateformat=MM-dd-yyyy \
      ro.com.android.dataroaming=false
  
- PRODUCT_PROPERTY_OVERRIDES += \
--    ro.build.selinux=1 \
-     persist.sys.root_access=1
- 
+-PRODUCT_PROPERTY_OVERRIDES += \
+-    ro.build.selinux=1
+-
  ifneq ($(TARGET_BUILD_VARIANT),eng)
-@@ -162,9 +161,7 @@ PRODUCT_PACKAGES += \
+ # Enable ADB authentication
+ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+@@ -150,11 +147,9 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
 -    CMWallpapers \
      Apollo \
--    CMUpdater \
      CMFileManager \
      LockClock \
-     CMAccount
-@@ -212,7 +209,7 @@ PRODUCT_PACKAGES += \
+-    CMAccount
+ 
+ # CM Hardware Abstraction Framework
+ PRODUCT_PACKAGES += \
+@@ -207,7 +202,6 @@ PRODUCT_PACKAGES += \
+ ifneq ($(TARGET_BUILD_VARIANT),user)
+ 
+ PRODUCT_PACKAGES += \
+-    CMUpdater \
+     Superuser \
+     su
+ 
+@@ -231,7 +225,7 @@ endif
  # easy way to extend to add more packages
  -include vendor/extra/product.mk
  

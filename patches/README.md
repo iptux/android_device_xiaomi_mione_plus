@@ -1,12 +1,9 @@
 # patches needed to build a flashable ROM for xiaomi mione
 
+* `audio-caf-build-error.patch`: fix a build error in hardware/qcom/audio-caf/
 * `cpu1_governor.patch`: support CPU governor setting on cpu1
 * `smaller_rom.patch`: make ROM smaller
-* `kernel-3.4-camera.patch`: patch for kernel 3.4 camera
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
-  ,
-  this patch revert commit https://github.com/CyanogenMod/android_system_netd/commit/7e9eb7b48345af69283afa7ca58d3be0a329931b
-  and https://github.com/CyanogenMod/android_frameworks_base/commit/90542758d4fef2e5ff8badaf3b40c2a227fbfc47
 
 
 apply patches
