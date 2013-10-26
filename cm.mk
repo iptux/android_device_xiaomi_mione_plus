@@ -45,8 +45,6 @@ PRODUCT_CHARACTERISTICS := phone
 # Set build fingerprint / ID / Product Name etc.
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRODUCT_NAME=mione_plus \
-	BUILD_DISPLAY_ID=JSS15Q \
 	BUILD_FINGERPRINT="Xiaomi/mione_plus/mione_plus:4.1.2/JZO54K/QDS84:userdebug/test-keys" \
 	PRIVATE_BUILD_DESC="mione_plus-userdebug 4.1.2 JZO54K QDS84 test-keys" \
-	BUILD_NUMBER=JSS15Q
 
