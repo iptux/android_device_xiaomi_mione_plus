@@ -27,25 +27,32 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index 6084896..be4b6aa 100644
+index b4fc5dc..fe2fbfd 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -158,12 +158,9 @@ PRODUCT_PACKAGES += \
+@@ -150,11 +150,9 @@ PRODUCT_PACKAGES += \
      DSPManager \
      libcyanogen-dsp \
      audio_effects.conf \
 -    CMWallpapers \
      Apollo \
--    CMUpdater \
      CMFileManager \
      LockClock \
 -    CMAccount
  
  PRODUCT_PACKAGES += \
      CellBroadcastReceiver
-@@ -200,7 +197,7 @@ PRODUCT_PACKAGES += \
+@@ -202,7 +200,6 @@ PRODUCT_PACKAGES += \
+ ifneq ($(TARGET_BUILD_VARIANT),user)
+ 
  PRODUCT_PACKAGES += \
-     rsync
+-    CMUpdater \
+     Superuser \
+     su
+ 
+@@ -223,7 +220,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
+ 
+ endif
  
 -PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
 +#PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
