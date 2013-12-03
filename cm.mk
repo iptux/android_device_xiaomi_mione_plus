@@ -27,6 +27,7 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     VisualizationWallpapers \
     PhaseBeam \
+    PhotoTable \
     Firewall \
     Mms
 
