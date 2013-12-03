@@ -42,7 +42,7 @@ index 51afe3a..8d3e563 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index c05a16c..fc13576 100644
+index dacef5e..20d504e 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -107,6 +107,16 @@ struct genl_family *nl80211;
@@ -150,7 +150,7 @@ index c05a16c..fc13576 100644
  #endif
  
      if (!property_get(DRIVER_PROP_NAME, driver_status, NULL)
-@@ -308,14 +380,30 @@ int wifi_load_driver()
+@@ -309,14 +381,30 @@ int wifi_load_driver()
  
      property_set(DRIVER_PROP_NAME, "loading");
  
@@ -181,7 +181,7 @@ index c05a16c..fc13576 100644
  
  #ifdef WIFI_EXT_MODULE_NAME
          rmmod(EXT_MODULE_NAME);
-@@ -355,6 +443,12 @@ int wifi_load_driver()
+@@ -359,6 +447,12 @@ int wifi_load_driver()
  
  int wifi_unload_driver()
  {
@@ -194,7 +194,7 @@ index c05a16c..fc13576 100644
      usleep(200000); /* allow to finish interface down */
  #ifdef WIFI_DRIVER_MODULE_PATH
      if (rmmod(DRIVER_MODULE_NAME) == 0) {
-@@ -841,6 +935,12 @@ int wifi_start_supplicant(int p2p_supported)
+@@ -845,6 +939,12 @@ int wifi_start_supplicant(int p2p_supported)
      unsigned serial = 0, i;
  #endif
  
@@ -207,7 +207,7 @@ index c05a16c..fc13576 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -1200,13 +1300,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
+@@ -1204,13 +1304,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
  
  const char *wifi_get_fw_path(int fw_type)
  {
