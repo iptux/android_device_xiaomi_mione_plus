@@ -10,7 +10,7 @@ TARGET_BOOTANIMATION_NAME := vertical-480x854
 $(call inherit-product, vendor/cm/config/common.mk)
 
 # old audio files
-include frameworks/base/data/sounds/OldAudio.mk
+include frameworks/base/data/sounds/OriginalAudio.mk
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
