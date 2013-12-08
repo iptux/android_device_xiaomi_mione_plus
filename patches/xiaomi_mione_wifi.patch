@@ -1,12 +1,11 @@
 
 project hardware/libhardware_legacy/
 diff --git a/hardware/libhardware_legacy/wifi/Android.mk b/hardware/libhardware_legacy/wifi/Android.mk
-index 51afe3a..8d3e563 100644
+index c7bdc59..8092430 100644
 --- a/hardware/libhardware_legacy/wifi/Android.mk
 +++ b/hardware/libhardware_legacy/wifi/Android.mk
-@@ -3,6 +3,25 @@
- LOCAL_CFLAGS += -DCONFIG_CTRL_IFACE_CLIENT_DIR=\"/data/misc/wifi/sockets\"
- LOCAL_CFLAGS += -DCONFIG_CTRL_IFACE_CLIENT_PREFIX=\"wpa_ctrl_\"
+@@ -1,5 +1,24 @@
+ # Copyright 2006 The Android Open Source Project
  
 +ifdef WIFI_DRIVER_MODULE_PATH_DHD
 +LOCAL_CFLAGS += -DWIFI_DRIVER_MODULE_PATH_DHD=\"$(WIFI_DRIVER_MODULE_PATH_DHD)\"
@@ -30,7 +29,7 @@ index 51afe3a..8d3e563 100644
  ifdef WIFI_DRIVER_MODULE_PATH
  LOCAL_CFLAGS += -DWIFI_DRIVER_MODULE_PATH=\"$(WIFI_DRIVER_MODULE_PATH)\"
  endif
-@@ -49,4 +68,10 @@ ifeq ($(BOARD_HAVE_SAMSUNG_WIFI),true)
+@@ -46,4 +65,10 @@ ifeq ($(BOARD_HAVE_SAMSUNG_WIFI),true)
  LOCAL_CFLAGS += -DSAMSUNG_WIFI
  endif
  
@@ -42,10 +41,10 @@ index 51afe3a..8d3e563 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index dacef5e..20d504e 100644
+index 5663c6d..857797d 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
-@@ -107,6 +107,16 @@ struct genl_family *nl80211;
+@@ -97,6 +97,16 @@ struct genl_family *nl80211;
  #define WIFI_DRIVER_FW_PATH_P2P		NULL
  #endif
  
@@ -62,7 +61,7 @@ index dacef5e..20d504e 100644
  #ifdef WIFI_EXT_MODULE_NAME
  static const char EXT_MODULE_NAME[] = WIFI_EXT_MODULE_NAME;
  #ifdef WIFI_EXT_MODULE_ARG
-@@ -125,11 +135,23 @@ static const char EXT_MODULE_PATH[] = WIFI_EXT_MODULE_PATH;
+@@ -115,11 +125,23 @@ static const char EXT_MODULE_PATH[] = WIFI_EXT_MODULE_PATH;
  
  static const char IFACE_DIR[]           = "/data/system/wpa_supplicant";
  #ifdef WIFI_DRIVER_MODULE_PATH
@@ -86,7 +85,7 @@ index dacef5e..20d504e 100644
  #endif
  static const char FIRMWARE_LOADER[]     = WIFI_FIRMWARE_LOADER;
  static const char DRIVER_PROP_NAME[]    = "wlan.driver.status";
-@@ -155,6 +177,52 @@ static char supplicant_name[PROPERTY_VALUE_MAX];
+@@ -148,6 +170,51 @@ static char supplicant_name[PROPERTY_VALUE_MAX];
  /* Is either SUPP_PROP_NAME or P2P_PROP_NAME */
  static char supplicant_prop_name[PROPERTY_KEY_MAX];
  
@@ -135,11 +134,10 @@ index dacef5e..20d504e 100644
 +}
 +#endif
 +#endif
-+
- static int is_primary_interface(const char *ifname)
- {
-     //Treat NULL as primary interface to allow control
-@@ -256,6 +324,10 @@ int is_wifi_driver_loaded() {
+ 
+ #ifdef SAMSUNG_WIFI
+ char* get_samsung_wifi_type()
+@@ -240,6 +307,10 @@ int is_wifi_driver_loaded() {
  #ifdef WIFI_DRIVER_MODULE_PATH
      FILE *proc;
      char line[sizeof(DRIVER_MODULE_TAG)+10];
@@ -150,7 +148,7 @@ index dacef5e..20d504e 100644
  #endif
  
      if (!property_get(DRIVER_PROP_NAME, driver_status, NULL)
-@@ -309,14 +381,30 @@ int wifi_load_driver()
+@@ -292,14 +363,30 @@ int wifi_load_driver()
  
      property_set(DRIVER_PROP_NAME, "loading");
  
@@ -181,7 +179,7 @@ index dacef5e..20d504e 100644
  
  #ifdef WIFI_EXT_MODULE_NAME
          rmmod(EXT_MODULE_NAME);
-@@ -359,6 +447,12 @@ int wifi_load_driver()
+@@ -339,6 +426,12 @@ int wifi_load_driver()
  
  int wifi_unload_driver()
  {
@@ -194,7 +192,7 @@ index dacef5e..20d504e 100644
      usleep(200000); /* allow to finish interface down */
  #ifdef WIFI_DRIVER_MODULE_PATH
      if (rmmod(DRIVER_MODULE_NAME) == 0) {
-@@ -845,6 +939,12 @@ int wifi_start_supplicant(int p2p_supported)
+@@ -782,6 +875,12 @@ int wifi_start_supplicant(int p2p_supported)
      unsigned serial = 0, i;
  #endif
  
@@ -207,7 +205,7 @@ index dacef5e..20d504e 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -1204,13 +1304,29 @@ int wifi_command(const char *ifname, const char *command, char *reply, size_t *r
+@@ -1122,13 +1221,29 @@ int wifi_command(const char *command, char *reply, size_t *reply_len)
  
  const char *wifi_get_fw_path(int fw_type)
  {

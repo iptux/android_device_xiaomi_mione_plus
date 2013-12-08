@@ -14,7 +14,7 @@ index 5906527..6df7160 100644
  
  #define MAX_DRV_CMD_SIZE		248
 diff --git a/external/wpa_supplicant_8/src/drivers/driver_wext.c b/external/wpa_supplicant_8/src/drivers/driver_wext.c
-index 27f6c49..83ba323 100644
+index e095bd4..ef18f8b 100644
 --- a/external/wpa_supplicant_8/src/drivers/driver_wext.c
 +++ b/external/wpa_supplicant_8/src/drivers/driver_wext.c
 @@ -43,6 +43,8 @@ static int wpa_driver_wext_set_auth_alg(void *priv, int auth_alg);
@@ -26,7 +26,7 @@ index 27f6c49..83ba323 100644
  extern int wpa_driver_signal_poll(void *priv, struct wpa_signal_info *si);
  #endif
  
-@@ -1031,6 +1033,13 @@ int wpa_driver_wext_scan(void *priv, struct wpa_driver_scan_params *params)
+@@ -1029,6 +1031,13 @@ int wpa_driver_wext_scan(void *priv, struct wpa_driver_scan_params *params)
  	const u8 *ssid = params->ssids[0].ssid;
  	size_t ssid_len = params->ssids[0].ssid_len;
  
@@ -40,7 +40,7 @@ index 27f6c49..83ba323 100644
  	if (ssid_len > IW_ESSID_MAX_SIZE) {
  		wpa_printf(MSG_DEBUG, "%s: too long SSID (%lu)",
  			   __FUNCTION__, (unsigned long) ssid_len);
-@@ -1056,6 +1065,9 @@ int wpa_driver_wext_scan(void *priv, struct wpa_driver_scan_params *params)
+@@ -1054,6 +1063,9 @@ int wpa_driver_wext_scan(void *priv, struct wpa_driver_scan_params *params)
  		ret = -1;
  	}
  
@@ -50,7 +50,7 @@ index 27f6c49..83ba323 100644
  	/* Not all drivers generate "scan completed" wireless event, so try to
  	 * read results after a timeout. */
  	timeout = 10;
-@@ -1590,7 +1602,11 @@ static int wpa_driver_wext_get_range(void *priv)
+@@ -1588,7 +1600,11 @@ static int wpa_driver_wext_get_range(void *priv)
  		drv->capa.auth = WPA_DRIVER_AUTH_OPEN |
  			WPA_DRIVER_AUTH_SHARED |
  			WPA_DRIVER_AUTH_LEAP;
@@ -63,12 +63,12 @@ index 27f6c49..83ba323 100644
  		wpa_printf(MSG_DEBUG, "  capabilities: key_mgmt 0x%x enc 0x%x "
  			   "flags 0x%x",
 diff --git a/external/wpa_supplicant_8/wpa_supplicant/android.config b/external/wpa_supplicant_8/wpa_supplicant/android.config
-index c22bb5c..409d020 100644
+index b2c2c23..c1dea30 100644
 --- a/external/wpa_supplicant_8/wpa_supplicant/android.config
 +++ b/external/wpa_supplicant_8/wpa_supplicant/android.config
-@@ -329,7 +329,7 @@ CONFIG_PEERKEY=y
- # This version is an experimental implementation based on IEEE 802.11w/D1.0
- # draft and is subject to change since the standard has not yet been finalized.
+@@ -325,7 +325,7 @@ CONFIG_PEERKEY=y
+ 
+ # IEEE 802.11w (management frame protection), also known as PMF
  # Driver support is also needed for IEEE 802.11w.
 -CONFIG_IEEE80211W=y
 +#CONFIG_IEEE80211W=y
