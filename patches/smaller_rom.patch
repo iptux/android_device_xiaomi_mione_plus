@@ -13,10 +13,10 @@ index fe4ba4f..0830101 100644
      file_contexts \
      seapp_contexts \
 diff --git a/build/target/product/full_base.mk b/build/target/product/full_base.mk
-index 3edb864..5dd1111 100644
+index cd6e00b..9665fb1 100644
 --- a/build/target/product/full_base.mk
 +++ b/build/target/product/full_base.mk
-@@ -36,7 +36,7 @@ PRODUCT_LOCALES := en_US
+@@ -34,7 +34,7 @@ PRODUCT_LOCALES := en_US
  $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
  
  # Get the TTS language packs
@@ -54,7 +54,7 @@ Binary files a/packages/inputmethods/LatinIME/java/res/raw/main_ru.dict and /dev
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index 5f1a6fc..e849390 100644
+index a1c4af3..f27aee6 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
 @@ -75,9 +75,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -77,11 +77,11 @@ index 5f1a6fc..e849390 100644
      LockClock \
 -    CMUpdater \
 -    CMFota \
--    CMAccount
+-    CMAccount \
+     WhisperPush
  
  # CM Hardware Abstraction Framework
- PRODUCT_PACKAGES += \
-@@ -236,7 +229,7 @@ endif
+@@ -237,7 +230,7 @@ endif
  # easy way to extend to add more packages
  -include vendor/extra/product.mk
  

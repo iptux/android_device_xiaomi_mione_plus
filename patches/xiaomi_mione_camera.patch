@@ -1,7 +1,7 @@
 
 project frameworks/av/
 diff --git a/frameworks/av/camera/CameraParameters.cpp b/frameworks/av/camera/CameraParameters.cpp
-index d661a85..fa81a2e 100644
+index 75ec676..2d9749b 100644
 --- a/frameworks/av/camera/CameraParameters.cpp
 +++ b/frameworks/av/camera/CameraParameters.cpp
 @@ -152,6 +152,11 @@ const char CameraParameters::KEY_REDEYE_REDUCTION[] = "redeye-reduction";
