@@ -15,10 +15,10 @@ index 33c9918..11e02ae 100644
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index cae14ce..a5533a1 100644
+index 53b321a..30f8557 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -75,9 +75,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -59,9 +59,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.com.android.dateformat=MM-dd-yyyy \
      ro.com.android.dataroaming=false
  

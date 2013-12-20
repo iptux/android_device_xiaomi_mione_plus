@@ -1,10 +1,10 @@
 
 project packages/apps/Settings/
 diff --git a/packages/apps/Settings/AndroidManifest.xml b/packages/apps/Settings/AndroidManifest.xml
-index 4b3b859..1b30a31 100644
+index 65e145e..af75a5e 100644
 --- a/packages/apps/Settings/AndroidManifest.xml
 +++ b/packages/apps/Settings/AndroidManifest.xml
-@@ -1846,31 +1846,6 @@
+@@ -1870,31 +1870,6 @@
                  android:resource="@id/user_settings" />
          </activity>
  
@@ -55,10 +55,10 @@ index aa3d8ba..771e9af 100644
      <header
          android:fragment="com.android.settings.WirelessSettings"
 diff --git a/packages/apps/Settings/src/com/android/settings/Settings.java b/packages/apps/Settings/src/com/android/settings/Settings.java
-index 323e452..0a1dd02 100644
+index 5fb0b17..c09804f 100644
 --- a/packages/apps/Settings/src/com/android/settings/Settings.java
 +++ b/packages/apps/Settings/src/com/android/settings/Settings.java
-@@ -163,7 +163,6 @@ public class Settings extends PreferenceActivity
+@@ -170,7 +170,6 @@ public class Settings extends PreferenceActivity
              R.id.about_settings,
              R.id.accessibility_settings,
              R.id.print_settings,
@@ -66,7 +66,7 @@ index 323e452..0a1dd02 100644
              R.id.home_settings
      };
  
-@@ -616,17 +615,6 @@ public class Settings extends PreferenceActivity
+@@ -625,17 +624,6 @@ public class Settings extends PreferenceActivity
                          || Utils.isMonkeyRunning()) {
                      target.remove(i);
                  }
