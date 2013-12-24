@@ -34,6 +34,7 @@ ro.sf.compbypass.enable=1
 ro.sf.lcd_density=240
 dev.pm.dyn_samplingrate=1
 ro.hdmi.enable=false
+ro.bq.gpu_to_cpu_unsupported=1
 
 #
 # system props for the data modules
