@@ -5,7 +5,6 @@
 * `fix-android.process.media-crash.patch`: fix android.process.media crash on some SD card
 * `fix-settings-fc.patch`: fix Settings force close
 * `no_selinux.patch`: we don't have selinux
-* `mheap-based-screenshot.patch`: use mHeap based screenshot, this [patch][screenshot_patch] came from [Dāvis Mālnieks][TheWhisp]
 * `xiaomi_mione_camera.patch`: needed by mione's camera HAL
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
 * `wext_combo_scan.patch`: use combo scan for wext wifi driver
@@ -27,7 +26,4 @@ generate patches
 
 run `repo diff -u project > output.patch` command.
 _-u_ is required to inclued the project path
-
-[TheWhisp]: https://github.com/TheWhisp
-[screenshot_patch]: https://github.com/TheWhisp/android_device_samsung_msm7x27a-common/blob/cm-11.0/patches/frameworks_native/0001-libgui-Bring-back-support-for-mHeap-based-screenshot.patch
 
