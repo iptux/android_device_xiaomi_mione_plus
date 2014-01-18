@@ -1,4 +1,3 @@
-
 project packages/apps/Settings/
 diff --git a/packages/apps/Settings/AndroidManifest.xml b/packages/apps/Settings/AndroidManifest.xml
 index 65e145e..af75a5e 100644
@@ -63,8 +62,8 @@ index 5fb0b17..c09804f 100644
              R.id.accessibility_settings,
              R.id.print_settings,
 -            R.id.nfc_payment_settings,
-             R.id.home_settings
-     };
+             R.id.home_settings，
+             R.id.interface_section,
  
 @@ -625,17 +624,6 @@ public class Settings extends PreferenceActivity
                          || Utils.isMonkeyRunning()) {
