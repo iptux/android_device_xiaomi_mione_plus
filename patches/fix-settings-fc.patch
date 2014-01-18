@@ -1,10 +1,10 @@
 
 project packages/apps/Settings/
 diff --git a/packages/apps/Settings/AndroidManifest.xml b/packages/apps/Settings/AndroidManifest.xml
-index 65e145e..af75a5e 100644
+index d77c31e..00fe7af 100644
 --- a/packages/apps/Settings/AndroidManifest.xml
 +++ b/packages/apps/Settings/AndroidManifest.xml
-@@ -1870,31 +1870,6 @@
+@@ -1871,31 +1871,6 @@
                  android:resource="@id/user_settings" />
          </activity>
  
@@ -37,10 +37,10 @@ index 65e145e..af75a5e 100644
                    android:label="@string/sms_application_title"
                    android:excludeFromRecents="true"
 diff --git a/packages/apps/Settings/res/xml/settings_headers.xml b/packages/apps/Settings/res/xml/settings_headers.xml
-index aa3d8ba..771e9af 100644
+index fbc2b7b..d8ddb2f 100644
 --- a/packages/apps/Settings/res/xml/settings_headers.xml
 +++ b/packages/apps/Settings/res/xml/settings_headers.xml
-@@ -146,13 +146,6 @@
+@@ -147,13 +147,6 @@
          android:title="@string/user_settings_title"
          android:id="@+id/user_settings" />
  
@@ -55,7 +55,7 @@ index aa3d8ba..771e9af 100644
      <header
          android:fragment="com.android.settings.WirelessSettings"
 diff --git a/packages/apps/Settings/src/com/android/settings/Settings.java b/packages/apps/Settings/src/com/android/settings/Settings.java
-index 5fb0b17..c09804f 100644
+index cecd3c6..17995ee 100644
 --- a/packages/apps/Settings/src/com/android/settings/Settings.java
 +++ b/packages/apps/Settings/src/com/android/settings/Settings.java
 @@ -170,7 +170,6 @@ public class Settings extends PreferenceActivity
@@ -63,10 +63,10 @@ index 5fb0b17..c09804f 100644
              R.id.accessibility_settings,
              R.id.print_settings,
 -            R.id.nfc_payment_settings,
-             R.id.home_settings
-     };
- 
-@@ -625,17 +624,6 @@ public class Settings extends PreferenceActivity
+             R.id.home_settings,
+             R.id.interface_section,
+             R.id.lock_screen_settings,
+@@ -631,17 +630,6 @@ public class Settings extends PreferenceActivity
                          || Utils.isMonkeyRunning()) {
                      target.remove(i);
                  }
