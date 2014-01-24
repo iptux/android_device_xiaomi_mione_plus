@@ -5,6 +5,7 @@
 * `fix-android.process.media-crash.patch`: fix android.process.media crash on some SD card
 * `fix-settings-fc.patch`: fix Settings force close
 * `no_selinux.patch`: we don't have selinux
+* `media-video-recording.patch`: this patch make video recording working. (Team-Hydra will fix this soon)
 * `xiaomi_mione_camera.patch`: needed by mione's camera HAL
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
 * `wext_combo_scan.patch`: use combo scan for wext wifi driver
