@@ -1,8 +1,6 @@
 # patches needed to build a flashable ROM for xiaomi mione
 
-* `audio-caf-build-error.patch`: fix a build error in hardware/qcom/audio-caf/
 * `cpu1_governor.patch`: support CPU governor setting on cpu1
-* `fix-android.process.media-crash.patch`: fix android.process.media crash on some SD card
 * `fix-settings-fc.patch`: fix Settings force close
 * `no_selinux.patch`: we don't have selinux
 * `media-video-recording.patch`: this patch make video recording working. (Team-Hydra will fix this soon)

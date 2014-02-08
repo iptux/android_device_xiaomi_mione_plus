@@ -41,7 +41,7 @@ index c7bdc59..8092430 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 5663c6d..857797d 100644
+index 5c8a11f..652ead6 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -97,6 +97,16 @@ struct genl_family *nl80211;
@@ -205,7 +205,7 @@ index 5663c6d..857797d 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -1122,13 +1221,29 @@ int wifi_command(const char *command, char *reply, size_t *reply_len)
+@@ -1129,13 +1228,29 @@ int wifi_command(const char *command, char *reply, size_t *reply_len)
  
  const char *wifi_get_fw_path(int fw_type)
  {

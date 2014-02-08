@@ -15,16 +15,16 @@ index 33c9918..11e02ae 100644
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index 394bdfd..c76e23c 100644
+index a33b9a4..5133fc5 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
-@@ -59,9 +59,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -63,9 +63,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.com.android.dateformat=MM-dd-yyyy \
      ro.com.android.dataroaming=false
  
 -PRODUCT_PROPERTY_OVERRIDES += \
 -    ro.build.selinux=1
 -
- ifneq ($(TARGET_BUILD_VARIANT),eng)
- # Enable ADB authentication
- ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+ # Thank you, please drive thru!
+ PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
+ 

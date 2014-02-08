@@ -26,7 +26,7 @@ index 86f63b1..7b82922 100644
      /**
       ** DATA USAGE RELATED
 diff --git a/frameworks/base/services/java/com/android/server/NetworkManagementService.java b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-index 7df2f96..6a58c61 100644
+index 03cc3a3..2cc8a9b 100644
 --- a/frameworks/base/services/java/com/android/server/NetworkManagementService.java
 +++ b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
 @@ -1116,7 +1116,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
@@ -140,10 +140,10 @@ index 8f3c8d3..08bdd2a 100644
 
 project system/netd/
 diff --git a/system/netd/CommandListener.cpp b/system/netd/CommandListener.cpp
-index e0841d3..5192bc8 100644
+index 3b8d30e..d530208 100644
 --- a/system/netd/CommandListener.cpp
 +++ b/system/netd/CommandListener.cpp
-@@ -1021,7 +1021,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
+@@ -1064,7 +1064,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
          return 0;
      }
  
