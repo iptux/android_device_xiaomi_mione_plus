@@ -1,5 +1,3 @@
-# Specify phone tech before including full_phone
-$(call inherit-product, vendor/cm/config/telephony.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := mione_plus
@@ -7,29 +5,10 @@ PRODUCT_RELEASE_NAME := mione_plus
 TARGET_BOOTANIMATION_NAME := vertical-480x854
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common.mk)
-
-# old audio files
-include frameworks/base/data/sounds/OldAudio.mk
-
-# Default ringtone
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.ringtone=Ring_Digital_02.ogg \
-    ro.config.notification_sound=F1_New_SMS.ogg \
-    ro.config.alarm_alert=Alarm_Beep_03.ogg
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 PRODUCT_PACKAGES += \
-    HoloSpiralWallpaper \
-    MagicSmokeWallpapers \
-    NoiseField \
-    Galaxy4 \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers \
-    PhaseBeam \
-    PhotoTable \
     Firewall \
-    Mms
 
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/mione_plus/device_mione_plus.mk)

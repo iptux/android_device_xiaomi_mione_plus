@@ -1,9 +1,9 @@
 
 project hardware/qcom/audio-caf/
-diff --git a/hardware/qcom/audio-caf/msm8660/AudioHardware.cpp b/hardware/qcom/audio-caf/msm8660/AudioHardware.cpp
-index 0eb599a..4934b2c 100644
---- a/hardware/qcom/audio-caf/msm8660/AudioHardware.cpp
-+++ b/hardware/qcom/audio-caf/msm8660/AudioHardware.cpp
+diff --git a/hardware/qcom/audio-caf/legacy/msm8660/AudioHardware.cpp b/hardware/qcom/audio-caf/legacy/msm8660/AudioHardware.cpp
+index cc32e1c..a5efae0 100644
+--- a/hardware/qcom/audio-caf/legacy/msm8660/AudioHardware.cpp
++++ b/hardware/qcom/audio-caf/legacy/msm8660/AudioHardware.cpp
 @@ -4497,8 +4497,7 @@ void* AudioHardware::AudioSessionOutLPA::memBufferAlloc(int nSize, int32_t *ion_
  
      alloc_data.len =   nSize;
