@@ -26,10 +26,10 @@ index 86f63b1..7b82922 100644
      /**
       ** DATA USAGE RELATED
 diff --git a/frameworks/base/services/java/com/android/server/NetworkManagementService.java b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-index 03cc3a3..2cc8a9b 100644
+index 3577d24..5cbee07 100644
 --- a/frameworks/base/services/java/com/android/server/NetworkManagementService.java
 +++ b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-@@ -1116,7 +1116,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1123,7 +1123,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
  
      @Override
      public void startAccessPoint(
@@ -38,7 +38,7 @@ index 03cc3a3..2cc8a9b 100644
          mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
          try {
              if (mContext.getResources().getBoolean(
-@@ -1128,9 +1128,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1135,9 +1135,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                  mConnector.execute("softap", "start", wlanIface);
              }
              if (wifiConfig == null) {
@@ -50,7 +50,7 @@ index 03cc3a3..2cc8a9b 100644
                                     "broadcast", "6", getSecurityType(wifiConfig),
                                     new SensitiveArg(wifiConfig.preSharedKey));
              }
-@@ -1167,6 +1167,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1174,6 +1174,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
          mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
          try {
              mConnector.execute("softap", "stopap");
@@ -58,7 +58,7 @@ index 03cc3a3..2cc8a9b 100644
              wifiFirmwareReload(wlanIface, "STA");
          } catch (NativeDaemonConnectorException e) {
              throw e.rethrowAsParcelableException();
-@@ -1174,13 +1175,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1181,13 +1182,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
      }
  
      @Override
