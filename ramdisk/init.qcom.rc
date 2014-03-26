@@ -282,7 +282,7 @@ on property:ro.data.large_tcp_window_size=true
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -Dwext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf \
-    -O/data/misc/wifi/sockets \
+    -O/data/misc/wifi/wpa_supplicant \
     -e/data/misc/wifi/entropy.bin \
     -g@android:wpa_eth0
     class late_start
@@ -294,7 +294,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -Dwext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf \
-    -O/data/misc/wifi/sockets \
+    -O/data/misc/wifi/wpa_supplicant \
     -e/data/misc/wifi/entropy.bin \
     -g@android:wpa_eth0
     class late_start
