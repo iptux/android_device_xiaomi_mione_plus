@@ -14,3 +14,5 @@ for patch in `ls $dir/*.patch` ; do
 	patch -p1 -N -i $patch -r - -d $top
 done
 
+mkdir -p $top/out/target/product/mione_plus/obj/KERNEL_OBJ/usr
+
