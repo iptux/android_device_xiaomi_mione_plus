@@ -40,7 +40,7 @@ int dualboot_select_system(const char* title) {
 			return chosen_item;
 	}
 	while(chosen_item!=SYSTEM1 && chosen_item!=SYSTEM2);
-		
+
 	return chosen_item;
 }
 
@@ -79,7 +79,7 @@ static void dualboot_prepare_env(void) {
 	dualboot_init_part(PART_BOOT, "boot");
 	dualboot_init_part(PART_BOOT1, "boot1");
 	dualboot_init_part(PART_MODEM, "modem");
-	dualboot_init_part(PART_MODEM1, "modem1");
+	dualboot_init_part(PART_MODEM1, "modem");
 }
 
 static int replace_device_node(int num, struct stat* statbuf) {
@@ -89,7 +89,7 @@ static int replace_device_node(int num, struct stat* statbuf) {
 	if(mv!=NULL && unmount_mounted_volume(mv)!=0) {
 		LOGE("could not unmount device!\n");
 		return -1;
-	} 
+	}
 
 	unlink(part_table[num].path);
 	if(mknod(part_table[num].path, statbuf->st_mode, statbuf->st_rdev)!=0) {

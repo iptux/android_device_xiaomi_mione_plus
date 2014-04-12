@@ -1,6 +1,6 @@
 #define MOUNTPOINT_DATAROOT "/data_root"
 #define TDB_FILE MOUNTPOINT_DATAROOT "/.truedualboot"
-#define PATH_USERDATA_NODE "/dev/block/mmcblk0p26"
+#define PATH_USERDATA_NODE "/dev/block/mmcblk0p20"
 #define PATH_USERDATA_NODE_BACKUP "/dev/part_backup_userdata"
 
 enum dualboot_system {
