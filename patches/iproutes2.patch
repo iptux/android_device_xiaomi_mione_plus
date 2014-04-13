@@ -1,0 +1,14 @@
+project external/iproute2/
+diff --git a/external/iproute2/include/linux/pkt_sched.h b/external/iproute2/include/linux/pkt_sched.h
+index 410b33d..b6dcae4 100644
+--- a/external/iproute2/include/linux/pkt_sched.h
++++ b/external/iproute2/include/linux/pkt_sched.h
+@@ -118,6 +118,7 @@ struct tc_fifo_qopt {
+ struct tc_prio_qopt {
+        int     bands;                  /* Number of bands */
+        __u8    priomap[TC_PRIO_MAX+1]; /* Map: logical priority -> PRIO band */
++       int enable_flow;
+ };
+ 
+ /* MULTIQ section */
+
