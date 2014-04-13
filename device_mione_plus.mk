@@ -44,6 +44,14 @@ PRODUCT_PACKAGES += \
     calibrator \
     hostapd
 
+PRODUCT_PACKAGES += \
+	  dualboot_init
+
+# Dualboot
+PRODUCT_COPY_FILES += \
+    device/xiaomi/mione_plus/recovery/mount_ext4_default.sh:recovery/root/res/dualboot/mount_ext4_default.sh \
+    device/xiaomi/mione_plus/recovery/mount_ext4_tdb.sh:recovery/root/res/dualboot/mount_ext4_tdb.sh
+
 # Ramdisk files
 PRODUCT_COPY_FILES += \
     device/xiaomi/mione_plus/ramdisk/init.mione.rc:root/init.mione.rc \
@@ -100,4 +108,3 @@ $(call inherit-product, device/xiaomi/mione_plus/mione_bcm43xx.mk)
 
 # dalvik tweak
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-

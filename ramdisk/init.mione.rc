@@ -50,6 +50,8 @@ on boot
 
 on fs
 # mount mmc partitions
+    exec /sbin/dualboot_init ./fstab.mione
+    mount_all ./fstab.mione.patched
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system wait rw barrier=1 noatime nodiratime
     wait /dev/block/platform/msm_sdcc.1/by-name/userdata
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/userdata /data relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
@@ -132,4 +134,3 @@ on property:sys.mione.battlevel=high
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2000000
     start thermald
-
