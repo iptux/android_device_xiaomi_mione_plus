@@ -15,7 +15,7 @@ index 33c9918..11e02ae 100644
 
 project vendor/cm/
 diff --git a/vendor/cm/config/common.mk b/vendor/cm/config/common.mk
-index a33b9a4..5133fc5 100644
+index 1653d4b..8ca3cda 100644
 --- a/vendor/cm/config/common.mk
 +++ b/vendor/cm/config/common.mk
 @@ -63,9 +63,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
