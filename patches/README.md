@@ -2,6 +2,7 @@
 
 * `cm-11.0_softap.patch`: use softap in cm-11.0
 * `cpu1_governor.patch`: support CPU governor setting on cpu1
+* `dual-syses-for-xiaomi.patch`: makes xiaomi devices mione and mitwo booting
 * `fix-settings-fc.patch`: fix Settings force close
 * `iproutes2.patch`: fix iproutes2 compilation
 * `no_selinux.patch`: we don't have selinux
