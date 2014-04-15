@@ -40,7 +40,7 @@
 #define PARTITION_BOOT "/dev/block/platform/msm_sdcc.1/by-name/boot"
 #define PARTITION_BOOT1 "/dev/block/platform/msm_sdcc.1/by-name/boot1"
 #define PARTITION_MODEM "/dev/block/platform/msm_sdcc.1/by-name/modem"
-#define PARTITION_MODEM1 "/dev/block/platform/msm_sdcc.1/by-name/modem1"
+#define PARTITION_MODEM1 "/dev/block/platform/msm_sdcc.1/by-name/modem"
 #define PARTITION_USERDATA "/dev/block/platform/msm_sdcc.1/by-name/userdata"
 #define FILE_MOUNTSCRIPT "/system/bin/mount_ext4.sh"
 
