@@ -1,10 +1,10 @@
 
 project packages/apps/Settings/
 diff --git a/packages/apps/Settings/AndroidManifest.xml b/packages/apps/Settings/AndroidManifest.xml
-index 9b7b224..377b973 100644
+index 5825e8e..efc3642 100644
 --- a/packages/apps/Settings/AndroidManifest.xml
 +++ b/packages/apps/Settings/AndroidManifest.xml
-@@ -1949,31 +1949,6 @@
+@@ -1995,31 +1995,6 @@
                  android:resource="@id/user_settings" />
          </activity>
  
@@ -37,10 +37,10 @@ index 9b7b224..377b973 100644
                    android:label="@string/sms_application_title"
                    android:excludeFromRecents="true"
 diff --git a/packages/apps/Settings/res/xml/settings_headers.xml b/packages/apps/Settings/res/xml/settings_headers.xml
-index 3aee4d9..4de0f26 100644
+index 65b227b..f6fdb60 100644
 --- a/packages/apps/Settings/res/xml/settings_headers.xml
 +++ b/packages/apps/Settings/res/xml/settings_headers.xml
-@@ -158,13 +158,6 @@
+@@ -155,13 +155,6 @@
          android:title="@string/user_settings_title"
          android:id="@+id/user_settings" />
  
@@ -55,10 +55,10 @@ index 3aee4d9..4de0f26 100644
      <header
          android:fragment="com.android.settings.WirelessSettings"
 diff --git a/packages/apps/Settings/src/com/android/settings/Settings.java b/packages/apps/Settings/src/com/android/settings/Settings.java
-index 262a27f..fb2752f 100644
+index a8de6df..12d7dcd 100644
 --- a/packages/apps/Settings/src/com/android/settings/Settings.java
 +++ b/packages/apps/Settings/src/com/android/settings/Settings.java
-@@ -173,7 +173,6 @@ public class Settings extends PreferenceActivity
+@@ -178,7 +178,6 @@ public class Settings extends PreferenceActivity
              R.id.about_settings,
              R.id.accessibility_settings,
              R.id.print_settings,
@@ -66,7 +66,7 @@ index 262a27f..fb2752f 100644
              R.id.home_settings,
              R.id.interface_section,
              R.id.lock_screen_settings,
-@@ -635,17 +634,6 @@ public class Settings extends PreferenceActivity
+@@ -641,17 +640,6 @@ public class Settings extends PreferenceActivity
                          || Utils.isMonkeyRunning()) {
                      target.remove(i);
                  }
