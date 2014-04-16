@@ -50,7 +50,6 @@ on boot
 
 on fs
 # mount mmc partitions
-    wait /dev/block/platform/msm_sdcc.1/by-name/userdata
     exec /sbin/dualboot_init ./fstab.mione
     mount_all ./fstab.mione.patched
     #Setting permissons for misc partition
@@ -62,9 +61,6 @@ on fs
     mkdir /system/vendor/firmware/ 0755 system system
     symlink /firmware/image /system/vendor/firmware/image
     exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
-
-on post-fs
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount barrier=1
 
 on post-fs-data
 # double check /data/radio
