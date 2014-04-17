@@ -1,8 +1,6 @@
 # patches needed to build a flashable ROM for xiaomi mione
 
 * `cm-11.0_softap.patch`: use softap in cm-11.0
-* `cpu1_governor.patch`: support CPU governor setting on cpu1
-* `fix-settings-fc.patch`: fix Settings force close
 * `iproutes2.patch`: fix iproutes2 compilation
 * `no_selinux.patch`: we don't have selinux
 * `wext_combo_scan.patch`: use combo scan for wext wifi driver
