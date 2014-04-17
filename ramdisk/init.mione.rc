@@ -52,11 +52,6 @@ on fs
 # mount mmc partitions
     exec /sbin/dualboot_init ./fstab.mione
     mount_all ./fstab.mione.patched
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system wait rw barrier=1 noatime nodiratime
-    wait /dev/block/platform/msm_sdcc.1/by-name/userdata
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/userdata /data relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache relatime nosuid nodev barrier=1 journal_checksum noauto_da_alloc
     #Setting permissons for misc partition
     chmod 0666 /dev/block/platform/msm_sdcc.1/by-name/misc
 
@@ -66,9 +61,6 @@ on fs
     mkdir /system/vendor/firmware/ 0755 system system
     symlink /firmware/image /system/vendor/firmware/image
     exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
-
-on post-fs
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount barrier=1
 
 on post-fs-data
 # double check /data/radio

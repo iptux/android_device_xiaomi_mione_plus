@@ -4,7 +4,6 @@
 * `no_selinux.patch`: we don't have selinux
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
 
-
 apply patches
 -------------
 

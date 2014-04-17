@@ -40,7 +40,7 @@
 #define PARTITION_BOOT "/dev/block/platform/msm_sdcc.1/by-name/boot"
 #define PARTITION_BOOT1 "/dev/block/platform/msm_sdcc.1/by-name/boot1"
 #define PARTITION_MODEM "/dev/block/platform/msm_sdcc.1/by-name/modem"
-#define PARTITION_MODEM1 "/dev/block/platform/msm_sdcc.1/by-name/modem1"
+#define PARTITION_MODEM1 "/dev/block/platform/msm_sdcc.1/by-name/modem"
 #define PARTITION_USERDATA "/dev/block/platform/msm_sdcc.1/by-name/userdata"
 #define FILE_MOUNTSCRIPT "/system/bin/mount_ext4.sh"
 
@@ -191,7 +191,7 @@ int patch_fstab(const char *filename, const char *filenamePatched, const char *f
         goto error_close_fpPatched;
     }
 
-    while (getline(&line, &len, fp) != -1) {        
+    while (getline(&line, &len, fp) != -1) {
         p = line;
 
         // Skip any leading whitespace
@@ -200,7 +200,7 @@ int patch_fstab(const char *filename, const char *filenamePatched, const char *f
         // ignore comments or empty lines
         if (*p == '#' || *p == '\0')
             continue;
-        
+
         // get mountpoint
         if (!(p = strtok_r(line, delim, &save_ptr))) {
             ERROR("Error parsing mount source\n");
@@ -210,7 +210,7 @@ int patch_fstab(const char *filename, const char *filenamePatched, const char *f
 
         // replace partitions
         if(syspart==1) {
-            if(!strcmp(PARTITION_SYSTEM, dev)) 
+            if(!strcmp(PARTITION_SYSTEM, dev))
                 dev=PARTITION_SYSTEM1;
             else if(!strcmp(PARTITION_BOOT, dev))
                 dev=PARTITION_BOOT1;
@@ -277,7 +277,7 @@ int main(int argc, char **argv)
     fstab = fs_mgr_read_fstab(argv[1]);
     for (i = 0; i < fstab->num_entries; ++i) {
         struct fstab_rec* v = &fstab->recs[i];
-        
+
         if(strcmp(PARTITION_USERDATA, v->blk_device))
             continue;
 
@@ -305,6 +305,6 @@ int main(int argc, char **argv)
     if (ret == -1) {
         ERROR("error mounting userdata\n");
     }
-    
+
     return ret;
 }
