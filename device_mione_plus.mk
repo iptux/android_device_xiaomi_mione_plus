@@ -99,7 +99,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # we don't have selinux now
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=0
+    ro.boot.selinux=disabled
 
 # xiaomi mione wifi config
 $(call inherit-product, device/xiaomi/mione_plus/mione_bcm43xx.mk)
