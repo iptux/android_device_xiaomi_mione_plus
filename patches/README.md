@@ -1,6 +1,5 @@
 # patches needed to build a flashable ROM for xiaomi mione
 
-* `iproutes2.patch`: fix iproutes2 compilation
 * `wext_combo_scan.patch`: use combo scan for wext wifi driver
 * `xiaomi_mione_camera.patch`: needed by mione's camera HAL
 * `xiaomi_mione_wifi.patch`: needed to make wifi working on all mione
