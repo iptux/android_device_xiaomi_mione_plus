@@ -41,7 +41,7 @@ index c7bdc59..8092430 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 5c8a11f..652ead6 100644
+index 80a0e2a..9aa8842 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -97,6 +97,16 @@ struct genl_family *nl80211;
