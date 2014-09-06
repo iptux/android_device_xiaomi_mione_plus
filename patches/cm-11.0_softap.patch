@@ -26,7 +26,7 @@ index 2dcbdda..2d22ceb 100644
      /**
       ** DATA USAGE RELATED
 diff --git a/frameworks/base/services/java/com/android/server/NetworkManagementService.java b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-index 2fc6211..1d4083c 100644
+index 326b081..69eb120 100644
 --- a/frameworks/base/services/java/com/android/server/NetworkManagementService.java
 +++ b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
 @@ -1133,7 +1133,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
@@ -76,7 +76,7 @@ index 2fc6211..1d4083c 100644
                                     new SensitiveArg(wifiConfig.preSharedKey));
              }
 diff --git a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
-index a683f23..9df7580 100644
+index 6dc3d40..6b41e60 100644
 --- a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 +++ b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 @@ -24,8 +24,13 @@ import static android.net.wifi.WifiManager.WIFI_STATE_ENABLING;
@@ -122,7 +122,7 @@ index a683f23..9df7580 100644
      private WifiMonitor mWifiMonitor;
      private WifiNative mWifiNative;
      private WifiConfigStore mWifiConfigStore;
-@@ -2491,12 +2502,12 @@ public class WifiStateMachine extends StateMachine {
+@@ -2493,12 +2504,12 @@ public class WifiStateMachine extends StateMachine {
          new Thread(new Runnable() {
              public void run() {
                  try {
@@ -157,7 +157,7 @@ index 52024de..fd94ba1 100644
      } else if (!strcmp(argv[1], "stopap")) {
          rc = sSoftapCtrl->stopSoftap();
 diff --git a/system/netd/SoftapController.cpp b/system/netd/SoftapController.cpp
-index 376c68b..501bd94 100644
+index 825233e..131c8ec 100644
 --- a/system/netd/SoftapController.cpp
 +++ b/system/netd/SoftapController.cpp
 @@ -50,37 +50,175 @@ static const char HOSTAPD_CONF_FILE[]    = "/data/misc/wifi/hostapd.conf";
@@ -517,12 +517,16 @@ index 376c68b..501bd94 100644
      return ret;
  }
  
-@@ -206,13 +433,20 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+@@ -206,17 +433,24 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
  int SoftapController::fwReloadSoftap(int argc, char *argv[])
  {
      int i = 0;
 +    char *iface;
      char *fwpath = NULL;
+ 
+ #ifdef SINGLE_WIFI_FW
+     return ResponseCode::CommandOkay;
+ #endif
  
 +    if (mSock < 0) {
 +        ALOGE("Softap fwrealod - failed to open socket");
@@ -538,7 +542,7 @@ index 376c68b..501bd94 100644
      if (strcmp(argv[3], "AP") == 0) {
          fwpath = (char *)wifi_get_fw_path(WIFI_GET_FW_PATH_AP);
      } else if (strcmp(argv[3], "P2P") == 0) {
-@@ -222,7 +456,12 @@ int SoftapController::fwReloadSoftap(int argc, char *argv[])
+@@ -226,7 +460,12 @@ int SoftapController::fwReloadSoftap(int argc, char *argv[])
      }
      if (!fwpath)
          return ResponseCode::CommandParameterError;
@@ -576,3 +580,4 @@ index 7063067..5d1d921 100644
 +    int setCommand(char *iface, const char *fname, unsigned buflen=0);
      void generatePsk(char *ssid, char *passphrase, char *psk);
  };
+ 
