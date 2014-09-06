@@ -1,7 +1,7 @@
 
 project frameworks/base/
 diff --git a/frameworks/base/core/java/android/os/INetworkManagementService.aidl b/frameworks/base/core/java/android/os/INetworkManagementService.aidl
-index 86f63b1..7b82922 100644
+index 2dcbdda..2d22ceb 100644
 --- a/frameworks/base/core/java/android/os/INetworkManagementService.aidl
 +++ b/frameworks/base/core/java/android/os/INetworkManagementService.aidl
 @@ -238,17 +238,17 @@ interface INetworkManagementService
@@ -26,10 +26,10 @@ index 86f63b1..7b82922 100644
      /**
       ** DATA USAGE RELATED
 diff --git a/frameworks/base/services/java/com/android/server/NetworkManagementService.java b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-index 3577d24..5cbee07 100644
+index 326b081..69eb120 100644
 --- a/frameworks/base/services/java/com/android/server/NetworkManagementService.java
 +++ b/frameworks/base/services/java/com/android/server/NetworkManagementService.java
-@@ -1123,7 +1123,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1133,7 +1133,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
  
      @Override
      public void startAccessPoint(
@@ -38,7 +38,7 @@ index 3577d24..5cbee07 100644
          mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
          try {
              if (mContext.getResources().getBoolean(
-@@ -1135,9 +1135,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1145,9 +1145,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub
                  mConnector.execute("softap", "start", wlanIface);
              }
              if (wifiConfig == null) {
@@ -50,7 +50,7 @@ index 3577d24..5cbee07 100644
                                     "broadcast", "6", getSecurityType(wifiConfig),
                                     new SensitiveArg(wifiConfig.preSharedKey));
              }
-@@ -1174,6 +1174,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1184,6 +1184,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub
          mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
          try {
              mConnector.execute("softap", "stopap");
@@ -58,7 +58,7 @@ index 3577d24..5cbee07 100644
              wifiFirmwareReload(wlanIface, "STA");
          } catch (NativeDaemonConnectorException e) {
              throw e.rethrowAsParcelableException();
-@@ -1181,13 +1182,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
+@@ -1191,13 +1192,13 @@ public class NetworkManagementService extends INetworkManagementService.Stub
      }
  
      @Override
@@ -76,10 +76,10 @@ index 3577d24..5cbee07 100644
                                     new SensitiveArg(wifiConfig.preSharedKey));
              }
 diff --git a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
-index 8f3c8d3..08bdd2a 100644
+index 6dc3d40..6b41e60 100644
 --- a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 +++ b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
-@@ -23,8 +23,13 @@ import static android.net.wifi.WifiManager.WIFI_STATE_ENABLING;
+@@ -24,8 +24,13 @@ import static android.net.wifi.WifiManager.WIFI_STATE_ENABLING;
  import static android.net.wifi.WifiManager.WIFI_STATE_UNKNOWN;
  
  /**
@@ -94,7 +94,7 @@ index 8f3c8d3..08bdd2a 100644
   */
  import static android.net.wifi.WifiManager.WIFI_AP_STATE_DISABLED;
  import static android.net.wifi.WifiManager.WIFI_AP_STATE_DISABLING;
-@@ -100,10 +105,13 @@ import java.util.regex.Pattern;
+@@ -101,10 +106,13 @@ import java.util.regex.Pattern;
   * Track the state of Wifi connectivity. All event handling is done here,
   * and all changes in connectivity state are initiated here.
   *
@@ -112,7 +112,7 @@ index 8f3c8d3..08bdd2a 100644
   *
   * @hide
   */
-@@ -112,6 +120,9 @@ public class WifiStateMachine extends StateMachine {
+@@ -113,6 +121,9 @@ public class WifiStateMachine extends StateMachine {
      private static final String NETWORKTYPE = "WIFI";
      private static final boolean DBG = false;
  
@@ -122,7 +122,7 @@ index 8f3c8d3..08bdd2a 100644
      private WifiMonitor mWifiMonitor;
      private WifiNative mWifiNative;
      private WifiConfigStore mWifiConfigStore;
-@@ -2473,12 +2484,12 @@ public class WifiStateMachine extends StateMachine {
+@@ -2493,12 +2504,12 @@ public class WifiStateMachine extends StateMachine {
          new Thread(new Runnable() {
              public void run() {
                  try {
@@ -140,10 +140,10 @@ index 8f3c8d3..08bdd2a 100644
 
 project system/netd/
 diff --git a/system/netd/CommandListener.cpp b/system/netd/CommandListener.cpp
-index 3b8d30e..d530208 100644
+index 52024de..fd94ba1 100644
 --- a/system/netd/CommandListener.cpp
 +++ b/system/netd/CommandListener.cpp
-@@ -1064,7 +1064,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
+@@ -1062,7 +1062,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
          return 0;
      }
  
@@ -157,7 +157,7 @@ index 3b8d30e..d530208 100644
      } else if (!strcmp(argv[1], "stopap")) {
          rc = sSoftapCtrl->stopSoftap();
 diff --git a/system/netd/SoftapController.cpp b/system/netd/SoftapController.cpp
-index 376c68b..501bd94 100644
+index 825233e..131c8ec 100644
 --- a/system/netd/SoftapController.cpp
 +++ b/system/netd/SoftapController.cpp
 @@ -50,37 +50,175 @@ static const char HOSTAPD_CONF_FILE[]    = "/data/misc/wifi/hostapd.conf";
@@ -517,12 +517,16 @@ index 376c68b..501bd94 100644
      return ret;
  }
  
-@@ -206,13 +433,20 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
+@@ -206,17 +433,24 @@ int SoftapController::setSoftap(int argc, char *argv[]) {
  int SoftapController::fwReloadSoftap(int argc, char *argv[])
  {
      int i = 0;
 +    char *iface;
      char *fwpath = NULL;
+ 
+ #ifdef SINGLE_WIFI_FW
+     return ResponseCode::CommandOkay;
+ #endif
  
 +    if (mSock < 0) {
 +        ALOGE("Softap fwrealod - failed to open socket");
@@ -538,7 +542,7 @@ index 376c68b..501bd94 100644
      if (strcmp(argv[3], "AP") == 0) {
          fwpath = (char *)wifi_get_fw_path(WIFI_GET_FW_PATH_AP);
      } else if (strcmp(argv[3], "P2P") == 0) {
-@@ -222,7 +456,12 @@ int SoftapController::fwReloadSoftap(int argc, char *argv[])
+@@ -226,7 +460,12 @@ int SoftapController::fwReloadSoftap(int argc, char *argv[])
      }
      if (!fwpath)
          return ResponseCode::CommandParameterError;
