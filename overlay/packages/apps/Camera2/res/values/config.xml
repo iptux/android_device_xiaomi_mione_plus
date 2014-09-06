@@ -18,10 +18,10 @@
 -->
 
 <resources>
-    <!-- Allows setting video size before recording starts -->
-    <bool name="needsEarlyVideoSize">true</bool>
+    <!-- Stay in continuous focus even if touch-to-focus is used
+         This option doesn't make sense if wantsFocusModes is on -->
+    <bool name="useContinuosFocusForTouch">true</bool>
 
-    <!-- The camera removes the focus modes by default when touch-to-focus
-         exists. Use this option to change that behavior -->
-    <bool name="wantsFocusModes">true</bool>
+    <!-- Allow HDR and ZSL together -->
+    <bool name="enableHDRWithZSL">true</bool>
 </resources>
