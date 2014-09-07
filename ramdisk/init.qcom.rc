@@ -171,10 +171,6 @@ on post-fs-data
     mkdir /data/shared 0755
     chown system system /data/shared
 
-    #Create directory for FOTA
-    mkdir /data/fota 0771
-    chown system system /data/fota
-
     #Provide the access to hostapd.conf only to root and group
     chmod 0660 /data/hostapd/hostapd.conf
 
