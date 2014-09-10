@@ -93,7 +93,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dexopt-flags=m=y
+    dalvik.vm.dexopt-flags=m=y \
+    persist.sys.timezone=Asia/Shanghai
 
 # we don't have selinux now
 PRODUCT_PROPERTY_OVERRIDES += \
