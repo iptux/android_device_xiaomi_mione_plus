@@ -35,8 +35,7 @@ BOARD_KERNEL_BASE := 0x40200000
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=mione kgsl.mmutype=gpummu vmalloc=400M
 BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01200000
-
-# Prebuilt Kernel
+TARGET_KERNEL_CONFIG := mione-user_defconfig
 TARGET_PREBUILT_KERNEL := device/xiaomi/mione_plus/prebuilt/kernel
 
 # Bluetooth
@@ -48,6 +47,9 @@ BOARD_BLUEDROID_VENDOR_CONF := device/xiaomi/mione_plus/bluetooth/vnd_mione_plus
 # Display
 TARGET_SCREEN_WIDTH := 480
 TARGET_SCREEN_HEIGHT := 854
+
+# RIL
+BOARD_RIL_NO_CELLINFOLIST := true
 
 # QCOM GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := mione
