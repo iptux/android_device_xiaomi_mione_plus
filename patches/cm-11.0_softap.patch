@@ -76,7 +76,7 @@ index 326b081..69eb120 100644
                                     new SensitiveArg(wifiConfig.preSharedKey));
              }
 diff --git a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
-index 6dc3d40..6b41e60 100644
+index 419fcf9..af8624b 100755
 --- a/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 +++ b/frameworks/base/wifi/java/android/net/wifi/WifiStateMachine.java
 @@ -24,8 +24,13 @@ import static android.net.wifi.WifiManager.WIFI_STATE_ENABLING;
@@ -112,7 +112,7 @@ index 6dc3d40..6b41e60 100644
   *
   * @hide
   */
-@@ -113,6 +121,9 @@ public class WifiStateMachine extends StateMachine {
+@@ -114,6 +122,9 @@ public class WifiStateMachine extends StateMachine {
      private static final String NETWORKTYPE = "WIFI";
      private static final boolean DBG = false;
  
@@ -122,7 +122,7 @@ index 6dc3d40..6b41e60 100644
      private WifiMonitor mWifiMonitor;
      private WifiNative mWifiNative;
      private WifiConfigStore mWifiConfigStore;
-@@ -2493,12 +2504,12 @@ public class WifiStateMachine extends StateMachine {
+@@ -2487,12 +2498,12 @@ public class WifiStateMachine extends StateMachine {
          new Thread(new Runnable() {
              public void run() {
                  try {
@@ -140,10 +140,10 @@ index 6dc3d40..6b41e60 100644
 
 project system/netd/
 diff --git a/system/netd/CommandListener.cpp b/system/netd/CommandListener.cpp
-index 52024de..fd94ba1 100644
+index 63c2615..4b9749f 100644
 --- a/system/netd/CommandListener.cpp
 +++ b/system/netd/CommandListener.cpp
-@@ -1062,7 +1062,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
+@@ -1063,7 +1063,11 @@ int CommandListener::SoftapCmd::runCommand(SocketClient *cli,
          return 0;
      }
  
