@@ -41,7 +41,7 @@ index c7bdc59..8092430 100644
 +
  LOCAL_SHARED_LIBRARIES += libnetutils
 diff --git a/hardware/libhardware_legacy/wifi/wifi.c b/hardware/libhardware_legacy/wifi/wifi.c
-index 80a0e2a..9aa8842 100644
+index d94b4a9..3736109 100644
 --- a/hardware/libhardware_legacy/wifi/wifi.c
 +++ b/hardware/libhardware_legacy/wifi/wifi.c
 @@ -97,6 +97,16 @@ struct genl_family *nl80211;
@@ -137,7 +137,7 @@ index 80a0e2a..9aa8842 100644
  
  #ifdef SAMSUNG_WIFI
  char* get_samsung_wifi_type()
-@@ -240,6 +307,10 @@ int is_wifi_driver_loaded() {
+@@ -251,6 +318,10 @@ int is_wifi_driver_loaded() {
  #ifdef WIFI_DRIVER_MODULE_PATH
      FILE *proc;
      char line[sizeof(DRIVER_MODULE_TAG)+10];
@@ -148,7 +148,7 @@ index 80a0e2a..9aa8842 100644
  #endif
  
      if (!property_get(DRIVER_PROP_NAME, driver_status, NULL)
-@@ -292,14 +363,30 @@ int wifi_load_driver()
+@@ -303,14 +374,30 @@ int wifi_load_driver()
  
      property_set(DRIVER_PROP_NAME, "loading");
  
@@ -179,7 +179,7 @@ index 80a0e2a..9aa8842 100644
  
  #ifdef WIFI_EXT_MODULE_NAME
          rmmod(EXT_MODULE_NAME);
-@@ -339,6 +426,12 @@ int wifi_load_driver()
+@@ -350,6 +437,12 @@ int wifi_load_driver()
  
  int wifi_unload_driver()
  {
@@ -192,7 +192,7 @@ index 80a0e2a..9aa8842 100644
      usleep(200000); /* allow to finish interface down */
  #ifdef WIFI_DRIVER_MODULE_PATH
      if (rmmod(DRIVER_MODULE_NAME) == 0) {
-@@ -782,6 +875,12 @@ int wifi_start_supplicant(int p2p_supported)
+@@ -793,6 +886,12 @@ int wifi_start_supplicant(int p2p_supported)
      unsigned serial = 0, i;
  #endif
  
@@ -205,7 +205,7 @@ index 80a0e2a..9aa8842 100644
      if (p2p_supported) {
          strcpy(supplicant_name, P2P_SUPPLICANT_NAME);
          strcpy(supplicant_prop_name, P2P_PROP_NAME);
-@@ -1129,13 +1228,29 @@ int wifi_command(const char *command, char *reply, size_t *reply_len)
+@@ -1140,13 +1239,29 @@ int wifi_command(const char *command, char *reply, size_t *reply_len)
  
  const char *wifi_get_fw_path(int fw_type)
  {
